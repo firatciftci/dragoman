@@ -506,7 +506,7 @@ pnpm dev:extension`;
             aria-controls="panel-{option.id}"
             tabindex={isActive ? 0 : -1}
             class={[
-              "relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-center text-[14.5px] leading-tight font-semibold transition-colors duration-300 sm:flex-row sm:gap-2.5 sm:text-[15.5px]",
+              "relative flex min-h-14 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-center text-[14.5px] leading-tight font-semibold transition-colors duration-300 sm:flex-row sm:gap-2.5 sm:text-[15.5px]",
               {
                 "text-text": isActive,
                 "text-muted hover:text-text": !isActive,
