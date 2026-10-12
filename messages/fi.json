@@ -415,7 +415,6 @@
   "docs_group_help": "Tietosuoja ja ohjeet",
   "docs_group_develop": "Kehittäjille",
   "docs_tab_chromium": "Chromium-selaimet",
-  "docs_install_edge": "Myös Edge asentaa laajennukset Chrome Web Storesta. Valitse kysyttäessä Salli laajennukset muista kaupoista.",
   "docs_manual_title": "Asenna julkaisu käsin",
   "docs_manual_detail": "Jokainen julkaisu löytyy myös GitHubista: zip-tiedostot Chromium-selaimille ja Firefoxille sekä koko lähdekoodi. Käsin ladatut versiot eivät päivity itsestään.",
   "docs_firefox_detail": "Toimii Firefoxin versiossa 140 ja uudemmissa, myös Firefox for Androidissa, sekä siihen pohjautuvissa selaimissa, kuten Zen, LibreWolf ja Floorp.",

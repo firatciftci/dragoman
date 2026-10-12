@@ -415,7 +415,6 @@
   "docs_group_help": "Приватност и помош",
   "docs_group_develop": "За програмери",
   "docs_tab_chromium": "Chromium прелистувачи",
-  "docs_install_edge": "Edge исто така инсталира од Chrome Web Store. Кога ќе праша, изберете Дозволи екстензии од други продавници.",
   "docs_manual_title": "Рачно инсталирање на издание",
   "docs_manual_detail": "Секое издание е достапно и на GitHub, со zip-датотеки за Chromium прелистувачи и Firefox, како и целиот изворен код. Рачно вчитаните верзии не се ажурираат сами.",
   "docs_firefox_detail": "Работи во Firefox 140 и понов, вклучително и Firefox за Android, како и во прелистувачи изградени врз него, како Zen, LibreWolf и Floorp.",

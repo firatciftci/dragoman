@@ -415,7 +415,6 @@
   "docs_group_help": "محرمیت او مرسته",
   "docs_group_develop": "د پراختیاکوونکو لپاره",
   "docs_tab_chromium": "Chromium براوزرونه",
-  "docs_install_edge": "Edge هم له Chrome Web Store څخه لګول کېږي. کله چې وپوښتي، «له نورو پلورنځیو توسیعونو ته اجازه ورکړئ» وټاکئ.",
   "docs_manual_title": "یوه نسخه په لاس ولګوئ",
   "docs_manual_detail": "هره نسخه په GitHub کې هم شته، د Chromium براوزرونو او Firefox لپاره zip فایلونو او بشپړ سرچینه کوډ سره. هغه نسخې چې په لاس یې لګوئ، ځان نه تازه کوي.",
   "docs_firefox_detail": "په Firefox 140 او وروسته نسخو کې کار کوي، د Android لپاره Firefox په ګډون، او په هغو براوزرونو کې چې پر هغه جوړ دي، لکه Zen، LibreWolf او Floorp.",

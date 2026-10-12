@@ -415,7 +415,6 @@
   "docs_group_help": "Нууцлал ба тусламж",
   "docs_group_develop": "Хөгжүүлэгчдэд",
   "docs_tab_chromium": "Chromium хөтчүүд",
-  "docs_install_edge": "Edge ч мөн Chrome Web Store-оос суулгадаг. Асуух үед «Бусад дэлгүүрийн өргөтгөлийг зөвшөөрөх»-ийг сонгоно уу.",
   "docs_manual_title": "Хувилбарыг гараар суулгах",
   "docs_manual_detail": "Хувилбар бүр GitHub дээр бас байдаг: Chromium хөтчүүд болон Firefox-д зориулсан zip файлууд, мөн бүрэн эх код. Гараар ачаалсан хувилбарууд өөрөө шинэчлэгддэггүй.",
   "docs_firefox_detail": "Firefox 140 болон түүнээс хойшх хувилбар, үүний дотор Android-ийн Firefox, мөн Zen, LibreWolf, Floorp зэрэг түүн дээр суурилсан хөтчүүдэд ажилладаг.",

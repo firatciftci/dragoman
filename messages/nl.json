@@ -415,7 +415,6 @@
   "docs_group_help": "Privacy en hulp",
   "docs_group_develop": "Voor ontwikkelaars",
   "docs_tab_chromium": "Chromium-browsers",
-  "docs_install_edge": "Ook Edge installeert uit de Chrome Web Store. Kies Extensies uit andere winkels toestaan als daarom wordt gevraagd.",
   "docs_manual_title": "Een release handmatig installeren",
   "docs_manual_detail": "Elke release staat ook op GitHub, met zips voor Chromium-browsers en Firefox, plus de volledige broncode. Handmatig geladen builds werken zichzelf niet bij.",
   "docs_firefox_detail": "Werkt in Firefox 140 en hoger, ook Firefox voor Android, en in browsers die erop gebouwd zijn, zoals Zen, LibreWolf en Floorp.",

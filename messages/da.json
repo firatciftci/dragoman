@@ -415,7 +415,6 @@
   "docs_group_help": "Privatliv og hjælp",
   "docs_group_develop": "For udviklere",
   "docs_tab_chromium": "Chromium-browsere",
-  "docs_install_edge": "Edge installerer også fra Chrome Web Store. Når du bliver spurgt, skal du vælge Tillad udvidelser fra andre butikker.",
   "docs_manual_title": "Installer en udgivelse manuelt",
   "docs_manual_detail": "Alle udgivelser ligger også på GitHub med zip-filer til Chromium-browsere og Firefox samt den fulde kildekode. Versioner, du indlæser manuelt, opdaterer ikke sig selv.",
   "docs_firefox_detail": "Virker i Firefox 140 og nyere, også Firefox til Android, og i browsere bygget på den, som Zen, LibreWolf og Floorp.",

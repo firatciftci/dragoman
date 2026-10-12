@@ -415,7 +415,6 @@
   "docs_group_help": "Personvern og hjelp",
   "docs_group_develop": "For utviklere",
   "docs_tab_chromium": "Chromium-nettlesere",
-  "docs_install_edge": "Edge installerer også fra Chrome Nettmarked. Når du blir spurt, velger du Tillat utvidelser fra andre butikker.",
   "docs_manual_title": "Installer en versjon manuelt",
   "docs_manual_detail": "Hver versjon ligger også på GitHub, med zip-filer for Chromium-nettlesere og Firefox, pluss all kildekoden. Versjoner du laster inn manuelt, oppdateres ikke av seg selv.",
   "docs_firefox_detail": "Fungerer i Firefox 140 og nyere, også Firefox for Android, og i nettlesere bygd på den, som Zen, LibreWolf og Floorp.",

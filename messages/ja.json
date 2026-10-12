@@ -415,7 +415,6 @@
   "docs_group_help": "プライバシーとヘルプ",
   "docs_group_develop": "開発者向け",
   "docs_tab_chromium": "Chromium 系ブラウザ",
-  "docs_install_edge": "Edge でも Chrome ウェブストアからインストールできます。確認が表示されたら「他のストアからの拡張機能を許可する」を選んでください。",
   "docs_manual_title": "リリースを手動でインストール",
   "docs_manual_detail": "すべてのリリースは GitHub でも公開しており、Chromium 系ブラウザ用と Firefox 用の zip、そしてソースコード一式を入手できます。手動で読み込んだビルドは自動更新されません。",
   "docs_firefox_detail": "Firefox 140 以降(Android 版 Firefox を含む)と、Zen、LibreWolf、Floorp など Firefox ベースのブラウザで動作します。",

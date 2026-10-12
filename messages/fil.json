@@ -415,7 +415,6 @@
   "docs_group_help": "Privacy at tulong",
   "docs_group_develop": "Para sa mga developer",
   "docs_tab_chromium": "Mga Chromium browser",
-  "docs_install_edge": "Sa Chrome Web Store din nag-i-install ang Edge. Kapag nagtanong ito, piliin ang Allow extensions from other stores.",
   "docs_manual_title": "Mano-manong mag-install ng release",
   "docs_manual_detail": "Nasa GitHub din ang bawat release, may mga zip para sa mga Chromium browser at Firefox, kasama ang buong source code. Hindi kusang nag-a-update ang mga build na mano-manong ini-load.",
   "docs_firefox_detail": "Gumagana sa Firefox 140 pataas, kasama ang Firefox para sa Android, at sa mga browser na nakabatay rito, gaya ng Zen, LibreWolf, at Floorp.",

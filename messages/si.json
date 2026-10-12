@@ -415,7 +415,6 @@
   "docs_group_help": "පෞද්ගලිකත්වය සහ උදව්",
   "docs_group_develop": "සංවර්ධකයින් සඳහා",
   "docs_tab_chromium": "Chromium බ්‍රවුසර",
-  "docs_install_edge": "Edge ද Chrome Web Store වෙතින් ස්ථාපනය කරයි. ඉල්ලූ විට, වෙනත් ගබඩාවලින් දිගුවලට ඉඩ දෙන්න තෝරන්න.",
   "docs_manual_title": "නිකුතුවක් අතින් ස්ථාපනය කරන්න",
   "docs_manual_detail": "සෑම නිකුතුවක්ම GitHub හි ද ඇත, Chromium බ්‍රවුසර සහ Firefox සඳහා zip සමඟ සම්පූර්ණ මූලාශ්‍ර කේතයද ඇත. අතින් පූරණය කරන ගොනු ස්වයංක්‍රීයව යාවත්කාලීන නොවේ.",
   "docs_firefox_detail": "Android සඳහා Firefox ද ඇතුළුව Firefox 140 සහ ඊට පසු අනුවාදවල, සහ Zen, LibreWolf, Floorp වැනි එය මත ගොඩනැගූ බ්‍රවුසරවල ක්‍රියා කරයි.",

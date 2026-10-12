@@ -415,7 +415,6 @@
   "docs_group_help": "Sirri da taimako",
   "docs_group_develop": "Don masu haɓakawa",
   "docs_tab_chromium": "Burauzan Chromium",
-  "docs_install_edge": "Edge ma yana sanyawa daga Chrome Web Store. Idan ya tambaya, zaɓi Allow extensions from other stores.",
   "docs_manual_title": "Sanya sigar da hannu",
   "docs_manual_detail": "Kowace siga tana kan GitHub, da fayilolin zip don burauzan Chromium da Firefox, tare da cikakken lambar tushe. Sigogin da ka loda da hannu ba sa sabunta kansu.",
   "docs_firefox_detail": "Yana aiki a Firefox 140 zuwa sama, har da Firefox na Android, da burauzan da aka gina a kansa, kamar Zen, LibreWolf, da Floorp.",

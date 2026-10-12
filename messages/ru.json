@@ -415,7 +415,6 @@
   "docs_group_help": "Конфиденциальность и помощь",
   "docs_group_develop": "Разработчикам",
   "docs_tab_chromium": "Браузеры на Chromium",
-  "docs_install_edge": "Edge тоже устанавливает расширения из Chrome Web Store. Когда появится запрос, выберите «Разрешить расширения из других магазинов».",
   "docs_manual_title": "Установка релиза вручную",
   "docs_manual_detail": "Каждый релиз также доступен на GitHub: zip-архивы для браузеров на Chromium и Firefox, а также полный исходный код. Сборки, установленные вручную, не обновляются сами.",
   "docs_firefox_detail": "Работает в Firefox 140 и новее, включая Firefox для Android, а также в браузерах на его основе, например Zen, LibreWolf и Floorp.",

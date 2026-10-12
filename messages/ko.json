@@ -415,7 +415,6 @@
   "docs_group_help": "개인정보 보호 및 도움말",
   "docs_group_develop": "개발자용",
   "docs_tab_chromium": "Chromium 기반 브라우저",
-  "docs_install_edge": "Edge도 Chrome 웹 스토어에서 설치할 수 있습니다. 메시지가 나타나면 '다른 스토어의 확장 허용'을 선택하세요.",
   "docs_manual_title": "릴리스 직접 설치하기",
   "docs_manual_detail": "모든 릴리스는 GitHub에도 올라가 있으며, Chromium 기반 브라우저와 Firefox용 zip 파일과 전체 소스 코드를 제공합니다. 직접 불러온 빌드는 자동으로 업데이트되지 않습니다.",
   "docs_firefox_detail": "Firefox 140 이상(Android용 Firefox 포함)과 Zen, LibreWolf, Floorp 등 Firefox 기반 브라우저에서 작동합니다.",

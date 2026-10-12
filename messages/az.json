@@ -415,7 +415,6 @@
   "docs_group_help": "Məxfilik və kömək",
   "docs_group_develop": "Tərtibatçılar üçün",
   "docs_tab_chromium": "Chromium brauzerləri",
-  "docs_install_edge": "Edge də Chrome Web Store-dan quraşdırır. Soruşduqda, \"Digər mağazalardan genişləndirmələrə icazə verin\" seçin.",
   "docs_manual_title": "Buraxılışı əl ilə quraşdırın",
   "docs_manual_detail": "Hər buraxılış GitHub-da da var: Chromium brauzerləri və Firefox üçün zip faylları, həmçinin tam mənbə kodu. Əl ilə yüklənən versiyalar özü yenilənmir.",
   "docs_firefox_detail": "Firefox 140 və sonrakı versiyalarda, o cümlədən Android üçün Firefox-da, eləcə də Zen, LibreWolf və Floorp kimi onun əsasında qurulan brauzerlərdə işləyir.",

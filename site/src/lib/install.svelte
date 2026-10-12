@@ -33,7 +33,7 @@
       };
     else if (family === "chromium" && name != null)
       link = {
-        href: stores.chrome,
+        href: name === "Edge" ? stores.edge : stores.chrome,
         label: m.add_to_browser({ browser: name }),
         name,
       };

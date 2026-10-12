@@ -415,7 +415,6 @@
   "docs_group_help": "Privātums un palīdzība",
   "docs_group_develop": "Izstrādātājiem",
   "docs_tab_chromium": "Chromium pārlūki",
-  "docs_install_edge": "Arī Edge instalē paplašinājumus no Chrome Web Store. Kad tiek jautāts, izvēlieties Atļaut paplašinājumus no citiem veikaliem.",
   "docs_manual_title": "Instalēt laidienu manuāli",
   "docs_manual_detail": "Katrs laidiens ir pieejams arī GitHub ar zip failiem Chromium pārlūkiem un Firefox, kā arī pilnu pirmkodu. Manuāli ielādētas versijas pašas neatjauninās.",
   "docs_firefox_detail": "Darbojas Firefox 140 un jaunākās versijās, arī Firefox for Android, un uz tā veidotos pārlūkos, piemēram, Zen, LibreWolf un Floorp.",

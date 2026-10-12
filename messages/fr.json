@@ -415,7 +415,6 @@
   "docs_group_help": "Confidentialité et aide",
   "docs_group_develop": "Pour les développeurs",
   "docs_tab_chromium": "Navigateurs Chromium",
-  "docs_install_edge": "Edge s'installe aussi depuis le Chrome Web Store. Quand il vous le demande, choisissez Autoriser les extensions provenant d'autres magasins.",
   "docs_manual_title": "Installer une version manuellement",
   "docs_manual_detail": "Chaque version est aussi publiée sur GitHub, avec des zips pour les navigateurs Chromium et Firefox, ainsi que le code source complet. Les versions chargées manuellement ne se mettent pas à jour seules.",
   "docs_firefox_detail": "Fonctionne dans Firefox 140 et versions ultérieures, y compris Firefox pour Android, et dans les navigateurs qui en dérivent, comme Zen, LibreWolf et Floorp.",

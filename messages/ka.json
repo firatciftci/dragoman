@@ -415,7 +415,6 @@
   "docs_group_help": "კონფიდენციალურობა და დახმარება",
   "docs_group_develop": "დეველოპერებისთვის",
   "docs_tab_chromium": "Chromium-ის ბრაუზერები",
-  "docs_install_edge": "Edge-იც Chrome Web Store-იდან აინსტალირებს. როცა გკითხავთ, აირჩიეთ „სხვა მაღაზიების გაფართოებების დაშვება“.",
   "docs_manual_title": "გამოშვების ხელით ინსტალაცია",
   "docs_manual_detail": "ყველა გამოშვება GitHub-ზეც არის: zip ფაილები Chromium-ის ბრაუზერებისა და Firefox-ისთვის, ასევე სრული საწყისი კოდი. ხელით ჩატვირთული ვერსიები თავად არ ახლდება.",
   "docs_firefox_detail": "მუშაობს Firefox 140-სა და უფრო ახალ ვერსიებში, მათ შორის Firefox Android-ისთვის, და მასზე აგებულ ბრაუზერებში, როგორიცაა Zen, LibreWolf და Floorp.",

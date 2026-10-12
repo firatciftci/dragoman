@@ -415,7 +415,6 @@
   "docs_group_help": "ຄວາມເປັນສ່ວນຕົວ ແລະ ຄວາມຊ່ວຍເຫຼືອ",
   "docs_group_develop": "ສຳລັບນັກພັດທະນາ",
   "docs_tab_chromium": "ບຣາວເຊີ Chromium",
-  "docs_install_edge": "Edge ກໍຕິດຕັ້ງຈາກ Chrome Web Store ໄດ້ເຊັ່ນກັນ. ເມື່ອມີການຖາມ, ໃຫ້ເລືອກ ອະນຸຍາດສ່ວນຂະຫຍາຍຈາກຮ້ານອື່ນ.",
   "docs_manual_title": "ຕິດຕັ້ງລຸ້ນດ້ວຍຕົນເອງ",
   "docs_manual_detail": "ທຸກລຸ້ນມີຢູ່ໃນ GitHub ນຳ, ພ້ອມໄຟລ໌ zip ສຳລັບບຣາວເຊີ Chromium ແລະ Firefox ແລະ ຊອດໂຄດທັງໝົດ. ລຸ້ນທີ່ໂຫຼດເອງຈະບໍ່ອັບເດດອັດຕະໂນມັດ.",
   "docs_firefox_detail": "ໃຊ້ໄດ້ໃນ Firefox 140 ຂຶ້ນໄປ, ລວມທັງ Firefox ສຳລັບ Android ແລະ ບຣາວເຊີທີ່ສ້າງເທິງມັນ ເຊັ່ນ Zen, LibreWolf ແລະ Floorp.",

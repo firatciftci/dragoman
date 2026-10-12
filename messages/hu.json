@@ -415,7 +415,6 @@
   "docs_group_help": "Adatvédelem és súgó",
   "docs_group_develop": "Fejlesztőknek",
   "docs_tab_chromium": "Chromium-alapú böngészők",
-  "docs_install_edge": "Az Edge is a Chrome Webáruházból telepít. Amikor rákérdez, válaszd a más áruházakból származó bővítmények engedélyezését.",
   "docs_manual_title": "Kiadás kézi telepítése",
   "docs_manual_detail": "Minden kiadás a GitHubon is megtalálható, zip-fájlokkal Chromium-alapú böngészőkhöz és a Firefoxhoz, valamint a teljes forráskóddal. A kézzel betöltött buildek nem frissülnek maguktól.",
   "docs_firefox_detail": "A Firefox 140-es és újabb verzióiban működik, a Firefox for Androidot is beleértve, valamint az erre épülő böngészőkben, például a Zenben, a LibreWolfban és a Floorpban.",

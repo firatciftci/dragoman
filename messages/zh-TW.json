@@ -415,7 +415,6 @@
   "docs_group_help": "隱私權與說明",
   "docs_group_develop": "開發人員專區",
   "docs_tab_chromium": "Chromium 瀏覽器",
-  "docs_install_edge": "Edge 也能從 Chrome 線上應用程式商店安裝。出現提示時，請選擇「允許來自其他商店的擴充功能」。",
   "docs_manual_title": "手動安裝發行版本",
   "docs_manual_detail": "每個發行版本也都放在 GitHub 上，提供 Chromium 瀏覽器和 Firefox 用的 zip 檔，以及完整原始碼。手動載入的版本不會自動更新。",
   "docs_firefox_detail": "支援 Firefox 140 以上版本（包括 Android 版 Firefox），以及 Zen、LibreWolf、Floorp 等以 Firefox 為基礎的瀏覽器。",

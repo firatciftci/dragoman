@@ -415,7 +415,6 @@
   "docs_group_help": "Príobháideachas agus cabhair",
   "docs_group_develop": "Do fhorbróirí",
   "docs_tab_chromium": "Brabhsálaithe Chromium",
-  "docs_install_edge": "Suiteálann Edge ó Chrome Web Store freisin. Nuair a iarrtar ort, roghnaigh Ceadaigh eisínteachtaí ó stórais eile.",
   "docs_manual_title": "Suiteáil eisiúint de láimh",
   "docs_manual_detail": "Tá gach eisiúint ar GitHub freisin, le comhaid zip do bhrabhsálaithe Chromium agus do Firefox, mar aon leis an gcód foinse iomlán. Ní nuashonraíonn leaganacha a lódálann tú de láimh iad féin.",
   "docs_firefox_detail": "Oibríonn sé in Firefox 140 agus níos déanaí, Firefox do Android san áireamh, agus i mbrabhsálaithe atá tógtha air, mar Zen, LibreWolf agus Floorp.",

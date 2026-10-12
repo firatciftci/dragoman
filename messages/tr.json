@@ -415,7 +415,6 @@
   "docs_group_help": "Gizlilik ve yardım",
   "docs_group_develop": "Geliştiriciler için",
   "docs_tab_chromium": "Chromium tarayıcılar",
-  "docs_install_edge": "Edge de Chrome Web Mağazası'ndan yükler. Sorduğunda Diğer mağazalardan uzantılara izin ver'i seçin.",
   "docs_manual_title": "Bir sürümü elle yükleyin",
   "docs_manual_detail": "Her sürüm GitHub'da da var: Chromium tarayıcılar ve Firefox için zip dosyaları ile tüm kaynak kodu. Elle yüklenen sürümler kendini güncellemez.",
   "docs_firefox_detail": "Firefox 140 ve sonrasında, Android için Firefox dahil, ayrıca Zen, LibreWolf ve Floorp gibi Firefox tabanlı tarayıcılarda çalışır.",

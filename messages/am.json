@@ -415,7 +415,6 @@
   "docs_group_help": "ግላዊነት እና እገዛ",
   "docs_group_develop": "ለገንቢዎች",
   "docs_tab_chromium": "Chromium አሳሾች",
-  "docs_install_edge": "Edge እንዲሁ ከChrome Web Store ይጭናል። ሲጠይቅ «ከሌሎች መደብሮች የመጡ ቅጥያዎችን ፍቀድ» የሚለውን ይምረጡ።",
   "docs_manual_title": "ልቀትን በእጅ ይጫኑ",
   "docs_manual_detail": "እያንዳንዱ ልቀት በGitHub ላይም አለ፤ ለChromium አሳሾች እና ለFirefox zip ፋይሎችን እንዲሁም ሙሉውን የምንጭ ኮድ ይዟል። በእጅ የሚጫኑ ግንባታዎች ራሳቸውን አያዘምኑም።",
   "docs_firefox_detail": "በFirefox 140 እና ከዚያ በኋላ፣ Firefox ለAndroidን ጨምሮ፣ እንዲሁም በእሱ ላይ በተገነቡ እንደ Zen፣ LibreWolf እና Floorp ባሉ አሳሾች ይሠራል።",

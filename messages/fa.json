@@ -415,7 +415,6 @@
   "docs_group_help": "حریم خصوصی و راهنما",
   "docs_group_develop": "برای توسعه‌دهندگان",
   "docs_tab_chromium": "مرورگرهای Chromium",
-  "docs_install_edge": "Edge هم از Chrome Web Store نصب می‌کند. وقتی پرسید، «اجازه دادن به افزونه‌های فروشگاه‌های دیگر» را انتخاب کنید.",
   "docs_manual_title": "نصب دستی یک نسخه",
   "docs_manual_detail": "هر نسخه در GitHub هم هست، با فایل‌های zip برای مرورگرهای Chromium و Firefox و کد منبع کامل. نسخه‌هایی که دستی بارگذاری می‌کنید خودبه‌خود به‌روز نمی‌شوند.",
   "docs_firefox_detail": "در Firefox 140 و بالاتر، از جمله Firefox برای Android، و مرورگرهای مبتنی بر آن مانند Zen، LibreWolf و Floorp کار می‌کند.",

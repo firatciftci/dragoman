@@ -415,7 +415,6 @@
   "docs_group_help": "Privacy and help",
   "docs_group_develop": "For developers",
   "docs_tab_chromium": "Chromium browsers",
-  "docs_install_edge": "Edge installs from the Chrome Web Store too. When it asks, choose Allow extensions from other stores.",
   "docs_manual_title": "Install a release by hand",
   "docs_manual_detail": "Every release is also on GitHub, with zips for Chromium browsers and Firefox, plus the full source code. Builds you load by hand don't update themselves.",
   "docs_firefox_detail": "Works in Firefox 140 and later, including Firefox for Android, and in browsers built on it, such as Zen, LibreWolf, and Floorp.",

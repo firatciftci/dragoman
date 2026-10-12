@@ -415,7 +415,6 @@
   "docs_group_help": "ကိုယ်ရေးလုံခြုံမှုနှင့် အကူအညီ",
   "docs_group_develop": "ဆော့ဖ်ဝဲရေးသူများအတွက်",
   "docs_tab_chromium": "Chromium ဘရောက်ဇာများ",
-  "docs_install_edge": "Edge သည်လည်း Chrome Web Store မှ ထည့်သွင်းနိုင်သည်။ မေးလာပါက Allow extensions from other stores ကို ရွေးပါ။",
   "docs_manual_title": "ထုတ်ဝေမှုကို ကိုယ်တိုင် ထည့်သွင်းရန်",
   "docs_manual_detail": "ထုတ်ဝေမှုတိုင်းကို GitHub တွင်လည်း Chromium ဘရောက်ဇာများနှင့် Firefox အတွက် zip ဖိုင်များ၊ ရင်းမြစ်ကုဒ် အပြည့်အစုံနှင့်အတူ ရရှိနိုင်သည်။ ကိုယ်တိုင်ထည့်သော ဗားရှင်းများသည် အလိုအလျောက် အပ်ဒိတ် မဖြစ်ပါ။",
   "docs_firefox_detail": "Android အတွက် Firefox အပါအဝင် Firefox 140 နှင့်နောက်ပိုင်း ဗားရှင်းများ၊ Zen၊ LibreWolf၊ Floorp ကဲ့သို့ ၎င်းပေါ်တွင် တည်ဆောက်ထားသော ဘရောက်ဇာများတွင် အလုပ်လုပ်သည်။",

@@ -415,7 +415,6 @@
   "docs_group_help": "Datenschutz und Hilfe",
   "docs_group_develop": "Für Entwickler",
   "docs_tab_chromium": "Chromium-Browser",
-  "docs_install_edge": "Auch Edge installiert aus dem Chrome Web Store. Wähle auf Nachfrage „Erweiterungen aus anderen Stores zulassen“.",
   "docs_manual_title": "Release manuell installieren",
   "docs_manual_detail": "Jedes Release gibt es auch auf GitHub, mit Zips für Chromium-Browser und Firefox sowie dem vollständigen Quellcode. Manuell geladene Builds aktualisieren sich nicht selbst.",
   "docs_firefox_detail": "Funktioniert ab Firefox 140, auch in Firefox für Android, und in darauf basierenden Browsern wie Zen, LibreWolf und Floorp.",

@@ -415,7 +415,6 @@
   "docs_group_help": "Integritet och hjälp",
   "docs_group_develop": "För utvecklare",
   "docs_tab_chromium": "Chromium-webbläsare",
-  "docs_install_edge": "Edge installerar också från Chrome Web Store. När du tillfrågas väljer du Tillåt tillägg från andra butiker.",
   "docs_manual_title": "Installera en version manuellt",
   "docs_manual_detail": "Varje version finns också på GitHub, med zip-filer för Chromium-webbläsare och Firefox samt hela källkoden. Versioner du läser in manuellt uppdateras inte av sig själva.",
   "docs_firefox_detail": "Fungerar i Firefox 140 och senare, även Firefox för Android, och i webbläsare som bygger på den, till exempel Zen, LibreWolf och Floorp.",

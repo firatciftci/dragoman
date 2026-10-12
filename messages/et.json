@@ -415,7 +415,6 @@
   "docs_group_help": "Privaatsus ja abi",
   "docs_group_develop": "Arendajatele",
   "docs_tab_chromium": "Chromiumi-põhised brauserid",
-  "docs_install_edge": "Ka Edge paigaldab laiendusi Chrome'i veebipoest. Kui küsitakse, vali Luba laiendused teistest poodidest.",
   "docs_manual_title": "Paigalda väljalase käsitsi",
   "docs_manual_detail": "Iga väljalase on ka GitHubis – zip-failid Chromiumi-põhistele brauseritele ja Firefoxile ning kogu lähtekood. Käsitsi laaditud versioonid ei uuenda end ise.",
   "docs_firefox_detail": "Töötab Firefox 140 ja uuemates, sh Firefox Androidile, ning sellel põhinevates brauserites, nagu Zen, LibreWolf ja Floorp.",

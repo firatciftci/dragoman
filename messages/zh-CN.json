@@ -415,7 +415,6 @@
   "docs_group_help": "隐私与帮助",
   "docs_group_develop": "开发者",
   "docs_tab_chromium": "Chromium 内核浏览器",
-  "docs_install_edge": "Edge 也可以从 Chrome 网上应用店安装。出现提示时，请选择“允许来自其他应用商店的扩展”。",
   "docs_manual_title": "手动安装发布版本",
   "docs_manual_detail": "每个版本也会发布在 GitHub 上，提供适用于 Chromium 内核浏览器和 Firefox 的 zip 包以及完整源代码。手动加载的版本不会自动更新。",
   "docs_firefox_detail": "支持 Firefox 140 及更高版本（包括 Android 版 Firefox），以及基于它的浏览器，如 Zen、LibreWolf 和 Floorp。",

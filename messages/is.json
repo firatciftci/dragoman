@@ -415,7 +415,6 @@
   "docs_group_help": "Persónuvernd og hjálp",
   "docs_group_develop": "Fyrir forritara",
   "docs_tab_chromium": "Chromium-vafrar",
-  "docs_install_edge": "Edge setur líka upp úr Chrome Web Store. Þegar spurt er skaltu velja að leyfa viðbætur úr öðrum verslunum.",
   "docs_manual_title": "Settu útgáfu upp handvirkt",
   "docs_manual_detail": "Allar útgáfur eru líka á GitHub, með zip-skrám fyrir Chromium-vafra og Firefox ásamt öllum frumkóðanum. Útgáfur sem þú hleður inn handvirkt uppfærast ekki sjálfar.",
   "docs_firefox_detail": "Virkar í Firefox 140 og nýrri, þar á meðal Firefox fyrir Android, og í vöfrum sem byggja á honum, svo sem Zen, LibreWolf og Floorp.",

@@ -415,7 +415,6 @@
   "docs_group_help": "تایبەتمەندی و یارمەتی",
   "docs_group_develop": "بۆ گەشەپێدەران",
   "docs_tab_chromium": "وێبگەڕەکانی Chromium",
-  "docs_install_edge": "Edge-یش لە Chrome Web Store دادەمەزرێنێت. کاتێک پرسیاری کرد، Allow extensions from other stores هەڵبژێرە.",
   "docs_manual_title": "دامەزراندنی وەشانێک بە دەست",
   "docs_manual_detail": "هەموو وەشانێک لەسەر GitHub یش هەیە، لەگەڵ فایلی zip بۆ وێبگەڕەکانی Chromium و Firefox، هەروەها تەواوی کۆدی سەرچاوە. ئەو وەشانانەی بە دەست بار دەکرێن خۆیان نوێ ناکەنەوە.",
   "docs_firefox_detail": "لە Firefox 140 و دواتر کار دەکات، لەوانە Firefox بۆ Android، هەروەها لەو وێبگەڕانەی لەسەری دروستکراون وەک Zen و LibreWolf و Floorp.",

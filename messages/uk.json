@@ -415,7 +415,6 @@
   "docs_group_help": "Конфіденційність і довідка",
   "docs_group_develop": "Для розробників",
   "docs_tab_chromium": "Браузери на Chromium",
-  "docs_install_edge": "Edge теж установлює розширення з Chrome Web Store. Коли з’явиться запит, виберіть «Дозволити розширення з інших магазинів».",
   "docs_manual_title": "Установити випуск вручну",
   "docs_manual_detail": "Кожен випуск також є на GitHub: zip-архіви для браузерів на Chromium і Firefox, а також повний вихідний код. Збірки, завантажені вручну, не оновлюються самі.",
   "docs_firefox_detail": "Працює у Firefox 140 і новіших, зокрема у Firefox для Android, а також у браузерах на його основі, як-от Zen, LibreWolf і Floorp.",

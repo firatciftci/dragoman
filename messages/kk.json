@@ -415,7 +415,6 @@
   "docs_group_help": "Құпиялық және көмек",
   "docs_group_develop": "Әзірлеушілерге",
   "docs_tab_chromium": "Chromium браузерлері",
-  "docs_install_edge": "Edge де Chrome Web Store-дан орнатады. Сұраған кезде «Басқа дүкендердің кеңейтімдеріне рұқсат ету» опциясын таңдаңыз.",
   "docs_manual_title": "Нұсқаны қолмен орнату",
   "docs_manual_detail": "Әр нұсқа GitHub-та да бар: Chromium браузерлері мен Firefox-қа арналған zip файлдары және толық бастапқы код. Қолмен жүктелген жинақтар өздігінен жаңармайды.",
   "docs_firefox_detail": "Firefox 140 және одан кейінгі нұсқаларында, оның ішінде Android-қа арналған Firefox-та, сондай-ақ соның негізіндегі Zen, LibreWolf, Floorp сияқты браузерлерде жұмыс істейді.",

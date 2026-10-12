@@ -415,7 +415,6 @@
   "docs_group_help": "Privatnost i pomoć",
   "docs_group_develop": "Za razvojne programere",
   "docs_tab_chromium": "Preglednici na Chromiumu",
-  "docs_install_edge": "I Edge instalira proširenja iz Chrome web-trgovine. Kad vas upita, odaberite Dopusti proširenja iz drugih trgovina.",
   "docs_manual_title": "Ručna instalacija izdanja",
   "docs_manual_detail": "Svako je izdanje dostupno i na GitHubu, sa zip datotekama za preglednike na Chromiumu i Firefox te cijelim izvornim kodom. Ručno učitane verzije ne ažuriraju se same.",
   "docs_firefox_detail": "Radi u Firefoxu 140 i novijem, uključujući Firefox za Android, te u preglednicima temeljenima na njemu, poput Zena, LibreWolfa i Floorpa.",

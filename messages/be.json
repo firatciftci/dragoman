@@ -415,7 +415,6 @@
   "docs_group_help": "Прыватнасць і дапамога",
   "docs_group_develop": "Для распрацоўшчыкаў",
   "docs_tab_chromium": "Браўзеры на Chromium",
-  "docs_install_edge": "Edge таксама ўсталёўвае пашырэнні з Chrome Web Store. Калі ён спытае, выберыце «Дазволіць пашырэнні з іншых крам».",
   "docs_manual_title": "Усталяваць выпуск уручную",
   "docs_manual_detail": "Кожны выпуск ёсць і на GitHub: zip-архівы для браўзераў на Chromium і Firefox, а таксама поўны зыходны код. Зборкі, усталяваныя ўручную, не абнаўляюцца самі.",
   "docs_firefox_detail": "Працуе ў Firefox 140 і навейшых, у тым ліку ў Firefox для Android, а таксама ў браўзерах на яго аснове, напрыклад Zen, LibreWolf і Floorp.",

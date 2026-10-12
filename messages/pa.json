@@ -415,7 +415,6 @@
   "docs_group_help": "ਪਰਦੇਦਾਰੀ ਅਤੇ ਮਦਦ",
   "docs_group_develop": "ਡਿਵੈਲਪਰਾਂ ਲਈ",
   "docs_tab_chromium": "Chromium ਬ੍ਰਾਊਜ਼ਰ",
-  "docs_install_edge": "Edge ਵੀ Chrome Web Store ਤੋਂ ਇੰਸਟਾਲ ਕਰਦਾ ਹੈ। ਜਦੋਂ ਪੁੱਛਿਆ ਜਾਵੇ, ਤਾਂ 'ਹੋਰ ਸਟੋਰਾਂ ਤੋਂ ਐਕਸਟੈਂਸ਼ਨਾਂ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ' ਚੁਣੋ।",
   "docs_manual_title": "ਰਿਲੀਜ਼ ਹੱਥੀਂ ਇੰਸਟਾਲ ਕਰੋ",
   "docs_manual_detail": "ਹਰ ਰਿਲੀਜ਼ GitHub 'ਤੇ ਵੀ ਹੈ, Chromium ਬ੍ਰਾਊਜ਼ਰਾਂ ਅਤੇ Firefox ਲਈ zip ਫ਼ਾਈਲਾਂ ਅਤੇ ਪੂਰੇ ਸਰੋਤ ਕੋਡ ਸਮੇਤ। ਹੱਥੀਂ ਲੋਡ ਕੀਤੇ ਬਿਲਡ ਆਪਣੇ-ਆਪ ਅੱਪਡੇਟ ਨਹੀਂ ਹੁੰਦੇ।",
   "docs_firefox_detail": "Firefox 140 ਅਤੇ ਇਸ ਤੋਂ ਨਵੇਂ ਵਿੱਚ ਕੰਮ ਕਰਦਾ ਹੈ, Android ਲਈ Firefox ਸਮੇਤ, ਅਤੇ ਇਸ 'ਤੇ ਬਣੇ ਬ੍ਰਾਊਜ਼ਰਾਂ ਜਿਵੇਂ Zen, LibreWolf ਅਤੇ Floorp ਵਿੱਚ ਵੀ।",

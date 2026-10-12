@@ -415,7 +415,6 @@
   "docs_group_help": "ឯកជនភាព និងជំនួយ",
   "docs_group_develop": "សម្រាប់អ្នកអភិវឌ្ឍ",
   "docs_tab_chromium": "កម្មវិធីរុករក Chromium",
-  "docs_install_edge": "Edge ក៏ដំឡើងពី Chrome Web Store ដែរ។ នៅពេលវាសួរ សូមជ្រើស Allow extensions from other stores។",
   "docs_manual_title": "ដំឡើងកំណែចេញផ្សាយដោយដៃ",
   "docs_manual_detail": "កំណែចេញផ្សាយនីមួយៗក៏មាននៅលើ GitHub ដែរ ដោយមានឯកសារ zip សម្រាប់កម្មវិធីរុករក Chromium និង Firefox ព្រមទាំងកូដប្រភពពេញលេញ។ កំណែដែលអ្នកផ្ទុកដោយដៃមិនធ្វើបច្ចុប្បន្នភាពដោយខ្លួនឯងទេ។",
   "docs_firefox_detail": "ដំណើរការនៅក្នុង Firefox 140 ឡើងទៅ រួមទាំង Firefox សម្រាប់ Android និងកម្មវិធីរុករកដែលបង្កើតលើវា ដូចជា Zen, LibreWolf និង Floorp។",

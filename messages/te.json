@@ -415,7 +415,6 @@
   "docs_group_help": "గోప్యత, సహాయం",
   "docs_group_develop": "డెవలపర్‌ల కోసం",
   "docs_tab_chromium": "Chromium బ్రౌజర్‌లు",
-  "docs_install_edge": "Edge కూడా Chrome Web Store నుండి ఇన్‌స్టాల్ చేస్తుంది. అడిగినప్పుడు, Allow extensions from other stores ఎంచుకోండి.",
   "docs_manual_title": "విడుదలను మీరే ఇన్‌స్టాల్ చేయండి",
   "docs_manual_detail": "ప్రతి విడుదల GitHubలో కూడా ఉంటుంది, Chromium బ్రౌజర్‌లు, Firefox కోసం zipలతో పాటు పూర్తి సోర్స్ కోడ్‌తో. మీరే లోడ్ చేసే బిల్డ్‌లు తమంతట తాము అప్‌డేట్ కావు.",
   "docs_firefox_detail": "Firefox 140, ఆ తర్వాతి వెర్షన్‌లలో, Android కోసం Firefoxతో సహా, అలాగే Zen, LibreWolf, Floorp వంటి దాని ఆధారిత బ్రౌజర్‌లలో పనిచేస్తుంది.",

@@ -415,7 +415,6 @@
   "docs_group_help": "Privacy e assistenza",
   "docs_group_develop": "Per sviluppatori",
   "docs_tab_chromium": "Browser Chromium",
-  "docs_install_edge": "Anche Edge installa dal Chrome Web Store. Quando richiesto, scegli Consenti estensioni da altri store.",
   "docs_manual_title": "Installa una release a mano",
   "docs_manual_detail": "Ogni release è disponibile anche su GitHub, con gli zip per i browser Chromium e Firefox e il codice sorgente completo. Le build caricate a mano non si aggiornano da sole.",
   "docs_firefox_detail": "Funziona in Firefox 140 e versioni successive, incluso Firefox per Android, e nei browser basati su di esso, come Zen, LibreWolf e Floorp.",

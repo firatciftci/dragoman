@@ -415,7 +415,6 @@
   "docs_group_help": "ಗೌಪ್ಯತೆ ಮತ್ತು ಸಹಾಯ",
   "docs_group_develop": "ಡೆವಲಪರ್‌ಗಳಿಗಾಗಿ",
   "docs_tab_chromium": "Chromium ಬ್ರೌಸರ್‌ಗಳು",
-  "docs_install_edge": "Edge ಕೂಡ Chrome Web Store ನಿಂದ ಸ್ಥಾಪಿಸುತ್ತದೆ. ಕೇಳಿದಾಗ, ಇತರ ಸ್ಟೋರ್‌ಗಳಿಂದ ಎಕ್ಸ್‌ಟೆನ್ಶನ್‌ಗಳನ್ನು ಅನುಮತಿಸಿ ಆಯ್ಕೆಮಾಡಿ.",
   "docs_manual_title": "ಬಿಡುಗಡೆಯನ್ನು ಕೈಯಾರೆ ಸ್ಥಾಪಿಸಿ",
   "docs_manual_detail": "ಪ್ರತಿ ಬಿಡುಗಡೆಯೂ GitHub ನಲ್ಲಿದೆ, Chromium ಬ್ರೌಸರ್‌ಗಳು ಮತ್ತು Firefox ಗಾಗಿ zip ಗಳು ಹಾಗೂ ಪೂರ್ಣ ಮೂಲ ಕೋಡ್ ಜೊತೆಗೆ. ಕೈಯಾರೆ ಲೋಡ್ ಮಾಡಿದ ಬಿಲ್ಡ್‌ಗಳು ತಾವೇ ಅಪ್‌ಡೇಟ್ ಆಗುವುದಿಲ್ಲ.",
   "docs_firefox_detail": "Firefox 140 ಮತ್ತು ನಂತರದ ಆವೃತ್ತಿಗಳಲ್ಲಿ, Android ಗಾಗಿ Firefox ಸೇರಿದಂತೆ, ಹಾಗೂ Zen, LibreWolf, Floorp ನಂತಹ ಅದರ ಮೇಲೆ ನಿರ್ಮಿತ ಬ್ರೌಸರ್‌ಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತದೆ.",

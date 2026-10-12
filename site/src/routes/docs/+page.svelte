@@ -39,24 +39,26 @@
       id: "chromium",
       label: m.docs_tab_chromium(),
       mark: "Chrome",
-      store: "Chrome Web Store",
-      href: stores.chrome,
+      listings: [
+        { store: "Chrome Web Store", mark: "Chrome", href: stores.chrome },
+        { store: "Microsoft Edge Add-ons", mark: "Edge", href: stores.edge },
+      ],
       platforms: m.platforms_chromium(),
     },
     {
       id: "firefox",
       label: "Firefox",
       mark: "Firefox",
-      store: "Firefox Add-ons",
-      href: stores.firefox,
+      listings: [
+        { store: "Firefox Add-ons", mark: "Firefox", href: stores.firefox },
+      ],
       platforms: m.platforms_firefox(),
     },
     {
       id: "safari",
       label: "Safari",
       mark: "Safari",
-      store: "App Store",
-      href: stores.safari,
+      listings: [{ store: "App Store", mark: "Safari", href: stores.safari }],
       platforms: m.platforms_safari(),
     },
   ] as const;
@@ -119,7 +121,7 @@ pnpm dev:extension`;
     if (agent.family === "chromium")
       return {
         detail: m.docs_detected_store({ browser: name }),
-        href: stores.chrome,
+        href: name === "Edge" ? stores.edge : stores.chrome,
         label: m.add_to_browser({ browser: name }),
         mark: name,
       };
@@ -535,34 +537,38 @@ pnpm dev:extension`;
           class="panel pt-6"
           style:--direction={direction}
         >
-          <a
-            href={option.href}
-            class="group flex items-center gap-5 rounded-3xl bg-raised p-5 shadow-[inset_0_-4px_0_var(--line)] ring-1 ring-line transition-[translate] hover:-translate-y-0.5 sm:p-6"
-          >
-            <Emblem name={option.mark} class="size-12" />
-            <span class="min-w-0 flex-1">
-              <span class="block font-display text-[24px] leading-tight"
-                >{option.store}</span
+          <div class="grid gap-3">
+            {#each agent?.name === "Edge" ? option.listings.toReversed() : option.listings as listing (listing.store)}
+              <a
+                href={listing.href}
+                class="group flex items-center gap-5 rounded-3xl bg-raised p-5 shadow-[inset_0_-4px_0_var(--line)] ring-1 ring-line transition-[translate] hover:-translate-y-0.5 sm:p-6"
               >
-              <span class="mt-0.5 block text-[15px] text-muted"
-                >{option.platforms}</span
-              >
-            </span>
-            <svg
-              viewBox="0 0 20 20"
-              class="size-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"
-              aria-hidden="true"
-            >
-              <path
-                d="M7 4l6 6-6 6"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </a>
+                <Emblem name={listing.mark} class="size-12" />
+                <span class="min-w-0 flex-1">
+                  <span class="block font-display text-[24px] leading-tight"
+                    >{listing.store}</span
+                  >
+                  <span class="mt-0.5 block text-[15px] text-muted"
+                    >{option.platforms}</span
+                  >
+                </span>
+                <svg
+                  viewBox="0 0 20 20"
+                  class="size-5 shrink-0 text-muted transition-transform group-hover:translate-x-0.5 rtl:-scale-x-100"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 4l6 6-6 6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            {/each}
+          </div>
 
           {#if option.id === "chromium"}
             <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -580,7 +586,6 @@ pnpm dev:extension`;
                 >{m.docs_install_chromium()}</span
               >
             </div>
-            {@render note(m.docs_install_edge())}
           {:else if option.id === "firefox"}
             <p class="mt-5">{m.docs_firefox_detail()}</p>
           {:else}

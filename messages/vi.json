@@ -415,7 +415,6 @@
   "docs_group_help": "Quyền riêng tư và trợ giúp",
   "docs_group_develop": "Dành cho nhà phát triển",
   "docs_tab_chromium": "Trình duyệt Chromium",
-  "docs_install_edge": "Edge cũng cài được từ Chrome Web Store. Khi được hỏi, hãy chọn Cho phép tiện ích từ các cửa hàng khác.",
   "docs_manual_title": "Tự cài một bản phát hành",
   "docs_manual_detail": "Mọi bản phát hành cũng có trên GitHub, kèm tệp zip cho trình duyệt Chromium và Firefox cùng toàn bộ mã nguồn. Bản tự cài sẽ không tự cập nhật.",
   "docs_firefox_detail": "Chạy trên Firefox 140 trở lên, kể cả Firefox cho Android, và trên các trình duyệt dựa trên nó như Zen, LibreWolf và Floorp.",

@@ -415,7 +415,6 @@
   "docs_group_help": "Privatësia dhe ndihma",
   "docs_group_develop": "Për zhvilluesit",
   "docs_tab_chromium": "Shfletuesit Chromium",
-  "docs_install_edge": "Edhe Edge instalon nga Chrome Web Store. Kur të pyesë, zgjidh Lejo shtesat nga dyqane të tjera.",
   "docs_manual_title": "Instalo një version me dorë",
   "docs_manual_detail": "Çdo version gjendet edhe në GitHub, me skedarë zip për shfletuesit Chromium dhe Firefox, si dhe kodin burimor të plotë. Versionet e ngarkuara me dorë nuk përditësohen vetë.",
   "docs_firefox_detail": "Funksionon në Firefox 140 e më të ri, përfshirë Firefox për Android, dhe në shfletuesit e bazuar në të, si Zen, LibreWolf dhe Floorp.",

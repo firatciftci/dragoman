@@ -415,7 +415,6 @@
   "docs_group_help": "Privadesa i ajuda",
   "docs_group_develop": "Per a desenvolupadors",
   "docs_tab_chromium": "Navegadors Chromium",
-  "docs_install_edge": "Edge també s'instal·la des de la Chrome Web Store. Quan t'ho demani, tria Permet extensions d'altres botigues.",
   "docs_manual_title": "Instal·la una versió manualment",
   "docs_manual_detail": "Cada versió també és a GitHub, amb fitxers zip per a navegadors Chromium i Firefox, i tot el codi font. Les versions carregades a mà no s'actualitzen soles.",
   "docs_firefox_detail": "Funciona a Firefox 140 o posterior, inclòs Firefox per a Android, i als navegadors basats en ell, com Zen, LibreWolf i Floorp.",

@@ -415,7 +415,6 @@
   "docs_group_help": "Приватност и помоћ",
   "docs_group_develop": "За програмере",
   "docs_tab_chromium": "Chromium прегледачи",
-  "docs_install_edge": "И Edge се инсталира из Chrome Web Store-а. Када вас пита, изаберите „Дозволи проширења из других продавница“.",
   "docs_manual_title": "Ручно инсталирајте издање",
   "docs_manual_detail": "Свако издање је доступно и на GitHub-у, са zip датотекама за Chromium прегледаче и Firefox, као и са комплетним изворним кодом. Ручно учитане верзије се не ажурирају саме.",
   "docs_firefox_detail": "Ради у Firefox-у 140 и новијим, укључујући Firefox за Android, као и у прегледачима заснованим на њему, попут Zen-а, LibreWolf-а и Floorp-а.",

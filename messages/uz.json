@@ -415,7 +415,6 @@
   "docs_group_help": "Maxfiylik va yordam",
   "docs_group_develop": "Dasturchilar uchun",
   "docs_tab_chromium": "Chromium brauzerlari",
-  "docs_install_edge": "Edge ham Chrome Web Store’dan o‘rnatadi. So‘ralganda, boshqa do‘konlardan kengaytmalarga ruxsat berishni tanlang.",
   "docs_manual_title": "Relizni qo‘lda o‘rnatish",
   "docs_manual_detail": "Har bir reliz GitHub’da ham bor: Chromium brauzerlari va Firefox uchun zip fayllar hamda to‘liq manba kodi. Qo‘lda yuklangan versiyalar o‘zini o‘zi yangilamaydi.",
   "docs_firefox_detail": "Firefox 140 va undan keyingi versiyalarda, jumladan Android uchun Firefox’da, shuningdek Zen, LibreWolf va Floorp kabi unga asoslangan brauzerlarda ishlaydi.",

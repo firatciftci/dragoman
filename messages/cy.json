@@ -415,7 +415,6 @@
   "docs_group_help": "Preifatrwydd a help",
   "docs_group_develop": "I ddatblygwyr",
   "docs_tab_chromium": "Porwyr Chromium",
-  "docs_install_edge": "Mae Edge hefyd yn gosod o'r Chrome Web Store. Pan ofynnir, dewiswch Allow extensions from other stores.",
   "docs_manual_title": "Gosod fersiwn â llaw",
   "docs_manual_detail": "Mae pob fersiwn hefyd ar GitHub, gyda ffeiliau zip ar gyfer porwyr Chromium a Firefox, a'r cod ffynhonnell llawn. Dydy fersiynau a lwythir â llaw ddim yn diweddaru eu hunain.",
   "docs_firefox_detail": "Yn gweithio yn Firefox 140 ac yn hwyrach, gan gynnwys Firefox ar gyfer Android, ac mewn porwyr sydd wedi'u seilio arno, fel Zen, LibreWolf a Floorp.",

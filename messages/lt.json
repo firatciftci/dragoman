@@ -415,7 +415,6 @@
   "docs_group_help": "Privatumas ir pagalba",
   "docs_group_develop": "Kūrėjams",
   "docs_tab_chromium": "Chromium naršyklės",
-  "docs_install_edge": "Edge taip pat diegia iš Chrome Web Store. Paklaustas pasirinkite „Leisti plėtinius iš kitų parduotuvių“.",
   "docs_manual_title": "Įdiegti leidimą rankiniu būdu",
   "docs_manual_detail": "Kiekvienas leidimas skelbiamas ir GitHub: su zip failais Chromium naršyklėms ir Firefox bei visu šaltinio kodu. Rankiniu būdu įkelti leidimai patys neatsinaujina.",
   "docs_firefox_detail": "Veikia Firefox 140 ir naujesnėse versijose, įskaitant Firefox, skirtą Android, bei jo pagrindu sukurtose naršyklėse, pvz., Zen, LibreWolf ir Floorp.",

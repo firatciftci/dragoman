@@ -415,7 +415,6 @@
   "docs_group_help": "Pribatutasuna eta laguntza",
   "docs_group_develop": "Garatzaileentzat",
   "docs_tab_chromium": "Chromium nabigatzaileak",
-  "docs_install_edge": "Edge-k ere Chrome Web Storetik instalatzen du. Galdetzen dizunean, aukeratu Baimendu beste denda batzuetako luzapenak.",
   "docs_manual_title": "Instalatu bertsio bat eskuz",
   "docs_manual_detail": "Bertsio guztiak GitHuben ere badaude, Chromium nabigatzaileetarako eta Firefoxerako zipekin eta iturburu-kode osoarekin. Eskuz kargatutako bertsioak ez dira berez eguneratzen.",
   "docs_firefox_detail": "Firefox 140 eta berriagoetan dabil, Androiderako Firefox barne, baita hartan oinarritutako nabigatzaileetan ere, hala nola Zen, LibreWolf eta Floorp.",

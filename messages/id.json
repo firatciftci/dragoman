@@ -415,7 +415,6 @@
   "docs_group_help": "Privasi dan bantuan",
   "docs_group_develop": "Untuk pengembang",
   "docs_tab_chromium": "Browser Chromium",
-  "docs_install_edge": "Edge juga bisa menginstal dari Chrome Web Store. Saat diminta, pilih Izinkan ekstensi dari toko lain.",
   "docs_manual_title": "Instal rilis secara manual",
   "docs_manual_detail": "Setiap rilis juga tersedia di GitHub, dengan file zip untuk browser Chromium dan Firefox, beserta kode sumber lengkapnya. Build yang dimuat manual tidak diperbarui otomatis.",
   "docs_firefox_detail": "Berjalan di Firefox 140 ke atas, termasuk Firefox untuk Android, serta browser yang dibangun di atasnya, seperti Zen, LibreWolf, dan Floorp.",

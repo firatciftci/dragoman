@@ -415,7 +415,6 @@
   "docs_group_help": "פרטיות ועזרה",
   "docs_group_develop": "למפתחים",
   "docs_tab_chromium": "דפדפני Chromium",
-  "docs_install_edge": "גם Edge מתקין מחנות האינטרנט של Chrome. כשתופיע השאלה, בחרו „התרת תוספים מחנויות אחרות”.",
   "docs_manual_title": "התקנה ידנית של גרסה",
   "docs_manual_detail": "כל גרסה זמינה גם ב-GitHub, עם קובצי zip לדפדפני Chromium ול-Firefox, וגם קוד המקור המלא. גרסאות שנטענות ידנית לא מתעדכנות מעצמן.",
   "docs_firefox_detail": "עובד ב-Firefox 140 ואילך, כולל Firefox ל-Android, ובדפדפנים שמבוססים עליו, כמו Zen,‏ LibreWolf ו-Floorp.",

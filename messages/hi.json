@@ -415,7 +415,6 @@
   "docs_group_help": "निजता और मदद",
   "docs_group_develop": "डेवलपर के लिए",
   "docs_tab_chromium": "Chromium ब्राउज़र",
-  "docs_install_edge": "Edge भी Chrome Web Store से इंस्टॉल करता है। पूछे जाने पर \"दूसरे स्टोर के एक्सटेंशन की अनुमति दें\" चुनें।",
   "docs_manual_title": "रिलीज़ को खुद इंस्टॉल करें",
   "docs_manual_detail": "हर रिलीज़ GitHub पर भी है, जिसमें Chromium ब्राउज़र और Firefox के लिए zip फ़ाइलें और पूरा सोर्स कोड है। खुद लोड किए गए बिल्ड अपने-आप अपडेट नहीं होते।",
   "docs_firefox_detail": "Firefox 140 और उसके बाद के वर्शन में चलता है, Android के लिए Firefox समेत, और उस पर बने ब्राउज़र जैसे Zen, LibreWolf और Floorp में भी।",

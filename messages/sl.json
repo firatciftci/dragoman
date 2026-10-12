@@ -415,7 +415,6 @@
   "docs_group_help": "Zasebnost in pomoč",
   "docs_group_develop": "Za razvijalce",
   "docs_tab_chromium": "Brskalniki Chromium",
-  "docs_install_edge": "Tudi Edge namešča iz spletne trgovine Chrome. Ko vas vpraša, izberite Dovoli razširitve iz drugih trgovin.",
   "docs_manual_title": "Ročna namestitev izdaje",
   "docs_manual_detail": "Vsaka izdaja je na voljo tudi na GitHubu, z datotekami zip za brskalnike Chromium in Firefox ter celotno izvorno kodo. Ročno naložene različice se ne posodabljajo same.",
   "docs_firefox_detail": "Deluje v Firefoxu 140 in novejših, tudi v Firefoxu za Android, ter v brskalnikih, ki temeljijo na njem, kot so Zen, LibreWolf in Floorp.",

@@ -415,7 +415,6 @@
   "docs_group_help": "ความเป็นส่วนตัวและความช่วยเหลือ",
   "docs_group_develop": "สำหรับนักพัฒนา",
   "docs_tab_chromium": "เบราว์เซอร์ Chromium",
-  "docs_install_edge": "Edge ติดตั้งจาก Chrome Web Store ได้เช่นกัน เมื่อมีข้อความถาม ให้เลือก \"อนุญาตส่วนขยายจาก Store อื่น\"",
   "docs_manual_title": "ติดตั้งรุ่นเผยแพร่ด้วยตนเอง",
   "docs_manual_detail": "ทุกรุ่นมีอยู่บน GitHub ด้วย พร้อมไฟล์ zip สำหรับเบราว์เซอร์ Chromium และ Firefox รวมถึงซอร์สโค้ดทั้งหมด รุ่นที่โหลดเองจะไม่อัปเดตอัตโนมัติ",
   "docs_firefox_detail": "ใช้ได้ใน Firefox 140 ขึ้นไป รวมถึง Firefox สำหรับ Android และเบราว์เซอร์ที่สร้างบน Firefox เช่น Zen, LibreWolf และ Floorp",

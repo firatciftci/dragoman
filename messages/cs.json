@@ -415,7 +415,6 @@
   "docs_group_help": "Soukromí a nápověda",
   "docs_group_develop": "Pro vývojáře",
   "docs_tab_chromium": "Prohlížeče na Chromiu",
-  "docs_install_edge": "Edge se také instaluje z Internetového obchodu Chrome. Až se zeptá, zvolte Povolit rozšíření z jiných obchodů.",
   "docs_manual_title": "Ruční instalace vydání",
   "docs_manual_detail": "Každé vydání najdete také na GitHubu, se soubory zip pro prohlížeče na Chromiu a Firefox i s kompletním zdrojovým kódem. Ručně načtené verze se samy neaktualizují.",
   "docs_firefox_detail": "Funguje ve Firefoxu 140 a novějším, včetně Firefoxu pro Android, i v prohlížečích na něm založených, jako jsou Zen, LibreWolf a Floorp.",

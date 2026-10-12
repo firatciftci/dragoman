@@ -415,7 +415,6 @@
   "docs_group_help": "Prywatność i pomoc",
   "docs_group_develop": "Dla programistów",
   "docs_tab_chromium": "Przeglądarki Chromium",
-  "docs_install_edge": "Edge również instaluje rozszerzenia z Chrome Web Store. Gdy pojawi się pytanie, wybierz Zezwalaj na rozszerzenia z innych sklepów.",
   "docs_manual_title": "Zainstaluj wydanie ręcznie",
   "docs_manual_detail": "Każde wydanie jest też na GitHubie – z plikami zip dla przeglądarek Chromium i Firefoksa oraz pełnym kodem źródłowym. Ręcznie wczytane wersje nie aktualizują się same.",
   "docs_firefox_detail": "Działa w Firefoksie 140 i nowszych, także w Firefoksie na Androida, oraz w przeglądarkach na nim opartych, takich jak Zen, LibreWolf i Floorp.",

@@ -415,7 +415,6 @@
   "docs_group_help": "Privasi dan bantuan",
   "docs_group_develop": "Untuk pembangun",
   "docs_tab_chromium": "Pelayar Chromium",
-  "docs_install_edge": "Edge juga boleh dipasang dari Chrome Web Store. Apabila diminta, pilih Benarkan sambungan dari gedung lain.",
   "docs_manual_title": "Pasang keluaran secara manual",
   "docs_manual_detail": "Setiap keluaran juga ada di GitHub, dengan fail zip untuk pelayar Chromium dan Firefox, serta kod sumber penuh. Binaan yang dimuatkan secara manual tidak dikemas kini sendiri.",
   "docs_firefox_detail": "Berfungsi dalam Firefox 140 dan ke atas, termasuk Firefox untuk Android, serta pelayar yang dibina atasnya seperti Zen, LibreWolf dan Floorp.",

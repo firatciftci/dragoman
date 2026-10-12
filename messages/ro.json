@@ -415,7 +415,6 @@
   "docs_group_help": "Confidențialitate și ajutor",
   "docs_group_develop": "Pentru dezvoltatori",
   "docs_tab_chromium": "Browsere Chromium",
-  "docs_install_edge": "Și Edge instalează din Chrome Web Store. Când ți se cere, alege Permite extensii din alte magazine.",
   "docs_manual_title": "Instalează manual o versiune",
   "docs_manual_detail": "Fiecare versiune e disponibilă și pe GitHub, cu arhive zip pentru browserele Chromium și Firefox, plus codul sursă complet. Versiunile încărcate manual nu se actualizează singure.",
   "docs_firefox_detail": "Funcționează în Firefox 140 și versiunile ulterioare, inclusiv Firefox pentru Android, și în browserele bazate pe el, precum Zen, LibreWolf și Floorp.",

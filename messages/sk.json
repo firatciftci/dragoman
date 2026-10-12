@@ -415,7 +415,6 @@
   "docs_group_help": "Súkromie a pomoc",
   "docs_group_develop": "Pre vývojárov",
   "docs_tab_chromium": "Prehliadače Chromium",
-  "docs_install_edge": "Edge inštaluje rozšírenia aj z Chrome Web Store. Keď sa opýta, zvoľte Povoliť rozšírenia z iných obchodov.",
   "docs_manual_title": "Ručná inštalácia vydania",
   "docs_manual_detail": "Každé vydanie je aj na GitHube, so súbormi zip pre prehliadače Chromium a Firefox a s úplným zdrojovým kódom. Ručne načítané zostavy sa samy neaktualizujú.",
   "docs_firefox_detail": "Funguje vo Firefoxe 140 a novšom vrátane Firefoxu pre Android a v prehliadačoch na ňom postavených, ako Zen, LibreWolf a Floorp.",

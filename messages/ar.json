@@ -415,7 +415,6 @@
   "docs_group_help": "الخصوصية والمساعدة",
   "docs_group_develop": "للمطوّرين",
   "docs_tab_chromium": "متصفحات Chromium",
-  "docs_install_edge": "يُثبَّت Edge الإضافة من سوق Chrome الإلكتروني أيضًا. عندما يطلب ذلك، اختر «السماح بالإضافات من المتاجر الأخرى».",
   "docs_manual_title": "تثبيت إصدار يدويًا",
   "docs_manual_detail": "كل إصدار متاح أيضًا على GitHub، مع ملفات zip لمتصفحات Chromium وFirefox، والشيفرة المصدرية كاملة. النسخ التي تحمّلها يدويًا لا تُحدّث نفسها.",
   "docs_firefox_detail": "يعمل في Firefox 140 والإصدارات الأحدث، بما في ذلك Firefox لنظام Android، وفي المتصفحات المبنية عليه، مثل Zen و LibreWolf و Floorp.",
