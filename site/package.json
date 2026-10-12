@@ -1,0 +1,35 @@
+{
+  "name": "@dragoman/site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#app.css": "./src/app.css",
+    "#lib/*": "./src/lib/*"
+  },
+  "scripts": {
+    "dev": "vite dev --port 3030",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "lint": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto .",
+    "lint:fix": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto --fix .",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "catalog:",
+    "@sveltejs/kit": "catalog:",
+    "@sveltejs/vite-plugin-svelte": "catalog:",
+    "@tailwindcss/vite": "catalog:",
+    "@types/three": "catalog:",
+    "svelte": "catalog:",
+    "tailwindcss": "catalog:",
+    "three": "catalog:",
+    "vite": "catalog:",
+    "wrangler": "catalog:"
+  },
+  "dependencies": {
+    "@dragoman/brand": "workspace:*",
+    "bits-ui": "catalog:"
+  }
+}

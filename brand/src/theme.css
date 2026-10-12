@@ -1,0 +1,92 @@
+@import "./fonts.css";
+
+@theme {
+  --color-tile: #f6f5ef;
+  --color-paper: #ece7da;
+  --color-ink: #18204a;
+  --color-cobalt: #2347a8;
+  --color-coral: #c8321f;
+  --color-turquoise: #1e9c94;
+  --color-gold: #d9a43b;
+  --color-lapis: #0f1636;
+
+  --font-display:
+    "Rakkas", "IBM Plex Sans Variable", "IBM Plex Sans Arabic",
+    "IBM Plex Sans Hebrew", "IBM Plex Sans Devanagari", "IBM Plex Sans Thai",
+    system-ui, sans-serif;
+  --font-brand: "Rakkas", serif;
+  --font-sans:
+    "IBM Plex Sans Variable", "IBM Plex Sans Arabic", "IBM Plex Sans Hebrew",
+    "IBM Plex Sans Devanagari", "IBM Plex Sans Thai", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-hand: "Aref Ruqaa", serif;
+
+  --ease-quill: cubic-bezier(0.65, 0, 0.2, 1);
+}
+
+:root:is(:lang(vi), :lang(ha), :lang(ps), :lang(ckb)) {
+  --font-display:
+    "IBM Plex Sans Variable", "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+@layer base {
+  .font-display {
+    font-weight: 700;
+    font-synthesis: style;
+  }
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-sunk: var(--sunk);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-good: var(--good);
+  --color-bad: var(--bad);
+}
+
+:root {
+  color-scheme: light dark;
+  --surface: #f6f5ef;
+  --raised: #fffdf8;
+  --sunk: #ece7da;
+  --text: #18204a;
+  --muted: #5d6385;
+  --line: rgb(24 32 74 / 0.14);
+  --accent: #2347a8;
+  --accent-text: #fffdf8;
+  --good: #167a73;
+  --bad: #b02a19;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface: #0f1636;
+    --raised: #18204a;
+    --sunk: #0a0f28;
+    --text: #f1ede2;
+    --muted: #a3a9c8;
+    --line: rgb(241 237 226 / 0.14);
+    --accent: #7c9cf0;
+    --accent-text: #0f1636;
+    --good: #4cc7bd;
+    --bad: #f07a63;
+  }
+}
+
+:root[data-theme="dark"] {
+  --surface: #0f1636;
+  --raised: #18204a;
+  --sunk: #0a0f28;
+  --text: #f1ede2;
+  --muted: #a3a9c8;
+  --line: rgb(241 237 226 / 0.14);
+  --accent: #7c9cf0;
+  --accent-text: #0f1636;
+  --good: #4cc7bd;
+  --bad: #f07a63;
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="%paraglide.lang%" dir="%paraglide.dir%">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2347a8" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" sizes="48x48" />
+    <link
+      rel="apple-touch-icon"
+      href="%sveltekit.assets%/apple-touch-icon.png"
+    />
+    %sveltekit.head%
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const paths = new Map();
+        for (const link of document.querySelectorAll(
+          'link[rel="alternate"][hreflang]',
+        ))
+          paths.set(link.hreflang, new URL(link.href).pathname);
+        const suggested = [];
+        for (const tag of navigator.languages ?? [navigator.language]) {
+          let locale;
+          try {
+            locale = new Intl.Locale(tag).maximize();
+          } catch {
+            continue;
+          }
+          const language =
+            { no: "nb", nn: "nb", tl: "fil", iw: "he", in: "id" }[
+              locale.language
+            ] ?? locale.language;
+          const code =
+            language === "zh"
+              ? locale.script === "Hant"
+                ? "zh-TW"
+                : "zh-CN"
+              : language === "pt"
+                ? locale.region === "BR"
+                  ? "pt-BR"
+                  : "pt-PT"
+                : language === "ku"
+                  ? locale.script === "Arab"
+                    ? "ckb"
+                    : "kmr"
+                  : language;
+          if (paths.has(code) && !suggested.includes(code))
+            suggested.push(code);
+        }
+        root.dataset.suggested = suggested.join(" ");
+        addEventListener(
+          "click",
+          (event) => {
+            const link =
+              event.target instanceof Element
+                ? event.target.closest("a[hreflang]")
+                : null;
+            if (link == null) return;
+            try {
+              localStorage.setItem("locale", link.hreflang);
+            } catch {}
+          },
+          true,
+        );
+        let saved = null;
+        try {
+          saved = localStorage.getItem("locale");
+        } catch {}
+        const target = paths.has(saved) ? saved : suggested[0];
+        if (root.lang !== "en" || target == null || target === "en") return;
+        const path =
+          location.pathname === paths.get("en")
+            ? paths.get(target)
+            : `/${target}${location.pathname}`;
+        location.replace(path + location.search + location.hash);
+      })();
+    </script>
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%</div>
+  </body>
+</html>

@@ -1,0 +1,999 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2CB294C0307B508800267D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB294BF307B508800267D3C /* AppDelegate.swift */; };
+		2CB294C2307B508800267D3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB294C1307B508800267D3C /* SceneDelegate.swift */; };
+		2CB294C5307B508800267D3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294C3307B508800267D3C /* LaunchScreen.storyboard */; };
+		2CB294C8307B508800267D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294C6307B508800267D3C /* Main.storyboard */; };
+		2CB294D1307B508800267D3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB294D0307B508800267D3C /* AppDelegate.swift */; };
+		2CB294D4307B508800267D3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294D2307B508800267D3C /* Main.storyboard */; };
+		2CB294DB307B508800267D3C /* dragoman Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2CB294DA307B508800267D3C /* dragoman Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2CB294E5307B508800267D3C /* dragoman Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2CB294E4307B508800267D3C /* dragoman Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2CB294EA307B508800267D3C /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294AF307B508700267D3C /* Main.html */; };
+		2CB294EB307B508800267D3C /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294AF307B508700267D3C /* Main.html */; };
+		2CB294EC307B508800267D3C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294B1307B508700267D3C /* Icon.png */; };
+		2CB294ED307B508800267D3C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294B1307B508700267D3C /* Icon.png */; };
+		2CB294EE307B508800267D3C /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294B2307B508700267D3C /* Style.css */; };
+		2CB294EF307B508800267D3C /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294B2307B508700267D3C /* Style.css */; };
+		2CB294F0307B508800267D3C /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294B3307B508700267D3C /* Script.js */; };
+		2CB294F1307B508800267D3C /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294B3307B508700267D3C /* Script.js */; };
+		2CB294F2307B508800267D3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB294B4307B508700267D3C /* ViewController.swift */; };
+		2CB294F3307B508800267D3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB294B4307B508700267D3C /* ViewController.swift */; };
+		2CB294F4307B508800267D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294B5307B508800267D3C /* Assets.xcassets */; };
+		2CB294F5307B508800267D3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB294B5307B508800267D3C /* Assets.xcassets */; };
+		2CB2FA01307B508800267D3C /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2FA00307B508800267D3C /* AppIcon.icon */; };
+		2CB2FA02307B508800267D3C /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2FA00307B508800267D3C /* AppIcon.icon */; };
+		2CB294F6307B508800267D3C /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB294B7307B508800267D3C /* SafariWebExtensionHandler.swift */; };
+		2CB294F7307B508800267D3C /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB294B7307B508800267D3C /* SafariWebExtensionHandler.swift */; };
+		2CB29513307B508800267D3C /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29509307B508800267D3C /* background.js */; };
+		2CB29514307B508800267D3C /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950A307B508800267D3C /* popup.html */; };
+		2CB29515307B508800267D3C /* chunks in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950B307B508800267D3C /* chunks */; };
+		2CB29516307B508800267D3C /* content-scripts in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950C307B508800267D3C /* content-scripts */; };
+		2CB29517307B508800267D3C /* bergamot in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950D307B508800267D3C /* bergamot */; };
+		2CB29518307B508800267D3C /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950E307B508800267D3C /* manifest.json */; };
+		2CB29519307B508800267D3C /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950F307B508800267D3C /* options.html */; };
+		2CB2951A307B508800267D3C /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29510307B508800267D3C /* icon */; };
+		2CB2951B307B508800267D3C /* characters in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29511307B508800267D3C /* characters */; };
+		2CB29601307B508800267D3C /* pet in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29600307B508800267D3C /* pet */; };
+		2CB2951C307B508800267D3C /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29512307B508800267D3C /* assets */; };
+		2CB2951D307B508800267D3C /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29509307B508800267D3C /* background.js */; };
+		2CB2951E307B508800267D3C /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950A307B508800267D3C /* popup.html */; };
+		2CB2951F307B508800267D3C /* chunks in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950B307B508800267D3C /* chunks */; };
+		2CB29520307B508800267D3C /* content-scripts in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950C307B508800267D3C /* content-scripts */; };
+		2CB29521307B508800267D3C /* bergamot in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950D307B508800267D3C /* bergamot */; };
+		2CB29522307B508800267D3C /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950E307B508800267D3C /* manifest.json */; };
+		2CB29523307B508800267D3C /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 2CB2950F307B508800267D3C /* options.html */; };
+		2CB29524307B508800267D3C /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29510307B508800267D3C /* icon */; };
+		2CB29525307B508800267D3C /* characters in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29511307B508800267D3C /* characters */; };
+		2CB29602307B508800267D3C /* pet in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29600307B508800267D3C /* pet */; };
+		2CB29526307B508800267D3C /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB29512307B508800267D3C /* assets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2CB294DC307B508800267D3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CB294A9307B508700267D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CB294D9307B508800267D3C;
+			remoteInfo = "dragoman Extension (iOS)";
+		};
+		2CB294E6307B508800267D3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CB294A9307B508700267D3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CB294E3307B508800267D3C;
+			remoteInfo = "dragoman Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2CB294FD307B508800267D3C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				2CB294DB307B508800267D3C /* dragoman Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+		2CB29504307B508800267D3C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				2CB294E5307B508800267D3C /* dragoman Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2CB294B0307B508700267D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		2CB294B1307B508700267D3C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		2CB294B2307B508700267D3C /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		2CB294B3307B508700267D3C /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		2CB294B4307B508700267D3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2CB294B5307B508800267D3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2CB2FA00307B508800267D3C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		2CB294B7307B508800267D3C /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		2CB294BC307B508800267D3C /* dragoman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dragoman.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CB294BF307B508800267D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2CB294C1307B508800267D3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2CB294C4307B508800267D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2CB294C7307B508800267D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2CB294C9307B508800267D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB294CE307B508800267D3C /* dragoman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dragoman.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CB294D0307B508800267D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2CB294D3307B508800267D3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2CB294D5307B508800267D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB294DA307B508800267D3C /* dragoman Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "dragoman Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CB294DF307B508800267D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB294E4307B508800267D3C /* dragoman Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "dragoman Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CB294E9307B508800267D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CB29509307B508800267D3C /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = "../../.output/safari-mv3/background.js"; sourceTree = "<group>"; };
+		2CB2950A307B508800267D3C /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = "../../.output/safari-mv3/popup.html"; sourceTree = "<group>"; };
+		2CB2950B307B508800267D3C /* chunks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = chunks; path = "../../.output/safari-mv3/chunks"; sourceTree = "<group>"; };
+		2CB2950C307B508800267D3C /* content-scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "content-scripts"; path = "../../.output/safari-mv3/content-scripts"; sourceTree = "<group>"; };
+		2CB2950D307B508800267D3C /* bergamot */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bergamot; path = "../../.output/safari-mv3/bergamot"; sourceTree = "<group>"; };
+		2CB2950E307B508800267D3C /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../.output/safari-mv3/manifest.json"; sourceTree = "<group>"; };
+		2CB2950F307B508800267D3C /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = "../../.output/safari-mv3/options.html"; sourceTree = "<group>"; };
+		2CB29510307B508800267D3C /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icon; path = "../../.output/safari-mv3/icon"; sourceTree = "<group>"; };
+		2CB29511307B508800267D3C /* characters */ = {isa = PBXFileReference; lastKnownFileType = folder; name = characters; path = "../../.output/safari-mv3/characters"; sourceTree = "<group>"; };
+		2CB29600307B508800267D3C /* pet */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pet; path = "../../.output/safari-mv3/pet"; sourceTree = "<group>"; };
+		2CB29512307B508800267D3C /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = "../../.output/safari-mv3/assets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2CB294B9307B508800267D3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		2CB294CB307B508800267D3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		2CB294D7307B508800267D3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		2CB294E1307B508800267D3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2CB294A8307B508700267D3C = {
+			isa = PBXGroup;
+			children = (
+				2CB294AD307B508700267D3C /* Shared (App) */,
+				2CB294B6307B508800267D3C /* Shared (Extension) */,
+				2CB294BE307B508800267D3C /* iOS (App) */,
+				2CB294CF307B508800267D3C /* macOS (App) */,
+				2CB294DE307B508800267D3C /* iOS (Extension) */,
+				2CB294E8307B508800267D3C /* macOS (Extension) */,
+				2CB294BD307B508800267D3C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2CB294AD307B508700267D3C /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				2CB294B4307B508700267D3C /* ViewController.swift */,
+				2CB294B5307B508800267D3C /* Assets.xcassets */,
+				2CB2FA00307B508800267D3C /* AppIcon.icon */,
+				2CB294AE307B508700267D3C /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		2CB294AE307B508700267D3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2CB294AF307B508700267D3C /* Main.html */,
+				2CB294B1307B508700267D3C /* Icon.png */,
+				2CB294B2307B508700267D3C /* Style.css */,
+				2CB294B3307B508700267D3C /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2CB294B6307B508800267D3C /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				2CB29508307B508800267D3C /* Resources */,
+				2CB294B7307B508800267D3C /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		2CB294BD307B508800267D3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2CB294BC307B508800267D3C /* dragoman.app */,
+				2CB294CE307B508800267D3C /* dragoman.app */,
+				2CB294DA307B508800267D3C /* dragoman Extension.appex */,
+				2CB294E4307B508800267D3C /* dragoman Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2CB294BE307B508800267D3C /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				2CB294BF307B508800267D3C /* AppDelegate.swift */,
+				2CB294C1307B508800267D3C /* SceneDelegate.swift */,
+				2CB294C3307B508800267D3C /* LaunchScreen.storyboard */,
+				2CB294C6307B508800267D3C /* Main.storyboard */,
+				2CB294C9307B508800267D3C /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		2CB294CF307B508800267D3C /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				2CB294D0307B508800267D3C /* AppDelegate.swift */,
+				2CB294D2307B508800267D3C /* Main.storyboard */,
+				2CB294D5307B508800267D3C /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		2CB294DE307B508800267D3C /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				2CB294DF307B508800267D3C /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		2CB294E8307B508800267D3C /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				2CB294E9307B508800267D3C /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		2CB29508307B508800267D3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2CB29509307B508800267D3C /* background.js */,
+				2CB2950A307B508800267D3C /* popup.html */,
+				2CB2950B307B508800267D3C /* chunks */,
+				2CB2950C307B508800267D3C /* content-scripts */,
+				2CB2950D307B508800267D3C /* bergamot */,
+				2CB2950E307B508800267D3C /* manifest.json */,
+				2CB2950F307B508800267D3C /* options.html */,
+				2CB29510307B508800267D3C /* icon */,
+				2CB29511307B508800267D3C /* characters */,
+				2CB29600307B508800267D3C /* pet */,
+				2CB29512307B508800267D3C /* assets */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2CB294BB307B508800267D3C /* dragoman (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CB294FE307B508800267D3C /* Build configuration list for PBXNativeTarget "dragoman (iOS)" */;
+			buildPhases = (
+				2CB294B8307B508800267D3C /* Sources */,
+				2CB294B9307B508800267D3C /* Frameworks */,
+				2CB294BA307B508800267D3C /* Resources */,
+				2CB294FD307B508800267D3C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2CB294DD307B508800267D3C /* PBXTargetDependency */,
+			);
+			name = "dragoman (iOS)";
+			productName = "dragoman (iOS)";
+			productReference = 2CB294BC307B508800267D3C /* dragoman.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2CB294CD307B508800267D3C /* dragoman (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CB29505307B508800267D3C /* Build configuration list for PBXNativeTarget "dragoman (macOS)" */;
+			buildPhases = (
+				2CB294CA307B508800267D3C /* Sources */,
+				2CB294CB307B508800267D3C /* Frameworks */,
+				2CB294CC307B508800267D3C /* Resources */,
+				2CB29504307B508800267D3C /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2CB294E7307B508800267D3C /* PBXTargetDependency */,
+			);
+			name = "dragoman (macOS)";
+			productName = "dragoman (macOS)";
+			productReference = 2CB294CE307B508800267D3C /* dragoman.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2CB294D9307B508800267D3C /* dragoman Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CB294FA307B508800267D3C /* Build configuration list for PBXNativeTarget "dragoman Extension (iOS)" */;
+			buildPhases = (
+				2CB294D6307B508800267D3C /* Sources */,
+				2CB294D7307B508800267D3C /* Frameworks */,
+				2CB294D8307B508800267D3C /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "dragoman Extension (iOS)";
+			productName = "dragoman Extension (iOS)";
+			productReference = 2CB294DA307B508800267D3C /* dragoman Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		2CB294E3307B508800267D3C /* dragoman Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CB29501307B508800267D3C /* Build configuration list for PBXNativeTarget "dragoman Extension (macOS)" */;
+			buildPhases = (
+				2CB294E0307B508800267D3C /* Sources */,
+				2CB294E1307B508800267D3C /* Frameworks */,
+				2CB294E2307B508800267D3C /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "dragoman Extension (macOS)";
+			productName = "dragoman Extension (macOS)";
+			productReference = 2CB294E4307B508800267D3C /* dragoman Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2CB294A9307B508700267D3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					2CB294BB307B508800267D3C = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					2CB294CD307B508800267D3C = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					2CB294D9307B508800267D3C = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					2CB294E3307B508800267D3C = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 2CB294AC307B508700267D3C /* Build configuration list for PBXProject "dragoman" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2CB294A8307B508700267D3C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2CB294BD307B508800267D3C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2CB294BB307B508800267D3C /* dragoman (iOS) */,
+				2CB294CD307B508800267D3C /* dragoman (macOS) */,
+				2CB294D9307B508800267D3C /* dragoman Extension (iOS) */,
+				2CB294E3307B508800267D3C /* dragoman Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2CB294BA307B508800267D3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				2CB294EC307B508800267D3C /* Icon.png in Resources */,
+				2CB294C5307B508800267D3C /* LaunchScreen.storyboard in Resources */,
+				2CB294EA307B508800267D3C /* Main.html in Resources */,
+				2CB294F0307B508800267D3C /* Script.js in Resources */,
+				2CB294F4307B508800267D3C /* Assets.xcassets in Resources */,
+				2CB2FA01307B508800267D3C /* AppIcon.icon in Resources */,
+				2CB294C8307B508800267D3C /* Main.storyboard in Resources */,
+				2CB294EE307B508800267D3C /* Style.css in Resources */,
+			);
+		};
+		2CB294CC307B508800267D3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				2CB294ED307B508800267D3C /* Icon.png in Resources */,
+				2CB294EF307B508800267D3C /* Style.css in Resources */,
+				2CB294D4307B508800267D3C /* Main.storyboard in Resources */,
+				2CB294F1307B508800267D3C /* Script.js in Resources */,
+				2CB294F5307B508800267D3C /* Assets.xcassets in Resources */,
+				2CB2FA02307B508800267D3C /* AppIcon.icon in Resources */,
+				2CB294EB307B508800267D3C /* Main.html in Resources */,
+			);
+		};
+		2CB294D8307B508800267D3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				2CB29523307B508800267D3C /* options.html in Resources */,
+				2CB2951F307B508800267D3C /* chunks in Resources */,
+				2CB2951D307B508800267D3C /* background.js in Resources */,
+				2CB2951E307B508800267D3C /* popup.html in Resources */,
+				2CB29525307B508800267D3C /* characters in Resources */,
+				2CB29602307B508800267D3C /* pet in Resources */,
+				2CB29526307B508800267D3C /* assets in Resources */,
+				2CB29521307B508800267D3C /* bergamot in Resources */,
+				2CB29524307B508800267D3C /* icon in Resources */,
+				2CB29522307B508800267D3C /* manifest.json in Resources */,
+				2CB29520307B508800267D3C /* content-scripts in Resources */,
+			);
+		};
+		2CB294E2307B508800267D3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				2CB29519307B508800267D3C /* options.html in Resources */,
+				2CB29515307B508800267D3C /* chunks in Resources */,
+				2CB29513307B508800267D3C /* background.js in Resources */,
+				2CB29514307B508800267D3C /* popup.html in Resources */,
+				2CB2951B307B508800267D3C /* characters in Resources */,
+				2CB29601307B508800267D3C /* pet in Resources */,
+				2CB2951C307B508800267D3C /* assets in Resources */,
+				2CB29517307B508800267D3C /* bergamot in Resources */,
+				2CB2951A307B508800267D3C /* icon in Resources */,
+				2CB29518307B508800267D3C /* manifest.json in Resources */,
+				2CB29516307B508800267D3C /* content-scripts in Resources */,
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2CB294B8307B508800267D3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				2CB294F2307B508800267D3C /* ViewController.swift in Sources */,
+				2CB294C0307B508800267D3C /* AppDelegate.swift in Sources */,
+				2CB294C2307B508800267D3C /* SceneDelegate.swift in Sources */,
+			);
+		};
+		2CB294CA307B508800267D3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				2CB294F3307B508800267D3C /* ViewController.swift in Sources */,
+				2CB294D1307B508800267D3C /* AppDelegate.swift in Sources */,
+			);
+		};
+		2CB294D6307B508800267D3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				2CB294F6307B508800267D3C /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+		2CB294E0307B508800267D3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				2CB294F7307B508800267D3C /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2CB294DD307B508800267D3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CB294D9307B508800267D3C /* dragoman Extension (iOS) */;
+			targetProxy = 2CB294DC307B508800267D3C /* PBXContainerItemProxy */;
+		};
+		2CB294E7307B508800267D3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CB294E3307B508800267D3C /* dragoman Extension (macOS) */;
+			targetProxy = 2CB294E6307B508800267D3C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2CB294AF307B508700267D3C /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CB294B0307B508700267D3C /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		2CB294C3307B508800267D3C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CB294C4307B508800267D3C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2CB294C6307B508800267D3C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CB294C7307B508800267D3C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2CB294D2307B508800267D3C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2CB294D3307B508800267D3C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2CB294F8307B508800267D3C /* Debug configuration for PBXProject "dragoman" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2CB294F9307B508800267D3C /* Release configuration for PBXProject "dragoman" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		2CB294FB307B508800267D3C /* Debug configuration for PBXNativeTarget "dragoman Extension (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55PN4MC8Q6;
+				CURRENT_PROJECT_VERSION = 2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = dragoman;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.dragoman.app.Extension;
+				PRODUCT_NAME = "dragoman Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2CB294FC307B508800267D3C /* Release configuration for PBXNativeTarget "dragoman Extension (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55PN4MC8Q6;
+				CURRENT_PROJECT_VERSION = 2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = dragoman;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.dragoman.app.Extension;
+				PRODUCT_NAME = "dragoman Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2CB294FF307B508800267D3C /* Debug configuration for PBXNativeTarget "dragoman (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55PN4MC8Q6;
+				CURRENT_PROJECT_VERSION = 2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = dragoman;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.dragoman.app;
+				PRODUCT_NAME = dragoman;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2CB29500307B508800267D3C /* Release configuration for PBXNativeTarget "dragoman (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55PN4MC8Q6;
+				CURRENT_PROJECT_VERSION = 2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = dragoman;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.dragoman.app;
+				PRODUCT_NAME = dragoman;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2CB29502307B508800267D3C /* Debug configuration for PBXNativeTarget "dragoman Extension (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55PN4MC8Q6;
+				CURRENT_PROJECT_VERSION = 2;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = dragoman;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.dragoman.app.Extension;
+				PRODUCT_NAME = "dragoman Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2CB29503307B508800267D3C /* Release configuration for PBXNativeTarget "dragoman Extension (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55PN4MC8Q6;
+				CURRENT_PROJECT_VERSION = 2;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = dragoman;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.dragoman.app.Extension;
+				PRODUCT_NAME = "dragoman Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2CB29506307B508800267D3C /* Debug configuration for PBXNativeTarget "dragoman (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55PN4MC8Q6;
+				CURRENT_PROJECT_VERSION = 2;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = dragoman;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.dragoman.app;
+				PRODUCT_NAME = dragoman;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2CB29507307B508800267D3C /* Release configuration for PBXNativeTarget "dragoman (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 55PN4MC8Q6;
+				CURRENT_PROJECT_VERSION = 2;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = dragoman;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.reference";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.dragoman.app;
+				PRODUCT_NAME = dragoman;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CB294AC307B508700267D3C /* Build configuration list for PBXProject "dragoman" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CB294F8307B508800267D3C /* Debug configuration for PBXProject "dragoman" */,
+				2CB294F9307B508800267D3C /* Release configuration for PBXProject "dragoman" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		2CB294FA307B508800267D3C /* Build configuration list for PBXNativeTarget "dragoman Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CB294FB307B508800267D3C /* Debug configuration for PBXNativeTarget "dragoman Extension (iOS)" */,
+				2CB294FC307B508800267D3C /* Release configuration for PBXNativeTarget "dragoman Extension (iOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		2CB294FE307B508800267D3C /* Build configuration list for PBXNativeTarget "dragoman (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CB294FF307B508800267D3C /* Debug configuration for PBXNativeTarget "dragoman (iOS)" */,
+				2CB29500307B508800267D3C /* Release configuration for PBXNativeTarget "dragoman (iOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		2CB29501307B508800267D3C /* Build configuration list for PBXNativeTarget "dragoman Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CB29502307B508800267D3C /* Debug configuration for PBXNativeTarget "dragoman Extension (macOS)" */,
+				2CB29503307B508800267D3C /* Release configuration for PBXNativeTarget "dragoman Extension (macOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		2CB29505307B508800267D3C /* Build configuration list for PBXNativeTarget "dragoman (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CB29506307B508800267D3C /* Debug configuration for PBXNativeTarget "dragoman (macOS)" */,
+				2CB29507307B508800267D3C /* Release configuration for PBXNativeTarget "dragoman (macOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2CB294A9307B508700267D3C /* Project object */;
+	validationLevel = 1;
+}

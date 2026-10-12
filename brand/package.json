@@ -1,0 +1,42 @@
+{
+  "name": "@dragoman/brand",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#src/*": "./src/*.ts"
+  },
+  "exports": {
+    "./theme.css": "./src/theme.css",
+    "./*.svelte": "./src/*.svelte",
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "studio": "vite studio --port 3020",
+    "render": "node scripts/render.ts",
+    "fonts": "uv run scripts/fonts.py",
+    "pet": "node scripts/pet.ts",
+    "loops": "node scripts/loops.ts",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "lint": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto .",
+    "lint:fix": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto --fix ."
+  },
+  "dependencies": {
+    "@fontsource/aref-ruqaa": "catalog:",
+    "@fontsource/ibm-plex-mono": "catalog:",
+    "@fontsource/ibm-plex-sans-arabic": "catalog:",
+    "@fontsource/ibm-plex-sans-devanagari": "catalog:",
+    "@fontsource/ibm-plex-sans-hebrew": "catalog:",
+    "@fontsource/ibm-plex-sans-thai": "catalog:",
+    "@fontsource/rakkas": "catalog:",
+    "bits-ui": "catalog:",
+    "three": "catalog:"
+  },
+  "devDependencies": {
+    "@types/three": "catalog:",
+    "vite": "catalog:"
+  },
+  "peerDependencies": {
+    "svelte": "catalog:"
+  }
+}

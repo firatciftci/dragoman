@@ -1,0 +1,13 @@
+node_modules
+.output
+.wxt
+.env
+.env.*
+!.env.example
+.DS_Store
+web-ext.config.ts
+.svelte-kit
+build
+.wrangler
+**/src/lib/paraglide
+project.inlang/cache

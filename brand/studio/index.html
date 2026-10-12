@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dragoman studio</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #f6f5ef;
+        font: 14px system-ui;
+      }
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      nav {
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        display: flex;
+        gap: 6px;
+      }
+      button {
+        border: 1px solid #18204a33;
+        background: #fff;
+        border-radius: 6px;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="stage"></canvas>
+    <nav>
+      <button data-background="#f6f5ef">Tile</button>
+      <button data-background="#0f1636">Lapis</button>
+      <button data-background="#2347a8">Cobalt</button>
+      <button data-spin>Turn</button>
+    </nav>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

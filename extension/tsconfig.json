@@ -1,0 +1,12 @@
+{
+  "extends": "./.wxt/tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "allowJs": true,
+    "checkJs": false
+  },
+  "exclude": ["node_modules", ".output", "public"]
+}

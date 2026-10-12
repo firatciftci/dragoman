@@ -1,0 +1,36 @@
+{
+  "name": "@dragoman/extension",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "build:safari": "wxt build -b safari",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "zip:safari": "wxt zip -b safari",
+    "postinstall": "wxt prepare",
+    "check": "wxt prepare && svelte-check --tsconfig ./tsconfig.json",
+    "lint": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto .",
+    "lint:fix": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto --fix ."
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "catalog:",
+    "@dragoman/brand": "workspace:*",
+    "bits-ui": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "catalog:",
+    "@wxt-dev/module-svelte": "catalog:",
+    "svelte": "catalog:",
+    "tailwindcss": "catalog:",
+    "wxt": "catalog:"
+  }
+}

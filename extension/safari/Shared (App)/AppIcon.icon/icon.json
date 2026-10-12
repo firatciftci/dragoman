@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "layers": [
+        { "glass": false, "image-name": "dragoman.png", "name": "dragoman" }
+      ],
+      "shadow": { "kind": "neutral", "opacity": 0.5 },
+      "translucency": { "enabled": false, "value": 0.5 }
+    },
+    {
+      "layers": [{ "glass": true, "image-name": "ring.png", "name": "ring" }],
+      "shadow": { "kind": "none", "opacity": 0.5 },
+      "translucency": { "enabled": false, "value": 0.5 }
+    }
+  ],
+  "supported-platforms": { "squares": "shared" },
+  "fill-specializations": [
+    { "value": { "solid": "srgb:0.13725,0.27843,0.65882,1.00000" } },
+    {
+      "appearance": "dark",
+      "value": { "solid": "srgb:0.05882,0.08627,0.21176,1.00000" }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:best-practices", "schedule:weekly", ":semanticCommits"],
+  "rangeStrategy": "bump",
+  "postUpdateOptions": ["pnpmDedupe"],
+  "packageRules": [
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "matchPackageNames": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": ">=1.0.0"
+    },
+    {
+      "groupName": "ESLint",
+      "matchPackageNames": ["eslint", "@antfu/eslint-config", "eslint-plugin-*"]
+    },
+    {
+      "groupName": "Svelte",
+      "matchPackageNames": ["svelte", "svelte-check", "@sveltejs/**"]
+    },
+    { "groupName": "three", "matchPackageNames": ["three", "@types/three"] },
+    {
+      "groupName": "Fontsource",
+      "matchPackageNames": ["@fontsource/**", "@fontsource-variable/**"]
+    }
+  ]
+}

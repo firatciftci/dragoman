@@ -1,0 +1,7 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dragoman",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./build", "not_found_handling": "404-page" },
+  "routes": [{ "pattern": "dragoman.io", "custom_domain": true }],
+}

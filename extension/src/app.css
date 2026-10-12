@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "@dragoman/brand/theme.css";
+
+@source "../../brand/src";
+
+body {
+  @apply bg-surface font-sans text-text antialiased;
+}
+
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent;
+}
+
+@utility picked {
+  &:is([data-state="checked"], [data-state="active"]) {
+    border-color: var(--accent);
+    background-color: color-mix(in oklab, var(--accent) 12%, var(--raised));
+    color: var(--text);
+    box-shadow:
+      inset 0 0 0 1px var(--accent),
+      inset 0 -3px 0 var(--accent);
+  }
+}
