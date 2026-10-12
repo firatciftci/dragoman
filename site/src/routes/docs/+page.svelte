@@ -1,5 +1,7 @@
 <script lang="ts">
+  import type { Attachment } from "svelte/attachments";
   import { onMount } from "svelte";
+  import { on } from "svelte/events";
   import type { Browser, Family } from "#lib/agent.ts";
   import { detect } from "#lib/agent.ts";
   import Emblem from "#lib/emblem.svelte";
@@ -88,6 +90,7 @@ pnpm dev:extension`;
 
   let agent = $state<ReturnType<typeof detect> | null>(null);
   let family = $state<Family>("chromium");
+  let direction = $state(0);
   let active = $state("install");
   let copied = $state<string | null>(null);
   let bar = $state<HTMLElement>();
@@ -134,6 +137,46 @@ pnpm dev:extension`;
       mark: null,
     };
   });
+
+  const order = $derived(families.findIndex(({ id }) => id === family));
+
+  const choose = (id: Family) => {
+    direction = Math.sign(
+      families.findIndex((option) => option.id === id) - order,
+    );
+    family = id;
+  };
+
+  const unfold: Attachment<HTMLDetailsElement> = (details) => {
+    const summary = details.querySelector("summary");
+    if (summary == null) return;
+    let motion: Animation | undefined;
+    const onclick = (event: MouseEvent) => {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      event.preventDefault();
+      const from = details.offsetHeight;
+      motion?.cancel();
+      const isOpening = !details.open || details.dataset.closing != null;
+      details.toggleAttribute("data-closing", !isOpening);
+      details.open = true;
+      details.style.overflow = "clip";
+      const to = isOpening ? details.offsetHeight : summary.offsetHeight;
+      motion = details.animate(
+        { height: [`${from}px`, `${to}px`] },
+        {
+          duration: Math.min(520, 260 + Math.abs(to - from) * 0.6),
+          easing: "cubic-bezier(0.65, 0, 0.2, 1)",
+        },
+      );
+      motion.onfinish = () => {
+        if (!isOpening) details.open = false;
+        details.removeAttribute("data-closing");
+        details.style.overflow = "";
+        motion = undefined;
+      };
+    };
+    return on(summary, "click", onclick);
+  };
 
   $effect(() => {
     const chip = bar?.querySelector<HTMLElement>(`[href="#${active}"]`);
@@ -192,9 +235,13 @@ pnpm dev:extension`;
           }, 1600);
         }}
       >
-        <span aria-live="polite"
-          >{copied === text ? m.docs_copied() : m.docs_copy()}</span
-        >
+        <span aria-live="polite" class="grid">
+          {#key copied === text}
+            <span class="swap">
+              {copied === text ? m.docs_copied() : m.docs_copy()}
+            </span>
+          {/key}
+        </span>
       </button>
     </div>
     <pre
@@ -354,7 +401,7 @@ pnpm dev:extension`;
                 <a
                   href="#install"
                   class="inline-flex min-h-11 items-center gap-2 rounded-xl bg-sunk px-3.5 text-[15px] font-semibold transition-colors hover:bg-line"
-                  onclick={() => (family = option.id)}
+                  onclick={() => choose(option.id)}
                 >
                   <Emblem name={option.mark} class="size-5" />
                   {option.label}
@@ -430,21 +477,25 @@ pnpm dev:extension`;
         role="tablist"
         aria-label={m.docs_choose()}
         tabindex="-1"
-        class="mt-9 grid grid-cols-3 gap-1 rounded-2xl bg-sunk p-1"
+        class="relative mt-9 grid grid-cols-3 gap-1 rounded-2xl bg-sunk p-1"
         onkeydown={(event: KeyboardEvent) => {
           const list = event.currentTarget as HTMLElement;
-          const index = families.findIndex(({ id }) => id === family);
           const step = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
           if (step == null) return;
           event.preventDefault();
           const isRtl = getComputedStyle(list).direction === "rtl";
           const next =
-            (index + (isRtl ? -step : step) + families.length) %
+            (order + (isRtl ? -step : step) + families.length) %
             families.length;
-          family = families[next]?.id ?? family;
+          choose(families[next]?.id ?? family);
           list.querySelectorAll<HTMLElement>('[role="tab"]')[next]?.focus();
         }}
       >
+        <span
+          class="pill pointer-events-none absolute inset-y-1 start-1 w-[calc((100%-1rem)/3)] rounded-xl bg-raised shadow-[0_6px_16px_-10px_rgb(24_32_74/0.6)]"
+          style:--order={order}
+          aria-hidden="true"
+        ></span>
         {#each families as option (option.id)}
           {const isActive = $derived(option.id === family)}
           <button
@@ -455,14 +506,13 @@ pnpm dev:extension`;
             aria-controls="panel-{option.id}"
             tabindex={isActive ? 0 : -1}
             class={[
-              "relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-center text-[14.5px] leading-tight font-semibold transition-[background-color,color,box-shadow] sm:flex-row sm:gap-2.5 sm:text-[15.5px]",
+              "relative flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-center text-[14.5px] leading-tight font-semibold transition-colors duration-300 sm:flex-row sm:gap-2.5 sm:text-[15.5px]",
               {
-                "bg-raised text-text shadow-[0_6px_16px_-10px_rgb(24_32_74/0.6)]":
-                  isActive,
+                "text-text": isActive,
                 "text-muted hover:text-text": !isActive,
               },
             ]}
-            onclick={() => (family = option.id)}
+            onclick={() => choose(option.id)}
           >
             <Emblem name={option.mark} class="size-5" />
             {option.label}
@@ -482,7 +532,8 @@ pnpm dev:extension`;
           id="panel-{option.id}"
           aria-labelledby="family-{option.id}"
           hidden={option.id !== family}
-          class="pt-6"
+          class="panel pt-6"
+          style:--direction={direction}
         >
           <a
             href={option.href}
@@ -563,7 +614,8 @@ pnpm dev:extension`;
 
           {#if option.id !== "safari"}
             <details
-              class="group mt-6 rounded-3xl bg-raised px-5 ring-1 ring-line open:pb-6 sm:px-6"
+              class="fold mt-6 rounded-3xl bg-raised px-5 ring-1 ring-line open:pb-6 sm:px-6"
+              {@attach unfold}
             >
               <summary
                 class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden"
@@ -571,7 +623,7 @@ pnpm dev:extension`;
                 {m.docs_manual_title()}
                 <svg
                   viewBox="0 0 20 20"
-                  class="size-5 shrink-0 text-muted transition-transform group-open:rotate-180"
+                  class="turn size-5 shrink-0 text-muted [--turn:180deg]"
                   aria-hidden="true"
                 >
                   <path
@@ -709,7 +761,8 @@ pnpm dev:extension`;
       <div class="mt-6 grid gap-2.5">
         {#each [[m.docs_help_blocked(), m.docs_help_blocked_detail()], [m.docs_help_engine(), m.docs_help_engine_detail()], [m.docs_help_local(), m.docs_help_local_detail()], [m.docs_help_access(), m.docs_help_access_detail()], [m.docs_help_consent(), m.docs_help_consent_detail()]] as [question, answer] (question)}
           <details
-            class="group rounded-2xl bg-raised px-5 ring-1 ring-line open:pb-5"
+            class="fold rounded-2xl bg-raised px-5 ring-1 ring-line open:pb-5"
+            {@attach unfold}
           >
             <summary
               class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3 font-semibold [&::-webkit-details-marker]:hidden"
@@ -717,7 +770,7 @@ pnpm dev:extension`;
               {question}
               <svg
                 viewBox="0 0 20 20"
-                class="size-5 shrink-0 text-muted transition-transform group-open:rotate-45"
+                class="turn size-5 shrink-0 text-muted [--turn:45deg]"
                 aria-hidden="true"
               >
                 <path
@@ -801,9 +854,83 @@ pnpm dev:extension`;
     }
   }
 
+  .pill {
+    translate: calc(var(--order) * (100% + 0.25rem)) 0;
+    transition: translate 0.5s cubic-bezier(0.3, 1.25, 0.4, 1);
+  }
+
+  .pill:dir(rtl) {
+    translate: calc(var(--order) * (-100% - 0.25rem)) 0;
+  }
+
+  .panel {
+    --shift: calc(var(--direction) * 18px);
+    animation: panel 0.45s var(--ease-quill) both;
+  }
+
+  .panel:dir(rtl) {
+    --shift: calc(var(--direction) * -18px);
+  }
+
+  @keyframes panel {
+    from {
+      opacity: 0;
+      translate: var(--shift) 4px;
+    }
+  }
+
+  .turn {
+    transition: rotate 0.4s var(--ease-quill);
+  }
+
+  .fold[open]:not([data-closing]) .turn {
+    rotate: var(--turn);
+  }
+
+  .fold > :not(summary) {
+    transition:
+      opacity 0.35s ease-out 0.05s,
+      translate 0.45s var(--ease-quill) 0.05s;
+  }
+
+  .fold:not([open]) > :not(summary),
+  .fold:global([data-closing]) > :not(summary) {
+    opacity: 0;
+    translate: 0 -8px;
+    transition-duration: 0.15s;
+    transition-delay: 0s;
+  }
+
+  @starting-style {
+    .fold[open] > :not(summary) {
+      opacity: 0;
+      translate: 0 -8px;
+    }
+  }
+
+  .swap {
+    grid-area: 1 / 1;
+    animation: swap 0.3s var(--ease-quill) both;
+  }
+
+  @keyframes swap {
+    from {
+      opacity: 0;
+      translate: 0 40%;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .appear {
+    .appear,
+    .panel,
+    .swap {
       animation: none;
+    }
+
+    .pill,
+    .turn,
+    .fold > :not(summary) {
+      transition: none;
     }
   }
 </style>

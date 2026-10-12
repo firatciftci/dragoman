@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import { onNavigate } from "$app/navigation";
   import { page } from "$app/state";
   import { locales as names } from "@dragoman/brand/locales";
   import Tooltip from "@dragoman/brand/tooltip.svelte";
@@ -45,6 +46,20 @@
     ["#cast", m.site_nav_cast()],
     ["#languages", m.site_nav_languages()],
   ] as const;
+
+  onNavigate(async (navigation) => {
+    if (
+      !("startViewTransition" in document) ||
+      navigation.from?.url.pathname === navigation.to?.url.pathname
+    )
+      return;
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
 </script>
 
 <svelte:head>
@@ -85,7 +100,7 @@
 
   <header
     class={[
-      "absolute inset-x-0 top-0 isolate z-30",
+      "absolute inset-x-0 top-0 isolate z-30 [view-transition-name:header]",
       { "text-ink": isHome, "text-tile": !isHome },
     ]}
   >

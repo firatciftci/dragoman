@@ -259,26 +259,36 @@
     inset-inline: auto max(1rem, calc((100vw - 80rem) / 2 + 1.25rem));
     width: min(24rem, calc(100vw - 2rem));
     max-height: min(34rem, calc(100dvh - 6rem));
+    transform-origin: top right;
     transition:
-      opacity 0.18s,
-      translate 0.18s var(--ease-quill, ease-out),
-      overlay 0.18s allow-discrete,
-      display 0.18s allow-discrete;
+      opacity 0.16s ease-in,
+      translate 0.16s ease-in,
+      scale 0.16s ease-in,
+      overlay 0.16s allow-discrete,
+      display 0.16s allow-discrete;
+  }
+
+  .picker:dir(rtl) {
+    transform-origin: top left;
   }
 
   .picker:popover-open {
     display: flex;
+    transition-duration: 0.32s;
+    transition-timing-function: var(--ease-quill);
   }
 
   .picker:not(:popover-open) {
     opacity: 0;
-    translate: 0 -8px;
+    translate: 0 -6px;
+    scale: 0.97;
   }
 
   @starting-style {
     .picker:popover-open {
       opacity: 0;
-      translate: 0 -8px;
+      translate: 0 -10px;
+      scale: 0.95;
     }
   }
 

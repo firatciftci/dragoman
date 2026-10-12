@@ -895,9 +895,14 @@
           }}
         >
           <span
-            class="absolute inset-x-6 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-ink/10"
+            class="absolute inset-x-6 top-1/2 h-0.5 -translate-y-1/2 overflow-hidden rounded-full bg-ink/10"
             aria-hidden="true"
-          ></span>
+          >
+            <span
+              class="fill block size-full origin-left rounded-full bg-ink/30 rtl:origin-right"
+              style:scale="{storyStep / (steps.length - 1)} 1"
+            ></span>
+          </span>
           {#each steps as [title], index (title)}
             {const isActive = $derived(index === storyStep)}
             <button
@@ -1000,8 +1005,11 @@
             id="story-panel-{index}"
             aria-labelledby="story-tab-{index}"
             class={[
-              "rounded-3xl bg-white/70 p-5 shadow-[0_20px_40px_-28px_rgb(24_32_74/0.5)] transition-opacity duration-300 [grid-area:1/1]",
-              { "invisible opacity-0": !isActive },
+              "rounded-3xl bg-white/70 p-5 shadow-[0_20px_40px_-28px_rgb(24_32_74/0.5)] transition-[opacity,translate,visibility] ease-quill [grid-area:1/1] motion-reduce:transition-none",
+              {
+                "invisible translate-y-2 opacity-0 duration-200": !isActive,
+                "delay-100 duration-500": isActive,
+              },
             ]}
           >
             <h3 class="text-[clamp(18px,1.7vw,23px)] font-semibold">
@@ -1775,6 +1783,10 @@
     animation: progress linear forwards;
   }
 
+  .fill {
+    transition: scale 0.7s var(--ease-quill);
+  }
+
   @keyframes progress {
     from {
       stroke-dashoffset: 138.2;
@@ -2289,7 +2301,8 @@
     }
 
     .cursor,
-    .tilt {
+    .tilt,
+    .fill {
       transition: none;
     }
 
