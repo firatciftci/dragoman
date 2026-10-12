@@ -684,7 +684,7 @@
 {#snippet watch()}
   <button
     type="button"
-    class="inline-flex min-h-14 items-center gap-3 rounded-2xl bg-ink/10 px-5 text-[17px] font-semibold text-current ring-1 ring-current/25 backdrop-blur-sm transition-colors hover:bg-ink/20"
+    class="inline-flex min-h-14 cursor-pointer items-center gap-3 rounded-2xl bg-ink/10 px-5 text-[17px] font-semibold text-current ring-1 ring-current/25 backdrop-blur-sm transition-colors hover:bg-ink/20"
     onclick={openFilm}
   >
     <span class="grid size-8 place-items-center rounded-full bg-gold text-ink">
