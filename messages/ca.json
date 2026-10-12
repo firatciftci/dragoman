@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Ara els turistes fan cua perquè els tradueixi la carta.",
   "story_title": "Mira com una pàgina canvia d'idioma",
   "story_detail": "Segueix una pàgina des del primer clic fins a l'últim retoc.",
+  "story_pause": "Pausa",
+  "story_play": "Reprodueix",
   "step_open": "Obre qualsevol pàgina",
   "step_open_detail": "Notícies, receptes, botigues o documentació, en qualsevol idioma. Fes clic a dragoman, toca'l al mòbil o prem Alt+Shift+T.",
   "devices_title": "Allà on llegeixis",

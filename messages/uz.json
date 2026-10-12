@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Endi sayyohlar undan menyuni tarjima qilib berishini so‘rab navbatga turishadi.",
   "story_title": "Sahifa tilini qanday o‘zgartirishini ko‘ring",
   "story_detail": "Bitta sahifani birinchi bosishdan so‘nggi sayqalgacha kuzating.",
+  "story_pause": "Pauza",
+  "story_play": "Ijro etish",
   "step_open": "Istalgan sahifani oching",
   "step_open_detail": "Yangiliklar, retseptlar, do‘konlar yoki hujjatlar, istalgan tilda. dragoman’ni bosing, telefonda unga teging yoki Alt+Shift+T tugmalarini bosing.",
   "devices_title": "Qayerda o‘qisangiz ham",

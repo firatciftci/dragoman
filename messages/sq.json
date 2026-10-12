@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Tani turistët zënë radhë që t'u përkthejë menynë.",
   "story_title": "Shiko si një faqe ndërron gjuhë",
   "story_detail": "Ndiq një faqe nga klikimi i parë deri te lëmimi përfundimtar.",
+  "story_pause": "Pauzë",
+  "story_play": "Luaj",
   "step_open": "Hap çfarëdo faqeje",
   "step_open_detail": "Lajme, receta, dyqane apo dokumentacion, në çdo gjuhë. Kliko dragoman, prek atë në telefon ose shtyp Alt+Shift+T.",
   "devices_title": "Kudo që lexon",

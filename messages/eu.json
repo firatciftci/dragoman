@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Orain turistak ilaran jartzen dira menua itzul diezaien eskatzeko.",
   "story_title": "Ikusi orri bat hizkuntzaz aldatzen",
   "story_detail": "Jarraitu orri bati lehen kliketik azken ukituraino.",
+  "story_pause": "Pausatu",
+  "story_play": "Erreproduzitu",
   "step_open": "Ireki edozein orri",
   "step_open_detail": "Albisteak, errezetak, dendak edo dokumentuak, edozein hizkuntzatan. Egin klik dragoman-en, ukitu telefonoan, edo sakatu Alt+Shift+T.",
   "devices_title": "Irakurtzen duzun lekuan",

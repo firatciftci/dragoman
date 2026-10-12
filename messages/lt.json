@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Dabar turistai stoja į eilę, kad jis išverstų jiems meniu.",
   "story_title": "Pažiūrėkite, kaip puslapis keičia kalbą",
   "story_detail": "Sekite vieną puslapį nuo pirmo spustelėjimo iki galutinio nugludinimo.",
+  "story_pause": "Pristabdyti",
+  "story_play": "Leisti",
   "step_open": "Atidarykite bet kurį puslapį",
   "step_open_detail": "Naujienos, receptai, parduotuvės ar dokumentacija – bet kuria kalba. Spustelėkite dragoman, palieskite jį telefone arba paspauskite Alt+Shift+T.",
   "devices_title": "Kad ir kur skaitytumėte",

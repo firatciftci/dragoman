@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Turistit jonottavat nyt pyytämään, että se kääntäisi heille ruokalistan.",
   "story_title": "Katso, kun sivu vaihtaa kieltä",
   "story_detail": "Seuraa yhtä sivua ensimmäisestä napsautuksesta viimeiseen silaukseen.",
+  "story_pause": "Keskeytä",
+  "story_play": "Toista",
   "step_open": "Avaa mikä tahansa sivu",
   "step_open_detail": "Uutisia, reseptejä, verkkokauppoja tai ohjeita millä kielellä tahansa. Napsauta dragomania, napauta sitä puhelimessa tai paina Alt+Shift+T.",
   "devices_title": "Missä ikinä luetkin",

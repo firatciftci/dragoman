@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "現在觀光客都排隊請牠幫忙翻譯菜單。",
   "story_title": "看網頁如何換個語言",
   "story_detail": "跟著一個網頁，從第一次點擊到最後潤飾。",
+  "story_pause": "暫停",
+  "story_play": "播放",
   "step_open": "開啟任何網頁",
   "step_open_detail": "新聞、食譜、購物或文件，任何語言都行。點一下 dragoman、在手機上輕觸，或按 Alt+Shift+T。",
   "devices_title": "走到哪，讀到哪",

@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Bíonn turasóirí ag scuaine anois le go n-aistreoidh sé an biachlár dóibh.",
   "story_title": "Féach ar leathanach ag athrú teanga",
   "story_detail": "Lean leathanach amháin ón gcéad chliceáil go dtí an snas deiridh.",
+  "story_pause": "Cuir ar sos",
+  "story_play": "Seinn",
   "step_open": "Oscail leathanach ar bith",
   "step_open_detail": "Nuacht, oidis, siopaí nó doiciméid, in aon teanga. Cliceáil ar dragoman, tapáil é ar do ghuthán, nó brúigh Alt+Shift+T.",
   "devices_title": "Cibé áit a léann tú",

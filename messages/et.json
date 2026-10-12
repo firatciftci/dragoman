@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Nüüd seisavad turistid järjekorras, et ta neile menüü tõlgiks.",
   "story_title": "Vaata, kuidas leht keelt vahetab",
   "story_detail": "Jälgi üht lehte esimesest klõpsust viimase lihvini.",
+  "story_pause": "Peata",
+  "story_play": "Esita",
   "step_open": "Ava mis tahes leht",
   "step_open_detail": "Uudised, retseptid, poed või dokumendid, mis tahes keeles. Klõpsa dragomanil, puuduta seda telefonis või vajuta Alt+Shift+T.",
   "devices_title": "Kõikjal, kus loed",

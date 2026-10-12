@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Tagad tūristi stāv rindā, lai lūgtu viņu iztulkot ēdienkarti.",
   "story_title": "Vērojiet, kā lapa maina valodu",
   "story_detail": "Sekojiet vienai lapai no pirmā klikšķa līdz galīgajai noslīpēšanai.",
+  "story_pause": "Pauzēt",
+  "story_play": "Atskaņot",
   "step_open": "Atveriet jebkuru lapu",
   "step_open_detail": "Ziņas, receptes, veikali vai dokumentācija jebkurā valodā. Noklikšķiniet uz dragoman, pieskarieties tam tālrunī vai nospiediet Alt+Shift+T.",
   "devices_title": "Visur, kur lasāt",

@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Turisté teď stojí frontu, aby jim přeložil jídelní lístek.",
   "story_title": "Podívejte se, jak stránka mění jazyk",
   "story_detail": "Sledujte jednu stránku od prvního kliknutí po závěrečné vyladění.",
+  "story_pause": "Pozastavit",
+  "story_play": "Přehrát",
   "step_open": "Otevřete libovolnou stránku",
   "step_open_detail": "Zprávy, recepty, obchody či dokumentace v jakémkoli jazyce. Klikněte na dragoman, klepněte na něj v telefonu, nebo stiskněte Alt+Shift+T.",
   "devices_title": "Všude, kde čtete",

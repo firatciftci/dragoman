@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "이제는 관광객들이 메뉴판 번역을 부탁하려고 줄을 섭니다.",
   "story_title": "페이지의 언어가 바뀌는 순간",
   "story_detail": "첫 클릭부터 마지막 다듬기까지 한 페이지를 따라가 보세요.",
+  "story_pause": "일시정지",
+  "story_play": "재생",
   "step_open": "아무 페이지나 열기",
   "step_open_detail": "뉴스, 레시피, 쇼핑몰, 문서 등 어떤 언어든 괜찮습니다. dragoman을 클릭하거나, 휴대폰에서 탭하거나, Alt+Shift+T를 누르세요.",
   "devices_title": "어디서 읽든",

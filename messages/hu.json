@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "A turisták már sorban állnak, hogy lefordítsa nekik az étlapot.",
   "story_title": "Nézd, ahogy egy oldal nyelvet vált",
   "story_detail": "Kövess végig egy oldalt az első kattintástól a végső csiszolásig.",
+  "story_pause": "Szünet",
+  "story_play": "Lejátszás",
   "step_open": "Nyiss meg bármilyen oldalt",
   "step_open_detail": "Hírek, receptek, webshopok vagy dokumentációk, bármilyen nyelven. Kattints a dragomanra, koppints rá a telefonodon, vagy nyomd meg az Alt+Shift+T billentyűket.",
   "devices_title": "Bárhol olvasol",

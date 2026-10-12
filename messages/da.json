@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Nu står turisterne i kø for at få ham til at oversætte menukortet.",
   "story_title": "Se en side skifte sprog",
   "story_detail": "Følg én side fra det første klik til den sidste finpudsning.",
+  "story_pause": "Sæt på pause",
+  "story_play": "Afspil",
   "step_open": "Åbn en hvilken som helst side",
   "step_open_detail": "Nyheder, opskrifter, butikker eller dokumentation, på ethvert sprog. Klik på dragoman, tryk på den på din telefon, eller tryk Alt+Shift+T.",
   "devices_title": "Hvor du end læser",

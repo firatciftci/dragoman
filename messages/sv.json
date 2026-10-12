@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Nu köar turisterna för att få honom att översätta menyn.",
   "story_title": "Se en sida byta språk",
   "story_detail": "Följ en sida från första klicket till sista putsen.",
+  "story_pause": "Pausa",
+  "story_play": "Spela upp",
   "step_open": "Öppna valfri sida",
   "step_open_detail": "Nyheter, recept, butiker eller dokumentation, på vilket språk som helst. Klicka på dragoman, tryck på den i mobilen eller tryck Alt+Shift+T.",
   "devices_title": "Var du än läser",

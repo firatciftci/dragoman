@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Erbyn hyn, mae twristiaid yn ciwio i ofyn iddo gyfieithu'r fwydlen.",
   "story_title": "Gwyliwch dudalen yn newid iaith",
   "story_detail": "Dilynwch un dudalen o'r clic cyntaf i'r caboli olaf.",
+  "story_pause": "Seibio",
+  "story_play": "Chwarae",
   "step_open": "Agor unrhyw dudalen",
   "step_open_detail": "Newyddion, ryseitiau, siopau neu ddogfennau, mewn unrhyw iaith. Cliciwch dragoman, ei dapio ar eich ffôn, neu bwyso Alt+Shift+T.",
   "devices_title": "Lle bynnag rydych chi'n darllen",

@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Turistler şimdi menüyü çevirsin diye onun önünde sıraya giriyor.",
   "story_title": "Bir sayfanın dil değiştirişini izleyin",
   "story_detail": "Tek bir sayfayı ilk tıklamadan son rötuşa kadar takip edin.",
+  "story_pause": "Duraklat",
+  "story_play": "Oynat",
   "step_open": "Herhangi bir sayfayı açın",
   "step_open_detail": "Haberler, tarifler, mağazalar ya da belgeler, hangi dilde olursa olsun. dragoman'a tıklayın, telefonunuzda dokunun ya da Alt+Shift+T tuşlarına basın.",
   "devices_title": "Nerede okursanız okuyun",

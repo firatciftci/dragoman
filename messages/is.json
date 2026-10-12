@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Ferðamenn standa nú í röð til að fá hann til að þýða matseðilinn.",
   "story_title": "Sjáðu síðu skipta um tungumál",
   "story_detail": "Fylgdu einni síðu frá fyrsta smelli að lokafínpússun.",
+  "story_pause": "Gera hlé",
+  "story_play": "Spila",
   "step_open": "Opnaðu hvaða síðu sem er",
   "step_open_detail": "Fréttir, uppskriftir, verslanir eða leiðbeiningar, á hvaða tungumáli sem er. Smelltu á dragoman, ýttu á það í símanum eða ýttu á Alt+Shift+T.",
   "devices_title": "Hvar sem þú lest",

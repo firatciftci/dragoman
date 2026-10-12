@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Pumipila na ngayon ang mga turista para ipasalin sa kanya ang menu.",
   "story_title": "Panoorin ang pagpapalit ng wika ng isang pahina",
   "story_detail": "Sundan ang isang pahina mula sa unang click hanggang sa huling pagpino.",
+  "story_pause": "I-pause",
+  "story_play": "I-play",
   "step_open": "Magbukas ng kahit anong pahina",
   "step_open_detail": "Balita, resipe, tindahan o docs, sa kahit anong wika. I-click ang dragoman, i-tap ito sa phone mo, o pindutin ang Alt+Shift+T.",
   "devices_title": "Saan ka man nagbabasa",

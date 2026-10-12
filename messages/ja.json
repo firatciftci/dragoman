@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "今では観光客が列をつくり、メニューの通訳を頼んでいます。",
   "story_title": "ページの言語が変わる様子を見る",
   "story_detail": "最初のクリックから最後の仕上げまで、ひとつのページを追いかけます。",
+  "story_pause": "一時停止",
+  "story_play": "再生",
   "step_open": "好きなページを開く",
   "step_open_detail": "ニュースもレシピも、ショップもドキュメントも、言語を問いません。dragoman をクリックするか、スマートフォンならタップ、または Alt+Shift+T を押します。",
   "devices_title": "どこで読んでも",

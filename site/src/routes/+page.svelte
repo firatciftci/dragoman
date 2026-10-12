@@ -111,14 +111,17 @@
 
   let story = $state<HTMLElement>();
   let storyFrame = $state<HTMLElement>();
-  let storyProgress = $state(0);
+  let storyStep = $state(0);
+  let isStoryPlaying = $state(true);
+  let isStoryInView = $state(false);
+  let isStoryPopup = $state(false);
+  let isStoryPressed = $state(false);
   let storyCursor = $state({ x: 115, y: 30, pressed: false });
   const storyPage = pages[1 % pages.length] ?? all[0];
-  const storyStep = $derived(Math.min(3, Math.floor(storyProgress * 4)));
+  const storyDurations = [3600, 3600, 3600, 4800];
   const storyStage = $derived(
     storyStep === 0 ? "source" : storyStep === 1 ? "draft" : "refined",
   );
-  const isPopup = $derived(storyStep === 0 && storyProgress * 4 > 0.25);
 
   let deviceStage = $state<"source" | "draft" | "refined">("source");
 
@@ -210,6 +213,45 @@
       y: Math.min(94, (y / frame.offsetHeight) * 100),
     };
   };
+
+  $effect(() => {
+    const step = storyStep;
+    const frame = storyFrame;
+    if (!isStoryInView || frame == null) return;
+    const timers: Array<ReturnType<typeof setTimeout>> = [];
+    const point = (target: string, pressed = false) => {
+      storyCursor = { ...aim(frame, target), pressed };
+    };
+    isStoryPopup = false;
+    isStoryPressed = false;
+    if (step === 0) {
+      storyCursor = { x: 112, y: 92, pressed: false };
+      for (const [ms, change] of [
+        [300, () => point("extension")],
+        [
+          1200,
+          () => {
+            point("extension", true);
+            isStoryPressed = true;
+          },
+        ],
+        [
+          1400,
+          () => {
+            point("extension");
+            isStoryPopup = true;
+          },
+        ],
+        [1900, () => point("translate")],
+        [2900, () => point("translate", true)],
+        [3100, () => point("translate")],
+      ] as const)
+        timers.push(setTimeout(change, ms));
+    } else point(step === 3 ? "lead" : "badge");
+    return () => {
+      for (const timer of timers) clearTimeout(timer);
+    };
+  });
 
   const greet = (index: number) => {
     const [text, lang] =
@@ -316,37 +358,14 @@
       }
     })();
 
-    let frame = 0;
-    const measure = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        if (story == null) return;
-        const box = story.getBoundingClientRect();
-        storyProgress = Math.min(
-          0.999,
-          Math.max(0, -box.top / (box.height - innerHeight)),
-        );
-        const sub = storyProgress * 4 - storyStep;
-        requestAnimationFrame(() => {
-          const target =
-            storyStep === 0
-              ? sub < 0.25
-                ? "extension"
-                : "translate"
-              : storyStep === 3
-                ? "lead"
-                : "badge";
-          storyCursor = {
-            ...aim(storyFrame, target),
-            pressed:
-              storyStep === 0 && ((sub > 0.2 && sub < 0.27) || sub > 0.85),
-          };
-        });
-      });
-    };
-    measure();
-    const offScroll = on(window, "scroll", measure, { passive: true });
-    const offResize = on(window, "resize", measure, { passive: true });
+    if (isCalm) isStoryPlaying = false;
+    const storyWatch = new IntersectionObserver(
+      ([entry]) => {
+        isStoryInView = entry?.isIntersecting ?? false;
+      },
+      { rootMargin: "-30% 0px" },
+    );
+    if (story != null) storyWatch.observe(story);
 
     const near = new IntersectionObserver(
       ([entry]) => {
@@ -541,11 +560,9 @@
       playing.disconnect();
       near.disconnect();
       postWatch.disconnect();
-      cancelAnimationFrame(frame);
+      storyWatch.disconnect();
       cancelAnimationFrame(fireworks);
       clearTimeout(greetingTimer);
-      offScroll();
-      offResize();
       void audio?.close();
     };
   });
@@ -817,69 +834,104 @@
 <section
   id="how"
   bind:this={story}
-  class="relative h-[460svh] scroll-mt-0 bg-linear-to-b from-[#f8ecdc] to-[#f6e4de] text-ink"
+  class="relative scroll-mt-0 overflow-hidden bg-linear-to-b from-[#f8ecdc] to-[#f6e4de] px-5 py-24 text-ink lg:py-32"
 >
-  <div class="sticky top-0 flex h-svh flex-col justify-center overflow-hidden">
-    <div
-      class="pointer-events-none absolute inset-0"
-      style:--progress={storyProgress}
-      aria-hidden="true"
-    >
-      {#each glyphs as [glyph, lang], index (index)}
-        <span
-          class="glyph absolute font-display"
-          {lang}
-          style:left="{(index * 41 + 7) % 96}%"
-          style:top="{(index * 29 + 11) % 92}%"
-          style:--depth={0.4 + (index % 4) * 0.35}
-          style:--turn="{((index * 23) % 40) - 20}deg"
-          style:--delay="{-index * 1.3}s"
-          style:color={["#2347a8", "#d9a43b", "#c8321f", "#1e9c94"][index % 4]}
-          >{glyph}</span
+  <div
+    class="pointer-events-none absolute inset-0 mask-b-from-80%"
+    aria-hidden="true"
+  >
+    {#each glyphs as [glyph, lang], index (index)}
+      <span
+        class="glyph absolute font-display"
+        {lang}
+        style:left="{(index * 41 + 7) % 96}%"
+        style:top="{(index * 29 + 11) % 92}%"
+        style:--depth={0.4 + (index % 4) * 0.35}
+        style:--turn="{((index * 23) % 40) - 20}deg"
+        style:--delay="{-index * 1.3}s"
+        style:color={["#2347a8", "#d9a43b", "#c8321f", "#1e9c94"][index % 4]}
+        >{glyph}</span
+      >
+    {/each}
+  </div>
+  <div
+    class="short:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] relative mx-auto grid w-full max-w-7xl items-center gap-x-8 gap-y-5 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-x-16"
+  >
+    <div class="short:block contents lg:block">
+      <h2
+        class="extrude-ink short:text-[30px] font-display text-[clamp(34px,5vw,68px)] leading-[1] text-balance"
+      >
+        {m.story_title()}
+      </h2>
+      <p
+        class="short:hidden max-w-md text-[18px] text-ink/75 max-lg:mb-4 lg:mt-4 lg:block"
+      >
+        {m.story_detail()}
+      </p>
+      <div class="short:mt-6 order-4 flex items-center gap-3 lg:mt-10">
+        <div
+          role="tablist"
+          aria-label={m.story_title()}
+          tabindex="-1"
+          class="relative flex flex-1 items-center justify-between"
+          onkeydown={(event: KeyboardEvent) => {
+            const list = event.currentTarget as HTMLElement;
+            const isRtl = getComputedStyle(list).direction === "rtl";
+            const moves: Record<string, number> = {
+              Home: 0,
+              End: steps.length - 1,
+              [isRtl ? "ArrowLeft" : "ArrowRight"]:
+                (storyStep + 1) % steps.length,
+              [isRtl ? "ArrowRight" : "ArrowLeft"]:
+                (storyStep + steps.length - 1) % steps.length,
+            };
+            const next = moves[event.key];
+            if (next == null) return;
+            event.preventDefault();
+            storyStep = next;
+            isStoryPlaying = false;
+            list.querySelectorAll<HTMLElement>('[role="tab"]')[next]?.focus();
+          }}
         >
-      {/each}
-    </div>
-    <div
-      class="mx-auto grid w-full max-w-7xl items-center gap-x-16 gap-y-5 px-5 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
-    >
-      <div class="contents lg:block">
-        <h2
-          class="extrude-ink font-display text-[clamp(34px,5vw,68px)] leading-[1] text-balance"
-        >
-          {m.story_title()}
-        </h2>
-        <p class="mt-4 hidden max-w-md text-[18px] text-ink/75 lg:block">
-          {m.story_detail()}
-        </p>
-        <ol
-          class="order-3 grid grid-cols-[minmax(0,1fr)] break-words lg:mt-10 lg:gap-2"
-        >
-          {#each steps as [title, detail], index (title)}
+          <span
+            class="absolute inset-x-6 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-ink/10"
+            aria-hidden="true"
+          ></span>
+          {#each steps as [title], index (title)}
             {const isActive = $derived(index === storyStep)}
-            {const fill = $derived(
-              Math.min(1, Math.max(0, storyProgress * 4 - index)),
-            )}
-            <li
+            <button
+              type="button"
+              role="tab"
+              id="story-tab-{index}"
+              aria-selected={isActive}
+              aria-controls="story-panel-{index}"
+              tabindex={isActive ? 0 : -1}
               class={[
-                "relative grid grid-cols-[auto_1fr] gap-x-4 rounded-3xl p-4 transition-[background-color,opacity] duration-500 [grid-area:1/1] lg:[grid-area:auto]",
+                "relative grid size-12 place-items-center rounded-full font-display text-[20px] transition-[background-color,color,scale,box-shadow] duration-300 focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-cobalt",
                 {
-                  "bg-white/70 shadow-[0_20px_40px_-28px_rgb(24_32_74/0.5)]":
+                  "scale-110 text-tile shadow-[0_14px_28px_-14px_rgb(24_32_74/0.7)]":
                     isActive,
-                  "opacity-0 lg:opacity-55": !isActive,
+                  "bg-cobalt": isActive && index === 0,
+                  "bg-gold": isActive && index === 1,
+                  "bg-turquoise": isActive && index === 2,
+                  "bg-coral": isActive && index === 3,
+                },
+                {
+                  "bg-[#fffaf3] text-ink/55 ring-1 ring-ink/10 hover:text-ink":
+                    !isActive,
                 },
               ]}
+              onclick={() => {
+                storyStep = index;
+                isStoryPlaying = false;
+              }}
             >
-              <span
-                class="relative grid size-11 place-items-center rounded-full font-display text-[20px] text-tile"
-                class:bg-cobalt={index === 0}
-                class:bg-gold={index === 1}
-                class:bg-turquoise={index === 2}
-                class:bg-coral={index === 3}
-              >
-                {index + 1}
+              <span aria-hidden="true">{index + 1}</span>
+              <span class="sr-only">{title}</span>
+              {#if isActive && isStoryPlaying}
                 <svg
                   viewBox="0 0 48 48"
-                  class="absolute -inset-1 size-[calc(100%+8px)] -rotate-90"
+                  class="pointer-events-none absolute -inset-1 size-[calc(100%+8px)] -rotate-90"
                   aria-hidden="true"
                 >
                   <circle
@@ -889,64 +941,107 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2.5"
-                    class="text-ink/70"
                     stroke-dasharray="138.2"
-                    stroke-dashoffset={138.2 * (1 - fill)}
                     stroke-linecap="round"
+                    class="progress text-ink/70"
+                    style:animation-duration="{storyDurations[index]}ms"
+                    style:animation-play-state={isStoryInView
+                      ? "running"
+                      : "paused"}
+                    onanimationend={() => {
+                      storyStep = (index + 1) % steps.length;
+                    }}
                   />
                 </svg>
-              </span>
-              <span
-                class="self-center text-[clamp(18px,1.6vw,22px)] font-semibold"
-              >
-                {title}
-              </span>
-              <span
-                class={[
-                  "col-start-2 grid transition-[grid-template-rows] duration-500",
-                  {
-                    "grid-rows-[1fr]": isActive,
-                    "max-lg:grid-rows-[1fr] lg:grid-rows-[0fr]": !isActive,
-                  },
-                ]}
-              >
-                <span
-                  class="overflow-hidden text-[15.5px] leading-relaxed text-ink/75"
-                >
-                  <span class="block pt-1.5">{detail}</span>
-                </span>
-              </span>
-            </li>
+              {/if}
+            </button>
           {/each}
-        </ol>
-      </div>
-      <div
-        class="relative order-2 aspect-[4/4.2] w-full max-w-[min(100%,calc((100svh-25rem)*0.95))] justify-self-center sm:aspect-[16/12] sm:max-w-[min(100%,calc((100svh-21rem)*1.33))] lg:max-h-[80svh] lg:max-w-none"
-        bind:this={storyFrame}
-      >
-        <div class="size-full drop-shadow-[0_40px_60px_rgb(24_32_74/0.3)]">
-          <Browser
-            kind="desktop"
-            page={storyPage}
-            popup={isPopup}
-            pressed={storyStep === 0 && storyProgress * 4 > 0.2}
-          >
-            <Page
-              page={storyPage}
-              stage={storyStage}
-              character="scholar"
-              hover={storyStep === 3}
-            />
-          </Browser>
         </div>
-        {@render cursor(storyCursor)}
+        <button
+          type="button"
+          class="grid size-10 shrink-0 place-items-center rounded-full text-ink/60 transition-colors hover:bg-ink/5 hover:text-ink focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-cobalt"
+          aria-label={isStoryPlaying ? m.story_pause() : m.story_play()}
+          title={isStoryPlaying ? m.story_pause() : m.story_play()}
+          onclick={() => (isStoryPlaying = !isStoryPlaying)}
+        >
+          <svg viewBox="0 0 20 20" class="size-5" aria-hidden="true">
+            {#if isStoryPlaying}
+              <rect
+                x="5"
+                y="4"
+                width="3.4"
+                height="12"
+                rx="1"
+                fill="currentColor"
+              />
+              <rect
+                x="11.6"
+                y="4"
+                width="3.4"
+                height="12"
+                rx="1"
+                fill="currentColor"
+              />
+            {:else}
+              <path
+                d="M6.5 4.2v11.6a.8.8 0 0 0 1.2.7l9-5.8a.8.8 0 0 0 0-1.4l-9-5.8a.8.8 0 0 0-1.2.7z"
+                fill="currentColor"
+              />
+            {/if}
+          </svg>
+        </button>
       </div>
+      <div class="short:mt-4 order-5 grid lg:mt-6">
+        {#each steps as [title, detail], index (title)}
+          {const isActive = $derived(index === storyStep)}
+          <div
+            role="tabpanel"
+            id="story-panel-{index}"
+            aria-labelledby="story-tab-{index}"
+            class={[
+              "rounded-3xl bg-white/70 p-5 shadow-[0_20px_40px_-28px_rgb(24_32_74/0.5)] transition-opacity duration-300 [grid-area:1/1]",
+              { "invisible opacity-0": !isActive },
+            ]}
+          >
+            <h3 class="text-[clamp(18px,1.7vw,23px)] font-semibold">
+              {title}
+            </h3>
+            <p
+              class="mt-1.5 text-[15.5px] leading-relaxed text-ink/75 lg:text-[16px]"
+            >
+              {detail}
+            </p>
+          </div>
+        {/each}
+      </div>
+    </div>
+    <div
+      class="short:max-w-[min(100%,calc((100svh_-_5rem)*1.33))] relative order-3 aspect-[4/4.2] w-full max-w-[min(100%,calc(max(14rem,100svh_-_22rem)*0.95))] justify-self-center sm:aspect-[16/12] sm:max-w-[min(100%,calc(max(14rem,100svh_-_20rem)*1.33))] lg:max-w-[min(100%,calc((100svh_-_6rem)*1.33))]"
+      bind:this={storyFrame}
+      aria-hidden="true"
+    >
+      <div class="size-full drop-shadow-[0_40px_60px_rgb(24_32_74/0.3)]">
+        <Browser
+          kind="desktop"
+          page={storyPage}
+          popup={isStoryPopup}
+          pressed={isStoryPressed}
+        >
+          <Page
+            page={storyPage}
+            stage={storyStage}
+            character="scholar"
+            hover={storyStep === 3}
+          />
+        </Browser>
+      </div>
+      {@render cursor(storyCursor)}
     </div>
   </div>
 </section>
 
 <section
-  class="relative bg-linear-to-b from-[#f6e4de] to-[#ebdff0] px-5 pt-24 pb-32 text-ink"
+  class="relative overflow-x-clip bg-linear-to-b from-[#f6e4de] to-[#ebdff0] px-5 pt-24 pb-32 text-ink"
 >
   <div class="mx-auto max-w-7xl">
     <h2
@@ -1667,9 +1762,22 @@
     font-size: calc(var(--depth) * 120px);
     font-weight: 400;
     opacity: calc(0.05 + var(--depth) * 0.06);
-    translate: 0 calc(var(--progress) * var(--depth) * -260px);
     rotate: var(--turn);
     animation: drift 12s var(--delay) ease-in-out infinite;
+  }
+
+  .progress {
+    animation: progress linear forwards;
+  }
+
+  @keyframes progress {
+    from {
+      stroke-dashoffset: 138.2;
+    }
+
+    to {
+      stroke-dashoffset: 0;
+    }
   }
 
   @keyframes drift {

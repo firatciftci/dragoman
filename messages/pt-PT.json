@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Os turistas já fazem fila para lhe pedir que traduza a ementa.",
   "story_title": "Veja uma página a mudar de idioma",
   "story_detail": "Acompanhe uma página do primeiro clique ao último retoque.",
+  "story_pause": "Pausa",
+  "story_play": "Reproduzir",
   "step_open": "Abra qualquer página",
   "step_open_detail": "Notícias, receitas, lojas ou documentação, em qualquer idioma. Clique no dragoman, toque nele no telemóvel ou prima Alt+Shift+T.",
   "devices_title": "Onde quer que leia",

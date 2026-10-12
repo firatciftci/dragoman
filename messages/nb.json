@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Nå står turistene i kø for å få ham til å oversette menyen.",
   "story_title": "Se en side bytte språk",
   "story_detail": "Følg én side fra første klikk til siste finpuss.",
+  "story_pause": "Pause",
+  "story_play": "Spill av",
   "step_open": "Åpne en hvilken som helst side",
   "step_open_detail": "Nyheter, oppskrifter, nettbutikker eller dokumentasjon, på alle språk. Klikk på dragoman, trykk på den på mobilen, eller trykk Alt+Shift+T.",
   "devices_title": "Uansett hvor du leser",

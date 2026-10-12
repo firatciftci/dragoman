@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "如今游客们排着队，请它帮忙翻译菜单。",
   "story_title": "看一个页面如何切换语言",
   "story_detail": "从第一次点击到最终润色，完整跟随一个页面。",
+  "story_pause": "暂停",
+  "story_play": "播放",
   "step_open": "打开任意页面",
   "step_open_detail": "新闻、食谱、购物或文档，任何语言都行。点击 dragoman，在手机上轻点它，或按 Alt+Shift+T。",
   "devices_title": "随处阅读",

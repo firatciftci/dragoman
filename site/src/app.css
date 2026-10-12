@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "@dragoman/brand/theme.css";
+
+@custom-variant short (@media (orientation: landscape) and (max-height: 540px));
 @source "../../brand/src";
 
 @property --ray-angle {

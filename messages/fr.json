@@ -250,6 +250,8 @@
   "demo_parrot_more_refined": "Les touristes font désormais la queue pour qu'il leur traduise le menu.",
   "story_title": "Regardez une page changer de langue",
   "story_detail": "Suivez une page du premier clic jusqu'à la touche finale.",
+  "story_pause": "Mettre en pause",
+  "story_play": "Lire",
   "step_open": "Ouvrez n'importe quelle page",
   "step_open_detail": "Actualités, recettes, boutiques ou docs, dans n'importe quelle langue. Cliquez sur dragoman, touchez-le sur votre téléphone ou appuyez sur Alt+Shift+T.",
   "devices_title": "Partout où vous lisez",
