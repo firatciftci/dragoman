@@ -1551,10 +1551,16 @@ export default defineContentScript({
         readSettings(),
         hiddenItem.getValue(),
         detect(
-          Array.from(
-            document.querySelectorAll("h1, h2, h3, p, li"),
-            (element) => element.textContent.replaceAll(/\s+/g, " ").trim(),
-          )
+          [...document.querySelectorAll("h1, h2, h3, p, li")]
+            .filter(
+              (element) =>
+                element.closest(
+                  "nav, header, footer, aside, [role='navigation']",
+                ) == null,
+            )
+            .map((element) =>
+              element.textContent.replaceAll(/\s+/g, " ").trim(),
+            )
             .filter((text) => text !== "")
             .join("\n")
             .slice(0, 4000),
@@ -1566,8 +1572,14 @@ export default defineContentScript({
       view.isHidden = isHidden;
       const top = detected.languages[0]?.language;
       const declared = document.documentElement.lang;
+      const isReliable =
+        detected.isReliable ||
+        (top != null &&
+          declared !== "" &&
+          languageKey(normalizeLanguage(declared)) ===
+            languageKey(normalizeLanguage(top)));
       source = normalizeLanguage(
-        (detected.isReliable ? top : undefined) ?? (declared || top) ?? "und",
+        (isReliable ? top : undefined) ?? (declared || top) ?? "und",
       );
       const code = source;
       const isAlways = settings.alwaysLanguages
@@ -1583,8 +1595,8 @@ export default defineContentScript({
         return;
       }
       if (
+        isReliable &&
         settings.offerTranslation &&
-        detected.isReliable &&
         languageKey(code) !== languageKey(settings.targetLanguage) &&
         !settings.knownLanguages
           .map((known) => languageKey(known))
