@@ -108,4 +108,4 @@ Bug reports, translation fixes and pull requests are welcome. Read [CONTRIBUTING
 
 ## License
 
-dragoman is released under the [MIT License](LICENSE). The bundled Bergamot translator in `extension/public/bergamot/` is from Mozilla and licensed under the MPL 2.0; translation models are downloaded from Mozilla at runtime under their own licenses.
+dragoman is released under the [MIT License](LICENSE). The bundled Bergamot translator in `extension/public/bergamot/` is from Mozilla and licensed under the MPL 2.0; translation models are downloaded from Mozilla at runtime under their own licenses. The browser marks on the website come from Simple Icons (CC0 1.0) and, for Edge, Bootstrap Icons (MIT, © The Bootstrap Authors).
