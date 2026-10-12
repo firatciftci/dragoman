@@ -397,8 +397,6 @@
   "pet_idle_3": "هره پاڼه یو کوچنی سفر دی.",
   "add_to_browser": "{browser} ته یې ورزیات کړئ",
   "docs_install_stores": "dragoman د خپل براوزر له پلورنځي ولګوئ، او هلته به پخپله تازه پاتې شي.",
-  "docs_install_github_title": "له GitHub څخه یې ولګوئ",
-  "docs_install_github": "هره خپرونه په GitHub کې هم شته، د Chromium براوزرونو او Firefox لپاره د zip فایلونو او بشپړ سرچینې کوډ سره. د Chromium zip په لاس د لګولو لپاره:",
   "docs_install_unzip": "د Chrome zip له وروستۍ خپرونې ښکته کړئ او خلاص یې کړئ.",
   "docs_releases": "وروستۍ خپرونه پرانیزئ",
   "site_skip": "منځپانګې ته ورشئ",

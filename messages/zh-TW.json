@@ -397,8 +397,6 @@
   "pet_idle_3": "每個網頁都是一趟小旅程。",
   "add_to_browser": "加到 {browser}",
   "docs_install_stores": "從瀏覽器的商店安裝 dragoman，之後就會自動保持最新版本。",
-  "docs_install_github_title": "從 GitHub 安裝",
-  "docs_install_github": "每個版本也會發布在 GitHub 上，提供 Chromium 瀏覽器和 Firefox 適用的 zip 檔，以及完整原始碼。手動安裝 Chromium zip 檔的步驟如下：",
   "docs_install_unzip": "從最新版本下載 Chrome zip 檔並解壓縮。",
   "docs_releases": "開啟最新版本",
   "site_skip": "跳至主要內容",

@@ -397,8 +397,6 @@
   "pet_idle_3": "どのページも小さな旅です。",
   "add_to_browser": "{browser} に追加",
   "docs_install_stores": "ブラウザのストアから dragoman をインストールすると、以後は自動で最新の状態に保たれます。",
-  "docs_install_github_title": "GitHub からインストール",
-  "docs_install_github": "すべてのリリースは GitHub でも公開しており、Chromium 系ブラウザ用と Firefox 用の zip、そして全ソースコードを入手できます。Chromium 用の zip を手動でインストールするには:",
   "docs_install_unzip": "最新リリースから Chrome 用の zip をダウンロードして解凍します。",
   "docs_releases": "最新リリースを開く",
   "site_skip": "本文へスキップ",

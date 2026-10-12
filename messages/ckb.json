@@ -397,8 +397,6 @@
   "pet_idle_3": "هەر پەڕەیەک گەشتێکی بچووکە.",
   "add_to_browser": "زیادکردن بۆ {browser}",
   "docs_install_stores": "dragoman لە فرۆشگای وێبگەڕەکەت دابمەزرێنە، لەوێوە خۆی بە نوێکراوەیی دەهێڵێتەوە.",
-  "docs_install_github_title": "دامەزراندن لە GitHub ـەوە",
-  "docs_install_github": "هەموو وەشانێک لەسەر GitHub ـیش هەیە، لەگەڵ فایلی zip بۆ وێبگەڕەکانی Chromium و Firefox و هەموو کۆدی سەرچاوە. بۆ ئەوەی zip ـی Chromium بە دەست دابمەزرێنیت:",
   "docs_install_unzip": "zip ـی Chrome لە نوێترین وەشانەوە دابگرە و بیکەرەوە.",
   "docs_releases": "کردنەوەی نوێترین وەشان",
   "site_skip": "بازدان بۆ ناوەڕۆک",

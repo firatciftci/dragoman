@@ -397,8 +397,6 @@
   "pet_idle_3": "Hər səhifə kiçik bir səyahətdir.",
   "add_to_browser": "{browser} brauzerinə əlavə et",
   "docs_install_stores": "dragoman-ı brauzerinizin mağazasından quraşdırın, o, oradan özü yenilənəcək.",
-  "docs_install_github_title": "GitHub-dan quraşdırın",
-  "docs_install_github": "Hər buraxılış GitHub-da da var: Chromium brauzerləri və Firefox üçün zip faylları, həmçinin tam mənbə kodu. Chromium zip faylını əl ilə quraşdırmaq üçün:",
   "docs_install_unzip": "Son buraxılışdan Chrome zip faylını endirin və arxivdən çıxarın.",
   "docs_releases": "Son buraxılışı aç",
   "site_skip": "Məzmuna keç",

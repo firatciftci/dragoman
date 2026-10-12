@@ -397,8 +397,6 @@
   "pet_idle_3": "Jede Seite ist eine kleine Reise.",
   "add_to_browser": "Zu {browser} hinzufügen",
   "docs_install_stores": "Installiere dragoman aus dem Store deines Browsers, dann hält es sich von dort aus selbst auf dem neuesten Stand.",
-  "docs_install_github_title": "Von GitHub installieren",
-  "docs_install_github": "Jede Version gibt es auch auf GitHub, mit ZIP-Dateien für Chromium-Browser und Firefox sowie dem vollständigen Quellcode. So installierst du die Chromium-ZIP von Hand:",
   "docs_install_unzip": "Lade die Chrome-ZIP aus der neuesten Version herunter und entpacke sie.",
   "docs_releases": "Neueste Version öffnen",
   "site_skip": "Zum Inhalt springen",

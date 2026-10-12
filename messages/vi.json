@@ -397,8 +397,6 @@
   "pet_idle_3": "Mỗi trang là một chuyến đi nhỏ.",
   "add_to_browser": "Thêm vào {browser}",
   "docs_install_stores": "Cài dragoman từ cửa hàng tiện ích của trình duyệt, tiện ích sẽ tự cập nhật từ đó.",
-  "docs_install_github_title": "Cài từ GitHub",
-  "docs_install_github": "Mỗi bản phát hành cũng có trên GitHub, kèm tệp zip cho trình duyệt Chromium và Firefox cùng toàn bộ mã nguồn. Để tự cài tệp zip cho Chromium:",
   "docs_install_unzip": "Tải tệp zip cho Chrome từ bản phát hành mới nhất rồi giải nén.",
   "docs_releases": "Mở bản phát hành mới nhất",
   "site_skip": "Chuyển đến nội dung",

@@ -397,8 +397,6 @@
   "pet_idle_3": "ទំព័រនីមួយៗគឺជាដំណើរតូចមួយ។",
   "add_to_browser": "បន្ថែមទៅ {browser}",
   "docs_install_stores": "ដំឡើង dragoman ពីហាងរបស់កម្មវិធីរុករករបស់អ្នក ហើយវានឹងធ្វើបច្ចុប្បន្នភាពដោយខ្លួនឯងពីទីនោះ។",
-  "docs_install_github_title": "ដំឡើងពី GitHub",
-  "docs_install_github": "កំណែនីមួយៗក៏មាននៅលើ GitHub ផងដែរ ដោយមានឯកសារ zip សម្រាប់កម្មវិធីរុករក Chromium និង Firefox ព្រមទាំងកូដប្រភពពេញលេញ។ ដើម្បីដំឡើងឯកសារ zip សម្រាប់ Chromium ដោយដៃ៖",
   "docs_install_unzip": "ទាញយកឯកសារ zip សម្រាប់ Chrome ពីកំណែចុងក្រោយបំផុត រួចពន្លាវា។",
   "docs_releases": "បើកកំណែចុងក្រោយបំផុត",
   "site_skip": "រំលងទៅខ្លឹមសារ",

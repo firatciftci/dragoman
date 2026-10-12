@@ -397,8 +397,6 @@
   "pet_idle_3": "Jokainen sivu on pieni matka.",
   "add_to_browser": "Lisää selaimeen {browser}",
   "docs_install_stores": "Asenna dragoman selaimesi laajennuskaupasta, niin se pysyy sieltä automaattisesti ajan tasalla.",
-  "docs_install_github_title": "Asenna GitHubista",
-  "docs_install_github": "Jokainen versio löytyy myös GitHubista: zip-tiedostot Chromium-selaimille ja Firefoxille sekä koko lähdekoodi. Chromium-zipin asentaminen käsin:",
   "docs_install_unzip": "Lataa Chrome-zip uusimmasta versiosta ja pura se.",
   "docs_releases": "Avaa uusin versio",
   "site_skip": "Siirry sisältöön",

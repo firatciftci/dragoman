@@ -397,8 +397,6 @@
   "pet_idle_3": "Kiekvienas puslapis – maža kelionė.",
   "add_to_browser": "Įdiegti į {browser}",
   "docs_install_stores": "Įdiekite dragoman iš savo naršyklės parduotuvės – ten jis bus atnaujinamas automatiškai.",
-  "docs_install_github_title": "Įdiegti iš GitHub",
-  "docs_install_github": "Kiekviena versija skelbiama ir GitHub: ten rasite zip failus Chromium naršyklėms ir Firefox bei visą pirminį kodą. Kaip rankiniu būdu įdiegti Chromium zip failą:",
   "docs_install_unzip": "Atsisiųskite Chrome zip failą iš naujausios versijos ir jį išarchyvuokite.",
   "docs_releases": "Atidaryti naujausią versiją",
   "site_skip": "Pereiti prie turinio",

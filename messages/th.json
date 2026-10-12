@@ -397,8 +397,6 @@
   "pet_idle_3": "ทุกหน้าคือการเดินทางเล็ก ๆ",
   "add_to_browser": "เพิ่มลงใน {browser}",
   "docs_install_stores": "ติดตั้ง dragoman จากสโตร์ของเบราว์เซอร์ แล้วส่วนขยายจะอัปเดตตัวเองจากที่นั่นโดยอัตโนมัติ",
-  "docs_install_github_title": "ติดตั้งจาก GitHub",
-  "docs_install_github": "ทุกรุ่นมีให้ดาวน์โหลดบน GitHub ด้วย ทั้งไฟล์ zip สำหรับเบราว์เซอร์ Chromium และ Firefox พร้อมซอร์สโค้ดทั้งหมด หากต้องการติดตั้งไฟล์ zip สำหรับ Chromium ด้วยตัวเอง:",
   "docs_install_unzip": "ดาวน์โหลดไฟล์ zip สำหรับ Chrome จากรุ่นล่าสุด แล้วแตกไฟล์",
   "docs_releases": "เปิดรุ่นล่าสุด",
   "site_skip": "ข้ามไปยังเนื้อหา",

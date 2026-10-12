@@ -397,8 +397,6 @@
   "pet_idle_3": "Ibe ọ bụla bụ obere njem.",
   "add_to_browser": "Tinye na {browser}",
   "docs_install_stores": "Wụnye dragoman site n'ụlọ ahịa ihe nchọgharị gị, ọ ga-emelite onwe ya site n'ebe ahụ.",
-  "docs_install_github_title": "Wụnye site na GitHub",
-  "docs_install_github": "Ntọhapụ ọ bụla dịkwa na GitHub, ya na zip maka ihe nchọgharị Chromium na Firefox, yana koodu isi mmalite zuru ezu. Iji aka gị wụnye zip Chromium:",
   "docs_install_unzip": "Budata zip Chrome site na ntọhapụ kacha ọhụrụ, wee meghee ya.",
   "docs_releases": "Mepee ntọhapụ kacha ọhụrụ",
   "site_skip": "Gaa n'ọdịnaya",

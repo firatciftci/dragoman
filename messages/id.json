@@ -397,8 +397,6 @@
   "pet_idle_3": "Setiap halaman adalah perjalanan kecil.",
   "add_to_browser": "Tambahkan ke {browser}",
   "docs_install_stores": "Pasang dragoman dari toko browser Anda, dan dragoman akan terus diperbarui otomatis dari sana.",
-  "docs_install_github_title": "Pasang dari GitHub",
-  "docs_install_github": "Setiap rilis juga tersedia di GitHub, lengkap dengan file zip untuk browser Chromium dan Firefox serta seluruh kode sumbernya. Untuk memasang zip Chromium secara manual:",
   "docs_install_unzip": "Unduh zip Chrome dari rilis terbaru, lalu ekstrak.",
   "docs_releases": "Buka rilis terbaru",
   "site_skip": "Langsung ke konten",

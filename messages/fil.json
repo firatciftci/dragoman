@@ -397,8 +397,6 @@
   "pet_idle_3": "Bawat pahina ay munting paglalakbay.",
   "add_to_browser": "Idagdag sa {browser}",
   "docs_install_stores": "I-install ang dragoman mula sa store ng iyong browser, at doon na ito kusang mag-a-update.",
-  "docs_install_github_title": "I-install mula sa GitHub",
-  "docs_install_github": "Nasa GitHub din ang bawat release, kasama ang mga zip para sa mga Chromium browser at Firefox at ang buong source code. Para manu-manong i-install ang Chromium zip:",
   "docs_install_unzip": "I-download ang Chrome zip mula sa pinakabagong release at i-unzip ito.",
   "docs_releases": "Buksan ang pinakabagong release",
   "site_skip": "Lumaktaw sa nilalaman",

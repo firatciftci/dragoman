@@ -397,8 +397,6 @@
   "pet_idle_3": "Každá stránka je malá cesta.",
   "add_to_browser": "Přidat do prohlížeče {browser}",
   "docs_install_stores": "Nainstalujte dragoman z obchodu svého prohlížeče – odtud se bude sám aktualizovat.",
-  "docs_install_github_title": "Instalace z GitHubu",
-  "docs_install_github": "Každé vydání najdete také na GitHubu, včetně souborů zip pro prohlížeče Chromium a Firefox a kompletního zdrojového kódu. Ruční instalace zipu pro Chromium:",
   "docs_install_unzip": "Stáhněte zip pro Chrome z nejnovějšího vydání a rozbalte ho.",
   "docs_releases": "Otevřít nejnovější vydání",
   "site_skip": "Přejít na obsah",

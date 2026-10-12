@@ -397,8 +397,6 @@
   "pet_idle_3": "كل صفحة رحلة صغيرة.",
   "add_to_browser": "إضافة إلى {browser}",
   "docs_install_stores": "ثبّت dragoman من متجر متصفحك، وسيتحدّث تلقائيًا من هناك.",
-  "docs_install_github_title": "التثبيت من GitHub",
-  "docs_install_github": "يتوفر كل إصدار أيضًا على GitHub، مع ملفات zip لمتصفحات Chromium وFirefox والشيفرة المصدرية كاملة. لتثبيت ملف Chromium يدويًا:",
   "docs_install_unzip": "نزّل ملف Chrome المضغوط من أحدث إصدار وفك ضغطه.",
   "docs_releases": "فتح أحدث إصدار",
   "site_skip": "تخطَّ إلى المحتوى",

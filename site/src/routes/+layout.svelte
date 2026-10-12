@@ -85,10 +85,16 @@
 
   <header
     class={[
-      "absolute inset-x-0 top-0 z-30",
+      "absolute inset-x-0 top-0 isolate z-30",
       { "text-ink": isHome, "text-tile": !isHome },
     ]}
   >
+    {#if isHome}
+      <div
+        class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-linear-to-b from-[#fbf4e8]/85 via-[#fbf4e8]/55 to-[#fbf4e8]/0 mask-b-from-45% backdrop-blur-[10px]"
+        aria-hidden="true"
+      ></div>
+    {/if}
     <nav
       class="mx-auto flex h-20 max-w-7xl items-center gap-6 px-5 max-sm:gap-3"
     >

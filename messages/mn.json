@@ -397,8 +397,6 @@
   "pet_idle_3": "Хуудас бүр бяцхан аялал.",
   "add_to_browser": "{browser}-д нэмэх",
   "docs_install_stores": "dragoman-ыг хөтчийнхөө дэлгүүрээс суулгавал тэндээсээ өөрөө шинэчлэгдэнэ.",
-  "docs_install_github_title": "GitHub-аас суулгах",
-  "docs_install_github": "Хувилбар бүр GitHub дээр бас байдаг: Chromium хөтчүүд болон Firefox-д зориулсан zip файлууд, мөн бүрэн эх код. Chromium-ын zip-ийг гараар суулгахын тулд:",
   "docs_install_unzip": "Хамгийн сүүлийн хувилбараас Chrome-ын zip-ийг татаж аваад задлаарай.",
   "docs_releases": "Хамгийн сүүлийн хувилбарыг нээх",
   "site_skip": "Агуулга руу шилжих",

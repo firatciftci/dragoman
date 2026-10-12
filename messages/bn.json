@@ -397,8 +397,6 @@
   "pet_idle_3": "প্রতিটি পেজ এক ছোট্ট যাত্রা।",
   "add_to_browser": "{browser}-এ যোগ করুন",
   "docs_install_stores": "আপনার ব্রাউজারের স্টোর থেকে dragoman ইনস্টল করুন, সেখান থেকেই এটি নিজে নিজে আপডেট থাকবে।",
-  "docs_install_github_title": "GitHub থেকে ইনস্টল করুন",
-  "docs_install_github": "প্রতিটি রিলিজ GitHub-এও পাওয়া যায়, Chromium ব্রাউজার ও Firefox-এর জন্য zip ফাইল আর পুরো সোর্স কোডসহ। Chromium-এর zip নিজে ইনস্টল করতে:",
   "docs_install_unzip": "সর্বশেষ রিলিজ থেকে Chrome-এর zip ডাউনলোড করে আনজিপ করুন।",
   "docs_releases": "সর্বশেষ রিলিজ খুলুন",
   "site_skip": "মূল বিষয়বস্তুতে যান",

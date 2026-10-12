@@ -397,8 +397,6 @@
   "pet_idle_3": "Bog kastaa waa safar yar.",
   "add_to_browser": "Ku dar {browser}",
   "docs_install_stores": "Ka soo deji dragoman dukaanka browser-kaaga, halkaasna wuu iska cusboonaysiinayaa.",
-  "docs_install_github_title": "Ka soo deji GitHub",
-  "docs_install_github": "Nooc kasta oo la sii daayo wuxuu sidoo kale yaal GitHub, oo leh zip-yada browser-yada Chromium iyo Firefox iyo koodhka asalka oo dhammaystiran. Si aad gacanta ugu rakibto zip-ka Chromium:",
   "docs_install_unzip": "Ka soo deji zip-ka Chrome noocii ugu dambeeyey, kadibna fur.",
   "docs_releases": "Fur noocii ugu dambeeyey",
   "site_skip": "U bood nuxurka",

@@ -397,8 +397,6 @@
   "pet_idle_3": "ప్రతి పేజీ ఒక చిన్న ప్రయాణం.",
   "add_to_browser": "{browser}కు జోడించు",
   "docs_install_stores": "మీ బ్రౌజర్ స్టోర్ నుండి dragomanను ఇన్‌స్టాల్ చేయండి. అది అక్కడి నుండే ఎప్పటికప్పుడు అప్‌డేట్ అవుతుంది.",
-  "docs_install_github_title": "GitHub నుండి ఇన్‌స్టాల్ చేయండి",
-  "docs_install_github": "ప్రతి విడుదల GitHubలో కూడా ఉంటుంది. అందులో Chromium బ్రౌజర్‌లు, Firefox కోసం zip ఫైల్‌లు, పూర్తి సోర్స్ కోడ్ ఉంటాయి. Chromium zipను మీరే ఇన్‌స్టాల్ చేయడానికి:",
   "docs_install_unzip": "తాజా విడుదల నుండి Chrome zipను డౌన్‌లోడ్ చేసి అన్‌జిప్ చేయండి.",
   "docs_releases": "తాజా విడుదలను తెరువు",
   "site_skip": "కంటెంట్‌కు వెళ్లు",

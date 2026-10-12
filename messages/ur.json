@@ -397,8 +397,6 @@
   "pet_idle_3": "ہر صفحہ ایک چھوٹا سا سفر ہے۔",
   "add_to_browser": "{browser} میں شامل کریں",
   "docs_install_stores": "dragoman کو اپنے براؤزر کے اسٹور سے انسٹال کریں، وہاں سے یہ خود بخود اپ ڈیٹ ہوتا رہے گا۔",
-  "docs_install_github_title": "GitHub سے انسٹال کریں",
-  "docs_install_github": "ہر ریلیز GitHub پر بھی موجود ہے، جس میں Chromium براؤزرز اور Firefox کے لیے zip فائلیں اور مکمل سورس کوڈ شامل ہیں۔ Chromium والی zip خود انسٹال کرنے کے لیے:",
   "docs_install_unzip": "تازہ ترین ریلیز سے Chrome والی zip ڈاؤن لوڈ کریں اور اسے ان زِپ کریں۔",
   "docs_releases": "تازہ ترین ریلیز کھولیں",
   "site_skip": "مواد پر جائیں",

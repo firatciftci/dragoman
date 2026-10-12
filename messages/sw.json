@@ -397,8 +397,6 @@
   "pet_idle_3": "Kila ukurasa ni safari ndogo.",
   "add_to_browser": "Ongeza kwenye {browser}",
   "docs_install_stores": "Sakinisha dragoman kutoka duka la kivinjari chako, nayo itajisasisha yenyewe kutoka hapo.",
-  "docs_install_github_title": "Sakinisha kutoka GitHub",
-  "docs_install_github": "Kila toleo pia linapatikana kwenye GitHub, pamoja na faili za zip za vivinjari vya Chromium na Firefox, na msimbo chanzo kamili. Ili kusakinisha zip ya Chromium wewe mwenyewe:",
   "docs_install_unzip": "Pakua zip ya Chrome kutoka toleo jipya zaidi kisha uifungue.",
   "docs_releases": "Fungua toleo jipya zaidi",
   "site_skip": "Ruka hadi maudhui",

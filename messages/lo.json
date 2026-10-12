@@ -397,8 +397,6 @@
   "pet_idle_3": "ທຸກໜ້າຄືການເດີນທາງນ້ອຍໆ.",
   "add_to_browser": "ເພີ່ມໃສ່ {browser}",
   "docs_install_stores": "ຕິດຕັ້ງ dragoman ຈາກຮ້ານຂອງບຣາວເຊີຂອງທ່ານ, ແລ້ວມັນຈະອັບເດດເອງຈາກບ່ອນນັ້ນ.",
-  "docs_install_github_title": "ຕິດຕັ້ງຈາກ GitHub",
-  "docs_install_github": "ທຸກລຸ້ນທີ່ເຜີຍແຜ່ຍັງມີຢູ່ GitHub ພ້ອມໄຟລ໌ zip ສຳລັບບຣາວເຊີ Chromium ແລະ Firefox ແລະ ຊອດໂຄດທັງໝົດ. ເພື່ອຕິດຕັ້ງ zip ຂອງ Chromium ດ້ວຍຕົນເອງ:",
   "docs_install_unzip": "ດາວໂຫຼດໄຟລ໌ zip ຂອງ Chrome ຈາກລຸ້ນຫຼ້າສຸດ ແລ້ວແຕກໄຟລ໌ອອກ.",
   "docs_releases": "ເປີດລຸ້ນຫຼ້າສຸດ",
   "site_skip": "ຂ້າມໄປຫາເນື້ອຫາ",

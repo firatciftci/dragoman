@@ -397,8 +397,6 @@
   "pet_idle_3": "Har bir sahifa — kichik bir sayohat.",
   "add_to_browser": "{browser} brauzeriga qo‘shish",
   "docs_install_stores": "dragoman’ni brauzeringiz do‘konidan o‘rnating — u yerdan o‘zi yangilanib turadi.",
-  "docs_install_github_title": "GitHub’dan o‘rnatish",
-  "docs_install_github": "Har bir reliz GitHub’da ham bor: Chromium brauzerlari va Firefox uchun zip fayllar hamda to‘liq manba kodi. Chromium zip faylini qo‘lda o‘rnatish uchun:",
   "docs_install_unzip": "So‘nggi relizdan Chrome zip faylini yuklab oling va arxivdan chiqaring.",
   "docs_releases": "So‘nggi relizni ochish",
   "site_skip": "Asosiy mazmunga o‘tish",

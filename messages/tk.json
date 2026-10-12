@@ -397,8 +397,6 @@
   "pet_idle_3": "Her sahypa kiçijik bir syýahat.",
   "add_to_browser": "{browser} brauzerine goş",
   "docs_install_stores": "dragoman-y brauzeriňiziň dükanyndan guruň, ol şol ýerden özüni awtomatik täzeläp durar.",
-  "docs_install_github_title": "GitHub-dan guruň",
-  "docs_install_github": "Her wersiýa GitHub-da hem bar: Chromium brauzerleri we Firefox üçin zip faýllary hem-de doly çeşme kody. Chromium zip faýlyny el bilen gurmak üçin:",
   "docs_install_unzip": "Iň soňky wersiýadan Chrome zip faýlyny ýükläp alyň we arhiwden çykaryň.",
   "docs_releases": "Iň soňky wersiýany aç",
   "site_skip": "Mazmuna geç",

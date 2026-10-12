@@ -397,8 +397,6 @@
   "pet_idle_3": "Ամեն էջ մի փոքրիկ ճամփորդություն է։",
   "add_to_browser": "Ավելացնել {browser}-ում",
   "docs_install_stores": "Տեղադրեք dragoman-ը ձեր դիտարկիչի խանութից, և այն ինքնաշխատ կթարմացվի այնտեղից։",
-  "docs_install_github_title": "Տեղադրում GitHub-ից",
-  "docs_install_github": "Յուրաքանչյուր թողարկում հասանելի է նաև GitHub-ում՝ Chromium դիտարկիչների և Firefox-ի zip ֆայլերով ու ամբողջական ելակետային կոդով։ Chromium-ի zip-ը ձեռքով տեղադրելու համար՝",
   "docs_install_unzip": "Ներբեռնեք Chrome-ի zip-ը վերջին թողարկումից և բացեք արխիվը։",
   "docs_releases": "Բացել վերջին թողարկումը",
   "site_skip": "Անցնել բովանդակությանը",

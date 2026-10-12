@@ -397,8 +397,6 @@
   "pet_idle_3": "Is aistear beag é gach leathanach.",
   "add_to_browser": "Cuir le {browser}",
   "docs_install_stores": "Suiteáil dragoman ó stór do bhrabhsálaí, agus coinneoidh sé é féin cothrom le dáta as sin.",
-  "docs_install_github_title": "Suiteáil ó GitHub",
-  "docs_install_github": "Bíonn gach eisiúint ar GitHub freisin, le comhaid zip do bhrabhsálaithe Chromium agus do Firefox, mar aon leis an gcód foinse ar fad. Chun an zip Chromium a shuiteáil de láimh:",
   "docs_install_unzip": "Íoslódáil an zip Chrome ón eisiúint is déanaí agus dízipeáil é.",
   "docs_releases": "Oscail an eisiúint is déanaí",
   "site_skip": "Léim go dtí an t-ábhar",

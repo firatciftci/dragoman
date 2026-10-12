@@ -397,8 +397,6 @@
   "pet_idle_3": "כל דף הוא מסע קטן.",
   "add_to_browser": "הוספה ל-{browser}",
   "docs_install_stores": "אפשר להתקין את dragoman מחנות ההרחבות של הדפדפן, והוא יתעדכן משם באופן אוטומטי.",
-  "docs_install_github_title": "התקנה מ-GitHub",
-  "docs_install_github": "כל גרסה זמינה גם ב-GitHub, עם קובצי zip לדפדפני Chromium ול-Firefox ועם קוד המקור המלא. כדי להתקין ידנית את קובץ ה-zip של Chromium:",
   "docs_install_unzip": "מורידים את קובץ ה-zip של Chrome מהגרסה האחרונה ומחלצים אותו.",
   "docs_releases": "פתיחת הגרסה האחרונה",
   "site_skip": "דילוג לתוכן",

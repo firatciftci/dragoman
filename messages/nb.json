@@ -397,8 +397,6 @@
   "pet_idle_3": "Hver side er en liten reise.",
   "add_to_browser": "Legg til i {browser}",
   "docs_install_stores": "Installer dragoman fra nettleserens butikk, så holder den seg oppdatert derfra.",
-  "docs_install_github_title": "Installer fra GitHub",
-  "docs_install_github": "Alle utgivelser ligger også på GitHub, med zip-filer for Chromium-nettlesere og Firefox og hele kildekoden. Slik installerer du Chromium-zip-filen manuelt:",
   "docs_install_unzip": "Last ned Chrome-zip-filen fra den nyeste utgivelsen og pakk den ut.",
   "docs_releases": "Åpne den nyeste utgivelsen",
   "site_skip": "Hopp til innholdet",

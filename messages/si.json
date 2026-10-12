@@ -397,8 +397,6 @@
   "pet_idle_3": "සෑම පිටුවක්ම පුංචි ගමනක්.",
   "add_to_browser": "{browser} වෙත එක් කරන්න",
   "docs_install_stores": "ඔබේ බ්‍රවුසරයේ ගබඩාවෙන් dragoman ස්ථාපනය කරන්න. එතැන් සිට එය ස්වයංක්‍රීයව යාවත්කාලීන වේ.",
-  "docs_install_github_title": "GitHub වෙතින් ස්ථාපනය කරන්න",
-  "docs_install_github": "සෑම නිකුතුවක්ම GitHub හිද ඇත. Chromium බ්‍රවුසර සහ Firefox සඳහා zip ගොනු සහ සම්පූර්ණ මූලාශ්‍ර කේතය එහි ඇත. Chromium zip ගොනුව අතින් ස්ථාපනය කිරීමට:",
   "docs_install_unzip": "නවතම නිකුතුවෙන් Chrome zip ගොනුව බාගෙන එය දිග හරින්න.",
   "docs_releases": "නවතම නිකුතුව විවෘත කරන්න",
   "site_skip": "අන්තර්ගතයට යන්න",

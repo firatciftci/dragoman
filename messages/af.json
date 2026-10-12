@@ -397,8 +397,6 @@
   "pet_idle_3": "Elke bladsy is 'n klein reis.",
   "add_to_browser": "Voeg by {browser}",
   "docs_install_stores": "Installeer dragoman uit jou blaaier se winkel, en dit hou homself van daar af op datum.",
-  "docs_install_github_title": "Installeer vanaf GitHub",
-  "docs_install_github": "Elke weergawe is ook op GitHub, met zip-lêers vir Chromium-blaaiers en Firefox en die volledige bronkode. Om die Chromium-zip met die hand te installeer:",
   "docs_install_unzip": "Laai die Chrome-zip van die nuutste weergawe af en pak dit uit.",
   "docs_releases": "Maak die nuutste weergawe oop",
   "site_skip": "Slaan oor na inhoud",

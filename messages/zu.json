@@ -397,8 +397,6 @@
   "pet_idle_3": "Ikhasi ngalinye luhambo oluncane.",
   "add_to_browser": "Engeza ku-{browser}",
   "docs_install_stores": "Faka i-dragoman esitolo sesiphequluli sakho, futhi izozibuyekeza ngokwayo isuka lapho.",
-  "docs_install_github_title": "Faka usuka ku-GitHub",
-  "docs_install_github": "Konke ukukhishwa kutholakala naku-GitHub, kunama-zip ezifunda ze-Chromium ne-Firefox kanye nekhodi yomthombo ephelele. Ukufaka i-zip ye-Chromium ngesandla:",
   "docs_install_unzip": "Landa i-zip ye-Chrome ekukhishweni kwakamuva bese uyivula.",
   "docs_releases": "Vula ukukhishwa kwakamuva",
   "site_skip": "Yeqela kokuqukethwe",

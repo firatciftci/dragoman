@@ -397,8 +397,6 @@
   "pet_idle_3": "모든 페이지는 작은 여행이에요.",
   "add_to_browser": "{browser}에 추가",
   "docs_install_stores": "브라우저 스토어에서 dragoman을 설치하면 스토어를 통해 자동으로 최신 상태가 유지됩니다.",
-  "docs_install_github_title": "GitHub에서 설치",
-  "docs_install_github": "모든 릴리스는 GitHub에도 올라가며, Chromium 브라우저용과 Firefox용 zip 파일, 전체 소스 코드가 함께 제공됩니다. Chromium용 zip을 직접 설치하려면:",
   "docs_install_unzip": "최신 릴리스에서 Chrome용 zip을 내려받아 압축을 푸세요.",
   "docs_releases": "최신 릴리스 열기",
   "site_skip": "본문으로 건너뛰기",

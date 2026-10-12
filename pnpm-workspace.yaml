@@ -40,6 +40,7 @@ catalog:
   eslint-plugin-svelte: ^3.23.1
   knip: ^6.41.0
   oxfmt: ^0.72.0
+  simple-icons: ^16.35.0
   svelte: ^5.57.2
   svelte-check: ^4.7.6
   tailwindcss: ^4.3.3

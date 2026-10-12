@@ -397,8 +397,6 @@
   "pet_idle_3": "Minden oldal egy kis utazás.",
   "add_to_browser": "Hozzáadás: {browser}",
   "docs_install_stores": "Telepítsd a dragomant a böngésződ bővítményboltjából, és onnan magától frissül.",
-  "docs_install_github_title": "Telepítés GitHubról",
-  "docs_install_github": "Minden kiadás elérhető a GitHubon is, Chromium-alapú böngészőkhöz és Firefoxhoz készült zip-fájlokkal, valamint a teljes forráskóddal. A Chromium-zip kézi telepítése:",
   "docs_install_unzip": "Töltsd le a Chrome-zipet a legújabb kiadásból, és csomagold ki.",
   "docs_releases": "A legújabb kiadás megnyitása",
   "site_skip": "Ugrás a tartalomra",

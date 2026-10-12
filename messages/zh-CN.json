@@ -397,8 +397,6 @@
   "pet_idle_3": "每个页面都是一段小小的旅程。",
   "add_to_browser": "添加至 {browser}",
   "docs_install_stores": "从浏览器的应用商店安装 dragoman，之后它会自动保持更新。",
-  "docs_install_github_title": "从 GitHub 安装",
-  "docs_install_github": "每个版本也会发布在 GitHub 上，提供适用于 Chromium 浏览器和 Firefox 的压缩包以及完整源代码。手动安装 Chromium 压缩包的步骤如下：",
   "docs_install_unzip": "从最新版本中下载 Chrome 压缩包并解压。",
   "docs_releases": "打开最新版本",
   "site_skip": "跳到正文",

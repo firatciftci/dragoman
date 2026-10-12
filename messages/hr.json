@@ -397,8 +397,6 @@
   "pet_idle_3": "Svaka je stranica malo putovanje.",
   "add_to_browser": "Dodaj u {browser}",
   "docs_install_stores": "Instalirajte dragoman iz trgovine svojeg preglednika i on će se ondje sam ažurirati.",
-  "docs_install_github_title": "Instalacija s GitHuba",
-  "docs_install_github": "Svako izdanje dostupno je i na GitHubu, sa zip datotekama za preglednike temeljene na Chromiumu i Firefox te s cjelokupnim izvornim kodom. Za ručnu instalaciju zip datoteke za Chromium:",
   "docs_install_unzip": "Preuzmite zip datoteku za Chrome iz najnovijeg izdanja i raspakirajte je.",
   "docs_releases": "Otvori najnovije izdanje",
   "site_skip": "Preskoči na sadržaj",

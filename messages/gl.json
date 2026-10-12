@@ -397,8 +397,6 @@
   "pet_idle_3": "Cada páxina é unha pequena viaxe.",
   "add_to_browser": "Engadir a {browser}",
   "docs_install_stores": "Instala dragoman desde a tenda do teu navegador e manterase actualizado automaticamente.",
-  "docs_install_github_title": "Instalar desde GitHub",
-  "docs_install_github": "Cada versión publícase tamén en GitHub, con arquivos zip para navegadores Chromium e Firefox e todo o código fonte. Para instalar o zip de Chromium á man:",
   "docs_install_unzip": "Descarga o zip de Chrome da última versión e descomprímeo.",
   "docs_releases": "Abrir a última versión",
   "site_skip": "Ir ao contido",

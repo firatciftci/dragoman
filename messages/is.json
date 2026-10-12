@@ -397,8 +397,6 @@
   "pet_idle_3": "Hver síða er lítið ferðalag.",
   "add_to_browser": "Bæta við {browser}",
   "docs_install_stores": "Settu dragoman upp úr viðbótaverslun vafrans þíns og það uppfærist sjálfkrafa þaðan.",
-  "docs_install_github_title": "Setja upp af GitHub",
-  "docs_install_github": "Hver útgáfa er líka á GitHub, með zip-skrám fyrir Chromium-vafra og Firefox ásamt öllum frumkóðanum. Svona seturðu Chromium-skrána upp handvirkt:",
   "docs_install_unzip": "Sæktu Chrome-zip-skrána úr nýjustu útgáfunni og afþjappaðu hana.",
   "docs_releases": "Opna nýjustu útgáfuna",
   "site_skip": "Fara beint í efni",

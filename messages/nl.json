@@ -397,8 +397,6 @@
   "pet_idle_3": "Elke pagina is een kleine reis.",
   "add_to_browser": "Toevoegen aan {browser}",
   "docs_install_stores": "Installeer dragoman via de store van je browser. Daar wordt de extensie ook automatisch bijgewerkt.",
-  "docs_install_github_title": "Installeren via GitHub",
-  "docs_install_github": "Elke release staat ook op GitHub, met zips voor Chromium-browsers en Firefox en de volledige broncode. Zo installeer je de Chromium-zip handmatig:",
   "docs_install_unzip": "Download de Chrome-zip van de nieuwste release en pak hem uit.",
   "docs_releases": "Nieuwste release openen",
   "site_skip": "Naar inhoud gaan",

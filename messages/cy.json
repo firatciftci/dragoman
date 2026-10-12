@@ -397,8 +397,6 @@
   "pet_idle_3": "Mae pob tudalen yn daith fach.",
   "add_to_browser": "Ychwanegu at {browser}",
   "docs_install_stores": "Gosodwch dragoman o siop eich porwr, a bydd yn cadw'i hun yn gyfredol oddi yno.",
-  "docs_install_github_title": "Gosod o GitHub",
-  "docs_install_github": "Mae pob fersiwn ar GitHub hefyd, gyda ffeiliau zip ar gyfer porwyr Chromium a Firefox a'r cod ffynhonnell llawn. I osod y zip Chromium â llaw:",
   "docs_install_unzip": "Lawrlwythwch y zip Chrome o'r fersiwn ddiweddaraf a'i ddadsipio.",
   "docs_releases": "Agor y fersiwn ddiweddaraf",
   "site_skip": "Neidio i'r cynnwys",

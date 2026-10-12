@@ -397,8 +397,6 @@
   "pet_idle_3": "Orri bakoitza bidaia txiki bat da.",
   "add_to_browser": "Gehitu {browser}-n",
   "docs_install_stores": "Instalatu dragoman zure nabigatzailearen dendatik, eta handik eguneratuko da bere kabuz.",
-  "docs_install_github_title": "Instalatu GitHub-etik",
-  "docs_install_github": "Bertsio guztiak GitHub-en ere badaude, Chromium nabigatzaileetarako eta Firefox-erako zip fitxategiekin eta iturburu-kode osoarekin. Chromium-eko zipa eskuz instalatzeko:",
   "docs_install_unzip": "Deskargatu Chrome-ren zipa azken bertsiotik eta deskonprimatu.",
   "docs_releases": "Ireki azken bertsioa",
   "site_skip": "Joan edukira",

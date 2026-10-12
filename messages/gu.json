@@ -397,8 +397,6 @@
   "pet_idle_3": "દરેક પેજ એક નાની સફર છે.",
   "add_to_browser": "{browser}માં ઉમેરો",
   "docs_install_stores": "તમારા બ્રાઉઝરના સ્ટોરમાંથી dragoman ઇન્સ્ટૉલ કરો, પછી તે ત્યાંથી જ આપમેળે અપડેટ થતું રહેશે.",
-  "docs_install_github_title": "GitHub પરથી ઇન્સ્ટૉલ કરો",
-  "docs_install_github": "દરેક રિલીઝ GitHub પર પણ છે, જેમાં Chromium બ્રાઉઝર અને Firefox માટેની zip ફાઇલો અને પૂરો સોર્સ કોડ મળે છે. Chromium zip જાતે ઇન્સ્ટૉલ કરવા માટે:",
   "docs_install_unzip": "નવીનતમ રિલીઝમાંથી Chrome zip ડાઉનલોડ કરીને તેને અનઝિપ કરો.",
   "docs_releases": "નવીનતમ રિલીઝ ખોલો",
   "site_skip": "સામગ્રી પર જાઓ",

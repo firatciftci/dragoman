@@ -22,6 +22,7 @@
     "@sveltejs/vite-plugin-svelte": "catalog:",
     "@tailwindcss/vite": "catalog:",
     "@types/three": "catalog:",
+    "simple-icons": "catalog:",
     "svelte": "catalog:",
     "tailwindcss": "catalog:",
     "three": "catalog:",

@@ -397,8 +397,6 @@
   "pet_idle_3": "እያንዳንዱ ገጽ ትንሽ ጉዞ ነው።",
   "add_to_browser": "ወደ {browser} ያክሉ",
   "docs_install_stores": "dragomanን ከአሳሽዎ መደብር ይጫኑ፤ ከዚያም ራሱን በራሱ ያዘምናል።",
-  "docs_install_github_title": "ከGitHub ይጫኑ",
-  "docs_install_github": "እያንዳንዱ ልቀት በGitHub ላይም ይገኛል፤ ለChromium አሳሾችና ለFirefox የzip ፋይሎች እንዲሁም ሙሉው የምንጭ ኮድ አብረው አሉ። የChromium zipን በእጅ ለመጫን፦",
   "docs_install_unzip": "የChrome zipን ከቅርብ ጊዜው ልቀት አውርደው ይፍቱት።",
   "docs_releases": "የቅርብ ጊዜውን ልቀት ክፈት",
   "site_skip": "ወደ ይዘቱ እለፍ",

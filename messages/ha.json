@@ -397,8 +397,6 @@
   "pet_idle_3": "Kowane shafi ɗan tafiya ne.",
   "add_to_browser": "Ƙara zuwa {browser}",
   "docs_install_stores": "Sanya dragoman daga shagon burauzarka, kuma zai riƙa sabunta kansa daga can.",
-  "docs_install_github_title": "Sanya daga GitHub",
-  "docs_install_github": "Kowace fitarwa tana kan GitHub ma, tare da fayilolin zip don burauzan Chromium da Firefox da cikakken lambar tushe. Don sanya zip na Chromium da hannu:",
   "docs_install_unzip": "Sauke zip na Chrome daga sabuwar fitarwa ka buɗe shi.",
   "docs_releases": "Buɗe sabuwar fitarwa",
   "site_skip": "Tsallaka zuwa abin ciki",

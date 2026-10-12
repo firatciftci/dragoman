@@ -397,8 +397,6 @@
   "pet_idle_3": "Çdo faqe është një udhëtim i vogël.",
   "add_to_browser": "Shto në {browser}",
   "docs_install_stores": "Instalo dragoman nga dyqani i shfletuesit tënd dhe ai do të përditësohet vetë prej andej.",
-  "docs_install_github_title": "Instalo nga GitHub",
-  "docs_install_github": "Çdo version gjendet edhe në GitHub, me skedarë zip për shfletuesit Chromium dhe Firefox, si dhe me kodin e plotë burimor. Për ta instaluar me dorë zip-in për Chromium:",
   "docs_install_unzip": "Shkarko zip-in për Chrome nga versioni më i fundit dhe çngjeshe.",
   "docs_releases": "Hap versionin më të fundit",
   "site_skip": "Kalo te përmbajtja",

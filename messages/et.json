@@ -397,8 +397,6 @@
   "pet_idle_3": "Iga leht on väike teekond.",
   "add_to_browser": "Lisa brauserisse {browser}",
   "docs_install_stores": "Paigalda dragoman oma brauseri poest ja see uueneb sealt edaspidi ise.",
-  "docs_install_github_title": "Paigalda GitHubist",
-  "docs_install_github": "Iga väljalase on saadaval ka GitHubis koos zip-failidega Chromiumi brauseritele ja Firefoxile ning täieliku lähtekoodiga. Chromiumi zip-faili käsitsi paigaldamiseks tee nii:",
   "docs_install_unzip": "Laadi uusimast väljalaskest alla Chrome'i zip-fail ja paki see lahti.",
   "docs_releases": "Ava uusim väljalase",
   "site_skip": "Liigu sisu juurde",

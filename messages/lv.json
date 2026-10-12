@@ -397,8 +397,6 @@
   "pet_idle_3": "Katra lapa ir mazs ceļojums.",
   "add_to_browser": "Pievienot pārlūkam {browser}",
   "docs_install_stores": "Instalējiet dragoman no sava pārlūka veikala, un tas pats sevi atjauninās.",
-  "docs_install_github_title": "Instalēšana no GitHub",
-  "docs_install_github": "Katra versija ir pieejama arī GitHub, ar zip failiem Chromium pārlūkiem un Firefox, kā arī pilnu pirmkodu. Lai Chromium zip failu instalētu manuāli:",
   "docs_install_unzip": "Lejupielādējiet Chrome zip failu no jaunākās versijas un atarhivējiet to.",
   "docs_releases": "Atvērt jaunāko versiju",
   "site_skip": "Pāriet uz saturu",

@@ -5,6 +5,7 @@
   import { on } from "svelte/events";
   import Browser from "#lib/browser.svelte";
   import Cast from "#lib/cast.svelte";
+  import Emblem from "#lib/emblem.svelte";
   import Install from "#lib/install.svelte";
   import { m } from "#lib/messages.ts";
   import Page from "#lib/page.svelte";
@@ -1107,7 +1108,11 @@
             class="flex h-full flex-col rounded-[26px] bg-white/60 p-6 shadow-[0_24px_40px_-30px_rgb(24_32_74/0.5)] ring-1 ring-white transition-[background-color,translate] hover:-translate-y-0.5 hover:bg-white/80"
           >
             <span class="flex items-center justify-between gap-3">
-              <span class="font-display text-[30px] leading-none">{name}</span>
+              <span class="flex items-center gap-3">
+                <Emblem {name} class="size-8" />
+                <span class="font-display text-[30px] leading-none">{name}</span
+                >
+              </span>
               <span
                 class="rounded-full bg-turquoise px-3 py-1 text-[13px] font-semibold text-ink"
               >

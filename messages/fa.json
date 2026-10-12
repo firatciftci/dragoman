@@ -397,8 +397,6 @@
   "pet_idle_3": "هر صفحه سفری کوچک است.",
   "add_to_browser": "افزودن به {browser}",
   "docs_install_stores": "dragoman را از فروشگاه مرورگرتان نصب کنید تا از همان‌جا خودبه‌خود به‌روز بماند.",
-  "docs_install_github_title": "نصب از GitHub",
-  "docs_install_github": "هر نسخه در GitHub هم منتشر می‌شود، همراه با فایل‌های zip برای مرورگرهای Chromium و Firefox و کد منبع کامل. برای نصب دستی zip مخصوص Chromium:",
   "docs_install_unzip": "فایل zip مخصوص Chrome را از تازه‌ترین نسخه دانلود و از حالت فشرده خارج کنید.",
   "docs_releases": "باز کردن تازه‌ترین نسخه",
   "site_skip": "رفتن به محتوای اصلی",
