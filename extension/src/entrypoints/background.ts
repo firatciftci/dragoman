@@ -110,10 +110,15 @@ async function draftOnDevice(
       pending = (async () => {
         for (let attempt = 0; attempt < 4; attempt++) {
           try {
-            return await api.create({
-              sourceLanguage: code(source),
-              targetLanguage: code(target),
-            });
+            return await Promise.race([
+              api.create({
+                sourceLanguage: code(source),
+                targetLanguage: code(target),
+              }),
+              new Promise<null>((resolve) => {
+                setTimeout(resolve, 10_000, null);
+              }),
+            ]);
           } catch {
             await new Promise((resolve) => setTimeout(resolve, 1500));
           }
