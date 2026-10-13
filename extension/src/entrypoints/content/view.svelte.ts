@@ -48,6 +48,7 @@ export const view = $state({
   source: null as string | null,
   target: "en",
   isAlwaysTranslated: false,
+  isBrowserTranslated: false,
   isPanelOpen: false,
   isFollowing: true,
   isWholePage: false,

@@ -5,6 +5,8 @@ export const strings = {
   badge_progress: m.badge_progress,
   badge_translate: m.badge_translate,
   badge_translated: m.badge_translated,
+  browser_instead: m.browser_instead,
+  browser_translated: m.browser_translated,
   character: m.character,
   close: m.close,
   copied: m.copied,

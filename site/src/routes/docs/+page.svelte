@@ -850,7 +850,7 @@ pnpm dev:extension`;
     <section id="help" class="mt-20 scroll-mt-20 lg:scroll-mt-10">
       {@render heading("help", m.docs_help_title())}
       <div class="mt-6 grid gap-2.5">
-        {#each [[m.docs_help_blocked(), m.docs_help_blocked_detail()], [m.docs_help_engine(), m.docs_help_engine_detail()], [m.docs_help_local(), m.docs_help_local_detail()], [m.docs_help_access(), m.docs_help_access_detail()], [m.docs_help_consent(), m.docs_help_consent_detail()]] as [question, answer] (question)}
+        {#each [[m.docs_help_blocked(), m.docs_help_blocked_detail()], [m.docs_help_engine(), m.docs_help_engine_detail()], [m.docs_help_browser(), m.docs_help_browser_detail()], [m.docs_help_local(), m.docs_help_local_detail()], [m.docs_help_access(), m.docs_help_access_detail()], [m.docs_help_consent(), m.docs_help_consent_detail()]] as [question, answer] (question)}
           <details
             class="fold rounded-2xl bg-raised px-5 ring-1 ring-line open:pb-5"
             {@attach unfold}

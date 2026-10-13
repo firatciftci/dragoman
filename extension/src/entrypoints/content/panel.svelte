@@ -146,19 +146,27 @@
         />
       </svg>
     </button>
-    <p class="title">{m.offer_title({ language })}</p>
-    <button type="button" class="primary" onclick={actions.translate}>
-      {m.offer_translate({ language: destination })}
-    </button>
-    {@render controls()}
-    {#if !view.isAlwaysTranslated}
-      <button type="button" class="link" onclick={actions.always}>
-        {m.always_translate({ language })}
+    {#if view.isBrowserTranslated}
+      <p class="title">{m.browser_translated()}</p>
+      <button type="button" class="primary" onclick={actions.translate}>
+        {m.browser_instead()}
+      </button>
+      {@render controls()}
+    {:else}
+      <p class="title">{m.offer_title({ language })}</p>
+      <button type="button" class="primary" onclick={actions.translate}>
+        {m.offer_translate({ language: destination })}
+      </button>
+      {@render controls()}
+      {#if !view.isAlwaysTranslated}
+        <button type="button" class="link" onclick={actions.always}>
+          {m.always_translate({ language })}
+        </button>
+      {/if}
+      <button type="button" class="link" onclick={actions.known}>
+        {m.offer_known({ language })}
       </button>
     {/if}
-    <button type="button" class="link" onclick={actions.known}>
-      {m.offer_known({ language })}
-    </button>
   {:else}
     <button
       type="button"

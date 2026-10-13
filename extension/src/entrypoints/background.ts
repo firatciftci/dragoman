@@ -68,6 +68,349 @@ function tagsMatch(source: string, translation: string) {
   return open.length === 0;
 }
 
+const escape = (text: string) =>
+  text.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+
+const decode = (text: string) =>
+  text
+    .replaceAll("&lt;", "<")
+    .replaceAll("&gt;", ">")
+    .replaceAll("&quot;", '"')
+    .replaceAll("&#39;", "'")
+    .replaceAll("&amp;", "&");
+
+const translators = new Map<
+  string,
+  Promise<{ translate: (text: string) => Promise<string> } | null>
+>();
+
+async function draftOnDevice(
+  source: string,
+  target: string,
+  html: Array<string>,
+) {
+  const value: Array<string | null> = html.map(() => null);
+  const api = Reflect.get(globalThis, "Translator") as
+    | {
+        create: (options: {
+          sourceLanguage: string;
+          targetLanguage: string;
+        }) => Promise<{ translate: (text: string) => Promise<string> }>;
+      }
+    | undefined;
+  let translatePlain:
+    | ((texts: Array<string>) => Promise<Array<string> | null>)
+    | null = null;
+  if (api != null) {
+    const key = `${source}>${target}`;
+    let pending = translators.get(key);
+    if (pending == null) {
+      const code = (language: string) =>
+        language === "zh-Hans" ? "zh" : language;
+      pending = (async () => {
+        for (let attempt = 0; attempt < 4; attempt++) {
+          try {
+            return await api.create({
+              sourceLanguage: code(source),
+              targetLanguage: code(target),
+            });
+          } catch {
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+          }
+        }
+        return null;
+      })();
+      translators.set(key, pending);
+    }
+    const translator = await pending;
+    if (translator != null) {
+      const tags = (text: string) =>
+        Array.from(text.matchAll(/<(\/?)[a-z][^>]*>/gi), ([tag, closing]) =>
+          closing === "/" ? "/" : (/data-x="(\d+)"/.exec(tag)?.[1] ?? ""),
+        )
+          .toSorted((a, b) => a.localeCompare(b))
+          .join(",");
+      const drafts = await Promise.all(
+        html.map(async (text) => {
+          try {
+            return await translator.translate(text);
+          } catch {
+            return null;
+          }
+        }),
+      );
+      for (const [i, text] of drafts.entries())
+        if (text != null && tags(text) === tags(html[i] ?? "")) value[i] = text;
+      translatePlain = async (texts) => {
+        try {
+          return await Promise.all(
+            texts.map(async (text) =>
+              decode(await translator.translate(escape(text))),
+            ),
+          );
+        } catch {
+          return null;
+        }
+      };
+    }
+  } else if (import.meta.env.BROWSER === "safari") {
+    translatePlain = async (texts) => {
+      try {
+        const reply = (await browser.runtime.sendNativeMessage(
+          "io.dragoman.app",
+          { type: "translate", source, target, texts },
+        )) as { texts?: Array<string> } | null;
+        return reply?.texts?.length === texts.length ? reply.texts : null;
+      } catch {
+        return null;
+      }
+    };
+  }
+
+  const plain = html.flatMap((_, i) => (value[i] == null ? [i] : []));
+  if (translatePlain != null && plain.length > 0) {
+    const requests: Array<string> = [];
+    const ask = (text: string) => {
+      if (!/\p{L}/u.test(text)) return -1;
+      requests.push(text.trim());
+      return requests.length - 1;
+    };
+    const layouts = plain.map((i) => {
+      const pieces: Array<
+        | string
+        | {
+            raw: string;
+            items: Array<
+              string | { tokens: Array<{ raw: string; kind: string }> }
+            >;
+          }
+      > = [];
+      let segment: Extract<(typeof pieces)[number], object> = {
+        raw: "",
+        items: [],
+      };
+      let depth = 0;
+      const tokens = (html[i] ?? "").matchAll(
+        /<(\/?)([a-z][\w-]*)(?:\s[^>]*)?>|[^<]+/gi,
+      );
+      for (const [raw, closing, name] of tokens) {
+        const kind =
+          name == null
+            ? "text"
+            : closing === "/"
+              ? "close"
+              : name === "br" || name === "img"
+                ? "void"
+                : "open";
+        if (depth === 0 && kind === "void") {
+          pieces.push(segment, raw);
+          segment = { raw: "", items: [] };
+          continue;
+        }
+        segment.raw += raw;
+        const last = segment.items.at(-1);
+        if (depth === 0 && kind === "text") segment.items.push(decode(raw));
+        else if (depth === 0 && kind === "open")
+          segment.items.push({ tokens: [{ raw, kind }] });
+        else if (typeof last === "object") last.tokens.push({ raw, kind });
+        depth = Math.max(
+          0,
+          depth + (kind === "open" ? 1 : kind === "close" ? -1 : 0),
+        );
+      }
+      pieces.push(segment);
+      return pieces.map((piece) => {
+        if (typeof piece === "string") return piece;
+        let before = "";
+        const elements = piece.items.flatMap((item) => {
+          if (typeof item === "string") {
+            before += item;
+            return [];
+          }
+          let inner = item.tokens;
+          let opens = "";
+          let closes = "";
+          for (;;) {
+            const [first] = inner;
+            const last = inner.at(-1);
+            let level = 0;
+            const isWrapped =
+              inner.length >= 2 &&
+              first?.kind === "open" &&
+              last?.kind === "close" &&
+              inner.every((token, j) => {
+                level +=
+                  token.kind === "open" ? 1 : token.kind === "close" ? -1 : 0;
+                return level > 0 || j === inner.length - 1;
+              });
+            if (!isWrapped) break;
+            opens += first.raw;
+            closes = last.raw + closes;
+            inner = inner.slice(1, -1);
+          }
+          let text = "";
+          let lead = "";
+          let trail = "";
+          for (const token of inner) {
+            if (token.kind === "text") text += decode(token.raw);
+            else if (token.kind === "void") {
+              if (/\p{L}/u.test(text)) trail += token.raw;
+              else lead += token.raw;
+            }
+          }
+          const element = {
+            opens,
+            closes,
+            lead,
+            trail,
+            text: text.trim(),
+            isFirst: !/\p{L}/u.test(before),
+            ask: ask(text),
+          };
+          before += text;
+          return [element];
+        });
+        return {
+          raw: piece.raw,
+          space: [/^\s/.test(before) ? " " : "", /\s$/.test(before) ? " " : ""],
+          full: ask(before),
+          elements,
+        };
+      });
+    });
+    const translations =
+      requests.length === 0 ? [] : await translatePlain(requests);
+    if (translations != null)
+      for (const [j, i] of plain.entries())
+        value[i] = (layouts[j] ?? [])
+          .map((piece) => {
+            if (typeof piece === "string") return piece;
+            if (piece.full === -1) return piece.raw;
+            const full = (translations[piece.full] ?? "").trim();
+            const lower = full.toLowerCase();
+            const words = Array.from(
+              lower.matchAll(/[\p{L}\p{N}]+/gu),
+              (match) =>
+                [match.index, match.index + match[0].length, match[0]] as const,
+            );
+            const claims: Array<
+              [number, number, (typeof piece.elements)[number]]
+            > = [];
+            const isFree = (start: number, end: number) =>
+              claims.every(([from, to]) => start >= to || end <= from);
+            let head = "";
+            let tail = "";
+            let cursor = 0;
+            for (const element of piece.elements) {
+              const candidates = [
+                element.ask === -1
+                  ? ""
+                  : (translations[element.ask] ?? "").trim(),
+                element.text,
+              ]
+                .filter((candidate) => candidate !== "")
+                .map((candidate) => candidate.toLowerCase());
+              const exact = candidates.flatMap((candidate) =>
+                [cursor, 0].flatMap((from) => {
+                  let at = lower.indexOf(candidate, from);
+                  while (at !== -1 && !isFree(at, at + candidate.length))
+                    at = lower.indexOf(candidate, at + 1);
+                  return at === -1 ? [] : [[at, at + candidate.length]];
+                }),
+              );
+              const loose = candidates.flatMap((candidate) => {
+                const hits = Array.from(
+                  candidate.matchAll(/[\p{L}\p{N}]{3,}/gu),
+                  ([word]) => {
+                    const stem = word.slice(0, Math.max(4, word.length - 2));
+                    const isFit = ([
+                      start,
+                      end,
+                      other,
+                    ]: (typeof words)[number]) =>
+                      other.startsWith(stem) && isFree(start, end);
+                    const hit =
+                      words.find(
+                        (entry) => entry[0] >= cursor && isFit(entry),
+                      ) ?? words.find((entry) => isFit(entry));
+                    return hit == null
+                      ? null
+                      : {
+                          start: hit[0],
+                          end: hit[1],
+                          score: hit[2] === word ? 2 : 1,
+                        };
+                  },
+                )
+                  .filter((hit) => hit != null)
+                  .toSorted((a, b) => a.start - b.start);
+                const clusters: Array<{
+                  start: number;
+                  end: number;
+                  score: number;
+                }> = [];
+                for (const hit of hits) {
+                  const last = clusters.at(-1);
+                  if (
+                    last != null &&
+                    hit.start - last.end <= 3 &&
+                    isFree(last.end, hit.start)
+                  )
+                    Object.assign(last, {
+                      end: hit.end,
+                      score: last.score + hit.score,
+                    });
+                  else clusters.push({ ...hit });
+                }
+                const best = clusters.toSorted((a, b) => b.score - a.score)[0];
+                return best == null ? [] : [[best.start, best.end]];
+              });
+              const [start, end] = exact[0] ?? loose[0] ?? [];
+              if (start != null && end != null) {
+                claims.push([start, end, element]);
+                cursor = end;
+              } else if (element.text === "") {
+                const markup = `${element.opens}${element.lead}${element.trail}${element.closes}`;
+                if (element.isFirst) head += markup;
+                else tail += markup;
+              }
+            }
+            let out = `${head}${piece.space[0] ?? ""}`;
+            let position = 0;
+            const ordered = claims.toSorted(([a], [b]) => a - b);
+            for (const [from, to, element] of ordered) {
+              out += `${escape(full.slice(position, from))}${element.opens}${element.lead}${escape(full.slice(from, to))}${element.trail}${element.closes}`;
+              position = to;
+            }
+            return `${out}${escape(full.slice(position))}${piece.space[1] ?? ""}${tail}`;
+          })
+          .join("");
+  }
+
+  const rest = html.flatMap((_, i) => (value[i] == null ? [i] : []));
+  if (rest.length > 0) {
+    const texts = rest.map((i) => html[i] ?? "");
+    let response: Result<Array<string>>;
+    if (hasOffscreen) {
+      await ensureOffscreen();
+      response = await sendToExtension({
+        to: "offscreen",
+        type: "translate",
+        source,
+        target,
+        html: texts,
+      });
+    } else
+      response = {
+        ok: true,
+        value: await translate({ source, target, html: texts }),
+      };
+    if (!response.ok) return response;
+    for (const [j, i] of rest.entries()) value[i] = response.value[j] ?? "";
+  }
+  return { ok: true as const, value: value.map((text) => text ?? "") };
+}
+
 const pricesItem = storage.defineItem<{
   fetched: number;
   rates: Record<string, Array<number>>;
@@ -424,22 +767,7 @@ async function handle(
       );
       if (missing.length > 0) {
         const html = missing.map((i) => message.html[i] ?? "");
-        let response: Result<Array<string>>;
-        if (hasOffscreen) {
-          await ensureOffscreen();
-          response = await sendToExtension({
-            to: "offscreen",
-            type: "translate",
-            source,
-            target,
-            html,
-          });
-        } else {
-          response = {
-            ok: true,
-            value: await translate({ source, target, html }),
-          };
-        }
+        const response = await draftOnDevice(source, target, html);
         if (!response.ok) return response;
         for (const [j, i] of missing.entries())
           drafted[i] = response.value[j] ?? "";

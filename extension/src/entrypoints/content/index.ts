@@ -1246,6 +1246,13 @@ export default defineContentScript({
     }
 
     async function start(nextTarget: string, scope?: Range | "same") {
+      if (view.isBrowserTranslated) {
+        try {
+          sessionStorage.setItem("dragoman:original", nextTarget);
+        } catch {}
+        location.reload();
+        return;
+      }
       if (scope == null) {
         isSelective = false;
         chosen.clear();
@@ -1639,8 +1646,33 @@ export default defineContentScript({
       },
     );
 
+    const isBrowserTranslated = () =>
+      /\btranslated-(?:ltr|rtl)\b/.test(document.documentElement.className);
+    view.isBrowserTranslated = isBrowserTranslated();
+    const marks = new MutationObserver(() => {
+      const isTranslated = isBrowserTranslated();
+      if (isTranslated === view.isBrowserTranslated) return;
+      view.isBrowserTranslated = isTranslated;
+      if (isTranslated && view.phase !== "hidden") {
+        stop();
+        view.phase = "offer";
+        view.isPanelOpen =
+          !view.isHidden && !matchMedia("(max-width: 560px)").matches;
+      }
+      sync();
+    });
+    marks.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
     void (async () => {
       const current = session;
+      let requested: string | null = null;
+      try {
+        requested = sessionStorage.getItem("dragoman:original");
+        sessionStorage.removeItem("dragoman:original");
+      } catch {}
       const [settings, isHidden, detected] = await Promise.all([
         readSettings(),
         hiddenItem.getValue(),
@@ -1675,6 +1707,10 @@ export default defineContentScript({
       source = normalizeLanguage(
         (isReliable ? top : undefined) ?? (declared || top) ?? "und",
       );
+      if (requested != null) {
+        await start(requested);
+        return;
+      }
       const code = source;
       const isAlways = settings.alwaysLanguages
         .map((always) => languageKey(always))
@@ -1709,6 +1745,7 @@ export default defineContentScript({
 
     ctx.onInvalidated(() => {
       stop();
+      marks.disconnect();
       for (const unwatch of unwatches) unwatch();
       clearTimeout(selectionTimer);
       document.removeEventListener("selectionchange", onSelection);

@@ -969,6 +969,13 @@
               {/key}
             </div>
           </section>
+          <section class="rounded-2xl border border-line bg-raised px-6 py-2">
+            <Switch
+              bind:checked={settings.quietBrowser}
+              label={m.quiet_browser()}
+              detail={m.quiet_browser_detail()}
+            />
+          </section>
           <section class="rounded-2xl border border-line bg-raised p-6">
             <p class="text-[15px] font-semibold">{m.never_title()}</p>
             <p class="mt-1 mb-4 text-[13px] text-muted">{m.never_detail()}</p>

@@ -34,6 +34,7 @@ export type Settings = {
   draftLocally: boolean;
   wholePage: boolean;
   companion: boolean;
+  quietBrowser: boolean;
 };
 
 export type Usage = Record<
@@ -90,6 +91,7 @@ export async function readSettings(): Promise<Settings> {
     draftLocally: true,
     wholePage: false,
     companion: false,
+    quietBrowser: true,
     ...(await settingsItem.getValue()),
   };
 }

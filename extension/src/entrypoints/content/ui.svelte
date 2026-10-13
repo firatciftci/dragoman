@@ -314,12 +314,14 @@
     >
       <button type="button" class="ask" onclick={actions.translate}>
         <span class="about">
-          {m.offer_title({
-            language:
-              view.source == null || view.source === "und"
-                ? ""
-                : sourceName(view.source),
-          })}
+          {view.isBrowserTranslated
+            ? m.browser_translated()
+            : m.offer_title({
+                language:
+                  view.source == null || view.source === "und"
+                    ? ""
+                    : sourceName(view.source),
+              })}
         </span>
         <span class="act">
           <svg viewBox="0 0 16 16" aria-hidden="true">
@@ -332,9 +334,11 @@
               stroke-linejoin="round"
             />
           </svg>
-          {m.offer_translate({
-            language: languageName(view.target, view.locale),
-          })}
+          {view.isBrowserTranslated
+            ? m.browser_instead()
+            : m.offer_translate({
+                language: languageName(view.target, view.locale),
+              })}
         </span>
       </button>
       <button
