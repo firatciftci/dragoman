@@ -14,6 +14,7 @@ import { providers } from "#lib/providers.ts";
 import {
   choices,
   connection,
+  exclusion,
   hiddenItem,
   pick,
   readSettings,
@@ -1138,6 +1139,8 @@ export default defineContentScript({
             ? ""
             : `${settings.provider}/${settings.models[settings.provider] ?? ""}`,
         isDeviceOnly: settings.deviceOnly,
+        host: location.hostname,
+        neverSites: settings.neverSites,
       });
     };
 
@@ -1423,6 +1426,7 @@ export default defineContentScript({
           save({ knownLanguages: [...settings.knownLanguages, code] }),
         );
       },
+      exclude: (neverSites: Array<string>) => void save({ neverSites }),
       pick: (value: string) => {
         const index = value.indexOf("/");
         void readSettings().then(async (settings) => {
@@ -1561,6 +1565,14 @@ export default defineContentScript({
       settingsItem.watch(() => {
         void readSettings().then(async (settings) => {
           await configure(settings);
+          if (
+            view.phase === "offer" &&
+            exclusion(location.hostname, settings.neverSites).site != null
+          ) {
+            view.isPanelOpen = false;
+            view.phase = "hidden";
+            sync();
+          }
           schedule();
         });
       }),
@@ -1667,10 +1679,12 @@ export default defineContentScript({
       const isAlways = settings.alwaysLanguages
         .map((always) => languageKey(always))
         .includes(languageKey(code));
+      const isExcluded =
+        exclusion(location.hostname, settings.neverSites).site != null;
       if (
         isAlways &&
+        !isExcluded &&
         languageKey(code) !== languageKey(settings.targetLanguage) &&
-        !settings.neverSites.includes(location.hostname) &&
         document.querySelector('input[type="password"]') == null
       ) {
         await start(settings.targetLanguage);
@@ -1678,12 +1692,12 @@ export default defineContentScript({
       }
       if (
         isReliable &&
+        !isExcluded &&
         settings.offerTranslation &&
         languageKey(code) !== languageKey(settings.targetLanguage) &&
         !settings.knownLanguages
           .map((known) => languageKey(known))
-          .includes(languageKey(code)) &&
-        !settings.neverSites.includes(location.hostname)
+          .includes(languageKey(code))
       ) {
         view.phase = "offer";
         view.isAlwaysTranslated = isAlways;

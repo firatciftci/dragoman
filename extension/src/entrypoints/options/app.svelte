@@ -24,6 +24,7 @@
   import {
     characters,
     choices,
+    exclusion,
     readSettings,
     settingsItem,
     usageItem,
@@ -43,6 +44,7 @@
   let hasAccess = $state(true);
   let isConsented = $state(true);
   let shortcut = $state("");
+  let draft = $state("");
   let check = $state<
     | { state: "idle" }
     | { state: "checking" }
@@ -64,6 +66,19 @@
             ),
     ),
   );
+  const candidate = $derived.by(() => {
+    const text = draft.trim().toLowerCase();
+    if (text === "" || settings == null) return null;
+    try {
+      const site = new URL(
+        text.includes("://") ? text : `https://${text}`,
+      ).hostname.replace(/^www\./, "");
+      const rule = exclusion(site, settings.neverSites);
+      return site.includes(".") && rule.site == null ? rule.choose(site) : null;
+    } catch {
+      return null;
+    }
+  });
   const numbers = new Intl.NumberFormat(locale);
   const dollars = new Intl.NumberFormat(locale, {
     style: "currency",
@@ -900,21 +915,6 @@
                 placeholder={m.auto_add()}
               />
             {/key}
-            {#if settings.neverSites.length > 0}
-              <p class="mt-6 mb-2 text-[13px] font-medium text-muted">
-                {m.auto_sites()}
-              </p>
-              <ul class="flex flex-wrap gap-2">
-                {#each settings.neverSites as site (site)}
-                  {@render chip(site, () => {
-                    if (settings != null)
-                      settings.neverSites = settings.neverSites.filter(
-                        (other) => other !== site,
-                      );
-                  })}
-                {/each}
-              </ul>
-            {/if}
           </section>
           <section
             class="rounded-2xl border border-line bg-raised px-6 pt-2 pb-6"
@@ -968,6 +968,53 @@
                 />
               {/key}
             </div>
+          </section>
+          <section class="rounded-2xl border border-line bg-raised p-6">
+            <p class="text-[15px] font-semibold">{m.never_title()}</p>
+            <p class="mt-1 mb-4 text-[13px] text-muted">{m.never_detail()}</p>
+            {#if settings.neverSites.length === 0}
+              <p class="mb-3 text-[13px] text-muted">{m.never_empty()}</p>
+            {:else}
+              <ul class="mb-3 flex flex-wrap gap-2" dir="ltr">
+                {#each settings.neverSites as site (site)}
+                  {@render chip(site, () => {
+                    if (settings != null)
+                      settings.neverSites = settings.neverSites.filter(
+                        (other) => other !== site,
+                      );
+                  })}
+                {/each}
+              </ul>
+            {/if}
+            <form
+              class="flex gap-2"
+              onsubmit={(event) => {
+                event.preventDefault();
+                if (settings == null || candidate == null) return;
+                settings.neverSites = candidate;
+                draft = "";
+              }}
+            >
+              <input
+                bind:value={draft}
+                type="text"
+                inputmode="url"
+                dir="ltr"
+                placeholder={m.never_placeholder()}
+                aria-label={m.never_add()}
+                spellcheck="false"
+                autocomplete="off"
+                autocapitalize="off"
+                class="h-11 min-w-0 flex-1 rounded-xl border border-line bg-surface px-3.5 text-[14px] shadow-[inset_0_-2px_0_var(--line)] outline-none placeholder:text-muted focus:border-accent"
+              />
+              <button
+                type="submit"
+                disabled={candidate == null}
+                class="h-11 shrink-0 cursor-pointer rounded-xl border border-line bg-surface px-4 text-[14px] font-medium text-accent shadow-[inset_0_-2px_0_var(--line)] hover:border-muted disabled:cursor-default disabled:text-muted disabled:opacity-60 disabled:hover:border-line"
+              >
+                {m.never_add()}
+              </button>
+            </form>
           </section>
           <section class="rounded-2xl border border-line bg-raised p-6">
             <p class="mb-3 text-[15px] font-semibold">

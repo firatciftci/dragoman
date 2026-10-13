@@ -43,6 +43,8 @@ export const view = $state({
   }>,
   choice: "",
   isDeviceOnly: false,
+  host: "",
+  neverSites: [] as Array<string>,
   source: null as string | null,
   target: "en",
   isAlwaysTranslated: false,
@@ -115,6 +117,7 @@ export const actions = {} as {
   known: () => void;
   pick: (value: string) => void;
   deviceOnly: (isOn: boolean) => void;
+  exclude: (neverSites: Array<string>) => void;
   languageOf: (text: string) => Promise<string | null>;
   translateText: (
     text: string,

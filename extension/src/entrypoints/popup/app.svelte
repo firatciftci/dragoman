@@ -19,6 +19,7 @@
   import {
     choices,
     connection,
+    exclusion,
     hiddenItem,
     pick,
     readSettings,
@@ -76,6 +77,15 @@
         detail: languageName(code, code),
       }))
       .toSorted((a, b) => a.label.localeCompare(b.label, locale)),
+  );
+  const host = $derived(status?.host ?? "");
+  const rule = $derived(exclusion(host, settings?.neverSites ?? []));
+  let picked = $state<string | null>(null);
+  const scope = $derived(
+    rule.site ??
+      (picked != null && rule.scopes.includes(picked)
+        ? picked
+        : rule.scopes[0]),
   );
   const drafted = $derived(
     status == null || status.blocks === 0 ? 0 : status.drafted / status.blocks,
@@ -573,9 +583,7 @@
             {/if}
             {#if isForeign && status?.source != null}
               {const language = $derived(status.source)}
-              {const host = $derived(status.host)}
               {const always = $derived(settings.alwaysLanguages)}
-              {const never = $derived(settings.neverSites)}
               {const isAlways = $derived(
                 always
                   .map((code) => languageKey(code))
@@ -593,7 +601,7 @@
                               languageKey(code) !== languageKey(language),
                           ),
                     }).then(async () => {
-                      if (isOn && !isActive && !never.includes(host))
+                      if (isOn && !isActive && rule.site == null)
                         await send({
                           to: "content",
                           type: "translate",
@@ -603,20 +611,51 @@
                 }
                 label={m.always_translate({ language: sourceName(language) })}
               />
-              {#if isAlways && host !== ""}
-                <Switch
-                  bind:checked={
-                    () => never.includes(host),
-                    (isOn: boolean) =>
-                      void save({
-                        neverSites: isOn
-                          ? [...never, host]
-                          : never.filter((site) => site !== host),
-                      })
-                  }
-                  label={m.except_site({ site: host })}
-                />
-              {/if}
+            {/if}
+            {#if host !== "" && (isForeign || rule.site != null)}
+              <Switch
+                bind:checked={
+                  () => rule.site != null,
+                  (isOn: boolean) =>
+                    void save({ neverSites: rule.choose(isOn ? scope : null) })
+                }
+                label={m.never_site()}
+                detail={rule.scopes.length > 1 ? undefined : scope}
+              >
+                {#if rule.scopes.length > 1}
+                  <div
+                    class="mt-2 flex flex-wrap gap-1.5"
+                    role="radiogroup"
+                    aria-label={m.never_site()}
+                  >
+                    {#each rule.scopes as option, index (option)}
+                      {const isChosen = $derived(option === scope)}
+                      <button
+                        type="button"
+                        role="radio"
+                        aria-checked={isChosen}
+                        dir="ltr"
+                        class={[
+                          "max-w-full cursor-pointer rounded-full border px-2.5 py-1 text-[12.5px] break-all transition-colors",
+                          {
+                            "border-turquoise/55 bg-turquoise/12 font-semibold text-turquoise":
+                              isChosen,
+                            "border-line text-muted hover:border-muted hover:text-text":
+                              !isChosen,
+                          },
+                        ]}
+                        onclick={() => {
+                          picked = option;
+                          if (rule.site != null && option !== rule.site)
+                            void save({ neverSites: rule.choose(option) });
+                        }}
+                      >
+                        {index === 0 ? option : m.site_whole({ site: option })}
+                      </button>
+                    {/each}
+                  </div>
+                {/if}
+              </Switch>
             {/if}
           </div>
         {/if}

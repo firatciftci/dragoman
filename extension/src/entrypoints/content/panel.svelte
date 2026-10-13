@@ -2,6 +2,7 @@
 
 <script lang="ts">
   import { languageName, sourceName } from "#lib/messages.ts";
+  import { exclusion } from "#lib/settings.ts";
   import Picker from "./picker.svelte";
   import { actions, hint, m, view } from "./view.svelte.ts";
 
@@ -19,10 +20,18 @@
     view.choices.find((choice) => choice.value === view.choice)?.model ??
       view.model,
   );
+  const rule = $derived(exclusion(view.host, view.neverSites));
+  let picked = $state<string | null>(null);
+  const scope = $derived(
+    rule.site ??
+      (picked != null && rule.scopes.includes(picked)
+        ? picked
+        : rule.scopes[0]),
+  );
 </script>
 
 {#snippet controls()}
-  {#if view.choices.length > 0}
+  {#if view.choices.length > 0 || view.host !== ""}
     <div class="controls">
       {#if view.choices.length > 1}
         <div class="row">
@@ -36,19 +45,61 @@
           />
         </div>
       {/if}
-      <button
-        type="button"
-        role="switch"
-        class="row"
-        aria-checked={view.isDeviceOnly}
-        onclick={() => actions.deviceOnly(!view.isDeviceOnly)}
-      >
-        <span class="label">
-          {m.on_device_only()}
-          <small>{m.on_device_only_detail({ model: current })}</small>
-        </span>
-        <span class="track"></span>
-      </button>
+      {#if view.choices.length > 0}
+        <button
+          type="button"
+          role="switch"
+          class="row"
+          aria-checked={view.isDeviceOnly}
+          onclick={() => actions.deviceOnly(!view.isDeviceOnly)}
+        >
+          <span class="label">
+            {m.on_device_only()}
+            <small>{m.on_device_only_detail({ model: current })}</small>
+          </span>
+          <span class="track"></span>
+        </button>
+      {/if}
+      {#if view.host !== ""}
+        <div class="row site">
+          <span class="label">
+            <span id="{id}-site">{m.never_site()}</span>
+            {#if rule.scopes.length === 1}
+              <small dir="ltr">{scope}</small>
+            {/if}
+          </span>
+          <button
+            type="button"
+            role="switch"
+            class="toggle"
+            aria-checked={rule.site != null}
+            aria-labelledby="{id}-site"
+            onclick={() =>
+              actions.exclude(rule.choose(rule.site == null ? scope : null))}
+          >
+            <span class="track"></span>
+          </button>
+          {#if rule.scopes.length > 1}
+            <span class="scopes" role="radiogroup" aria-labelledby="{id}-site">
+              {#each rule.scopes as option, index (option)}
+                <button
+                  type="button"
+                  role="radio"
+                  class="scope"
+                  aria-checked={option === scope}
+                  onclick={() => {
+                    picked = option;
+                    if (rule.site != null && option !== rule.site)
+                      actions.exclude(rule.choose(option));
+                  }}
+                >
+                  {index === 0 ? option : m.site_whole({ site: option })}
+                </button>
+              {/each}
+            </span>
+          {/if}
+        </div>
+      {/if}
     </div>
   {/if}
 {/snippet}
@@ -538,6 +589,45 @@
   :global([dir="rtl"]) [aria-checked="true"] .track::after {
     translate: -16px 0;
   }
+  .site {
+    flex-wrap: wrap;
+    row-gap: 7px;
+  }
+  .scopes {
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .scope {
+    max-width: 100%;
+    padding: 3px 9px;
+    border-radius: 99px;
+    box-shadow: inset 0 0 0 1px #e3ddcd;
+    font-size: 12px;
+    color: #5d6385;
+    overflow-wrap: anywhere;
+    direction: ltr;
+    unicode-bidi: isolate;
+    transition:
+      background-color 0.15s,
+      color 0.15s,
+      box-shadow 0.15s;
+  }
+  .scope:hover {
+    color: #18204a;
+  }
+  .scope[aria-checked="true"] {
+    background: rgb(30 156 148 / 0.12);
+    box-shadow: inset 0 0 0 1px rgb(30 156 148 / 0.55);
+    color: #167a73;
+    font-weight: 600;
+  }
+  .toggle {
+    display: flex;
+    flex: none;
+    border-radius: 99px;
+  }
   .close {
     position: absolute;
     top: 8px;
@@ -592,8 +682,20 @@
     .row + .row {
       border-color: #2c3670;
     }
-    small {
+    small,
+    .scope {
       color: #a3a9c8;
+    }
+    .scope {
+      box-shadow: inset 0 0 0 1px #2c3670;
+    }
+    .scope:hover {
+      color: #ece7da;
+    }
+    .scope[aria-checked="true"] {
+      background: rgb(76 199 189 / 0.14);
+      box-shadow: inset 0 0 0 1px rgb(76 199 189 / 0.5);
+      color: #4cc7bd;
     }
     .track {
       background: rgb(241 237 226 / 0.12);

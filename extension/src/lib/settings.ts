@@ -143,3 +143,37 @@ export function pick(
     deviceOnly: false,
   };
 }
+
+const isCovered = (site: string, host: string) =>
+  host === site || host.endsWith(`.${site}`);
+
+export function exclusion(host: string, neverSites: Array<string>) {
+  const name = host.toLowerCase();
+  const bare = name.replace(/^www\./, "");
+  const labels = bare.split(".");
+  const isAddress = /^[\d.]+$/.test(bare) || bare.includes(":");
+  const isShared =
+    labels.at(-1)?.length === 2 &&
+    /^(?:ac|co|com|edu|gob|go|gouv|gov|ltd|mil|ne|net|nic|or|org|plc)$/.test(
+      labels.at(-2) ?? "",
+    );
+  const domain =
+    isAddress || labels.length < 3
+      ? bare
+      : labels.slice(isShared ? -3 : -2).join(".");
+  const site = neverSites.find((entry) => isCovered(entry, name)) ?? null;
+  const first = site == null || site === domain ? bare : site;
+  const scopes: [string, ...Array<string>] =
+    first === domain ? [domain] : [first, domain];
+  return {
+    scopes,
+    site,
+    choose: (scope: string | null) => [
+      ...neverSites.filter(
+        (site) =>
+          !isCovered(site, name) && (scope == null || !isCovered(scope, site)),
+      ),
+      ...(scope == null ? [] : [scope]),
+    ],
+  };
+}

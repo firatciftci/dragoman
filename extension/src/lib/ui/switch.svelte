@@ -1,11 +1,18 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import { Switch } from "bits-ui";
 
   let {
     checked = $bindable(),
     label,
     detail,
-  }: { checked: boolean; label: string; detail?: string } = $props();
+    children,
+  }: {
+    checked: boolean;
+    label: string;
+    detail?: string;
+    children?: Snippet;
+  } = $props();
 
   const id = $props.id();
 </script>
@@ -16,6 +23,7 @@
     {#if detail != null}
       <p class="mt-0.5 text-sm text-muted">{detail}</p>
     {/if}
+    {@render children?.()}
   </div>
   <Switch.Root
     {id}
