@@ -155,6 +155,9 @@ const ENTITIES: Record<string, string> = {
 const HIGHLIGHT_CSS = `::highlight(dragoman-draft) { text-decoration: underline dotted rgb(224 172 62 / 0.85); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 ::highlight(dragoman-focus) { background-color: rgb(224 172 62 / 0.24); }`;
 const OBSERVED = { childList: true, subtree: true, characterData: true };
+const BREAKING =
+  /^(?:preserve|preserve-breaks|break-spaces|pre|pre-wrap|pre-line)$/;
+const BLANK_LINE = /[^\S\n]*\n[^\S\n]*\n\s*/g;
 
 function isSkipped(element: Element) {
   return (
@@ -304,6 +307,8 @@ export default defineContentScript({
     const addedElements = new Set<Element>();
     const shadows = new Set<ShadowRoot>();
     const inView = new Set<Element>();
+    const splits = new Map<Text, Array<Text>>();
+    const rewritten = new Set<Text>();
 
     const detect = async (text: string): Promise<Detection> => {
       const i18n = browser.i18n as Partial<typeof browser.i18n>;
@@ -341,6 +346,8 @@ export default defineContentScript({
           block.texts.set(record.target, record.target.data);
           changedBlocks.add(block);
         }
+        if (record.target instanceof Text && splits.has(record.target))
+          rewritten.add(record.target);
         for (const node of record.addedNodes) {
           const element = node instanceof Element ? node : node.parentElement;
           if (element != null && !owned.has(node)) addedElements.add(element);
@@ -575,10 +582,31 @@ export default defineContentScript({
               ...(block.pools.get(container) ?? []),
               node,
             ]);
-            const collapsed = node.data.replaceAll(/\s+/g, " ");
-            html += escape(collapsed);
-            tagged += escape(collapsed);
-            text += collapsed;
+            const computed =
+              node.data.includes("\n") && container instanceof Element
+                ? getComputedStyle(container)
+                : null;
+            const lines =
+              computed != null &&
+              BREAKING.test(
+                computed.getPropertyValue("white-space-collapse") ||
+                  computed.whiteSpace,
+              )
+                ? node.data.split("\n")
+                : [node.data];
+            for (const [index, line] of lines.entries()) {
+              if (index > 0) {
+                block.elements.push(document.createElement("br"));
+                const id = block.elements.length;
+                html += `<br data-x="${id}">`;
+                tagged += `<x${id}/>`;
+                text += "\n";
+              }
+              const collapsed = line.replaceAll(/\s+/g, " ");
+              html += escape(collapsed);
+              tagged += escape(collapsed);
+              text += collapsed;
+            }
             continue;
           }
           if (!(node instanceof Element)) continue;
@@ -676,7 +704,39 @@ export default defineContentScript({
         else if (run.length > 0) addBlock(root, run);
         run = [];
       };
+      let isBreaking: boolean | null = null;
       for (const child of root.childNodes) {
+        const cuts: Array<RegExpExecArray> = [];
+        if (child instanceof Text)
+          for (const match of child.data.matchAll(BLANK_LINE)) cuts.push(match);
+        if (child instanceof Text && cuts.length > 0) {
+          if (isBreaking == null) {
+            const computed = getComputedStyle(root);
+            isBreaking = BREAKING.test(
+              computed.getPropertyValue("white-space-collapse") ||
+                computed.whiteSpace,
+            );
+          }
+          if (isBreaking && child.data.trim() === "") {
+            flush();
+            continue;
+          }
+          if (isBreaking) {
+            const pieces: Array<Text> = [];
+            mutate(() => {
+              for (const match of cuts.toReversed()) {
+                if (match.index === 0) continue;
+                const end = match.index + match[0].length;
+                if (end < child.data.length)
+                  pieces.unshift(child.splitText(end));
+                pieces.unshift(child.splitText(match.index));
+              }
+            });
+            if (pieces.length > 0) splits.set(child, pieces);
+            run.push(child);
+            continue;
+          }
+        }
         if (child instanceof Text || child instanceof Comment) {
           run.push(child);
         } else if (child instanceof Element && isInline(child)) {
@@ -710,6 +770,22 @@ export default defineContentScript({
       for (const block of blocks) {
         if (!block.parent.isConnected) forget(block);
       }
+      for (const head of rewritten) {
+        const pieces = splits.get(head) ?? [];
+        mutate(() => {
+          for (const piece of pieces) {
+            const other = textBlocks.get(piece);
+            if (other != null) {
+              restore(other);
+              forget(other);
+            }
+            piece.remove();
+          }
+        });
+        splits.delete(head);
+        if (head.parentElement != null) addedElements.add(head.parentElement);
+      }
+      rewritten.clear();
       for (const block of changedBlocks) {
         mutate(() => {
           restore(block);
@@ -1229,7 +1305,20 @@ export default defineContentScript({
       const shown = blocks.filter((block) => block.translated);
       mutate(() => {
         for (const block of blocks) restore(block);
+        for (const [head, pieces] of splits) {
+          let previous: ChildNode = head;
+          let isIntact = true;
+          for (const piece of pieces) {
+            isIntact &&= previous.nextSibling === piece;
+            previous = piece;
+          }
+          if (!isIntact) continue;
+          head.data = [head, ...pieces].map((text) => text.data).join("");
+          for (const piece of pieces) piece.remove();
+        }
       });
+      splits.clear();
+      rewritten.clear();
       reveal(shown, "restore");
       drafts.clear();
       blocks = [];
