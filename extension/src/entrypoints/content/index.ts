@@ -159,7 +159,9 @@ const OBSERVED = { childList: true, subtree: true, characterData: true };
 function isSkipped(element: Element) {
   return (
     SKIP.has(element.localName) ||
-    element.getAttribute("translate") === "no" ||
+    (element.getAttribute("translate") === "no" &&
+      (!(element instanceof HTMLElement) ||
+        element.dataset.dragomanQuiet == null)) ||
     element.classList.contains("notranslate") ||
     (element instanceof HTMLElement && element.isContentEditable)
   );
@@ -1646,8 +1648,17 @@ export default defineContentScript({
       },
     );
 
-    const isBrowserTranslated = () =>
-      /\btranslated-(?:ltr|rtl)\b/.test(document.documentElement.className);
+    const original = document.documentElement.lang;
+    const isBrowserTranslated = () => {
+      const { className, lang } = document.documentElement;
+      if (/\btranslated-(?:ltr|rtl)\b/.test(className)) return true;
+      return (
+        lang !== original &&
+        lang !== "" &&
+        languageKey(lang) === languageKey(view.target) &&
+        document.querySelector("body[data-dragoman-quiet]") == null
+      );
+    };
     view.isBrowserTranslated = isBrowserTranslated();
     const marks = new MutationObserver(() => {
       const isTranslated = isBrowserTranslated();
@@ -1663,7 +1674,7 @@ export default defineContentScript({
     });
     marks.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ["class"],
+      attributeFilter: ["class", "lang"],
     });
 
     void (async () => {

@@ -156,10 +156,17 @@ async function draftOnDevice(
   } else if (import.meta.env.BROWSER === "safari") {
     translatePlain = async (texts) => {
       try {
-        const reply = (await browser.runtime.sendNativeMessage(
-          "io.dragoman.app",
-          { type: "translate", source, target, texts },
-        )) as { texts?: Array<string> } | null;
+        const reply = (await Promise.race([
+          browser.runtime.sendNativeMessage("io.dragoman.app", {
+            type: "translate",
+            source,
+            target,
+            texts,
+          }),
+          new Promise<null>((resolve) => {
+            setTimeout(resolve, 10_000, null);
+          }),
+        ])) as { texts?: Array<string> } | null;
         return reply?.texts?.length === texts.length ? reply.texts : null;
       } catch {
         return null;
