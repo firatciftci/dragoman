@@ -30,8 +30,8 @@ dragoman is a page translator for Chromium browsers, Firefox and Safari, on desk
 
 ## Why dragoman
 
-- **Private by default.** Drafts come from the browser's own on-device translator: Chrome's built-in Translator API in Chrome, and Apple's Translation framework in Safari. Everywhere else, and for languages those don't cover, [Bergamot](https://browser.mt), the open engine behind Firefox Translations, runs inside the browser. Nothing leaves your computer unless you add a model.
-- **No double translation.** dragoman asks the browser's own translator to stay out of the way on pages it might translate, and if the browser already translated a page, it offers to reload the original.
+- **Private by default.** Drafts come from an on-device model: the Translator API built into Chrome and Edge, which is separate from their online page translation, and Apple's Translation framework in Safari. Everywhere else, and for languages those don't cover, [Bergamot](https://browser.mt), the open engine behind Firefox Translations, runs inside the browser. No page text leaves your computer unless you add a model.
+- **No double translation.** dragoman asks the browser's page translation to stay out of the way on pages it might translate, and if the browser already translated a page, it offers to reload the original.
 - **Bring your own model.** Anthropic, OpenAI, Google Gemini, OpenRouter, Mistral, DeepSeek, Groq, xAI, any OpenAI-compatible server, or a model on your own computer with Ollama or LM Studio. Keys stay in your browser and requests go straight to the provider. There is no dragoman server, account or analytics.
 - **Pay only for what you read.** Refinement follows your scrolling, so a long page costs only the part you actually look at.
 - **Everywhere you read.** One codebase for Chromium browsers, Firefox and Safari, on desktop, Android, iPhone and iPad, with an interface in 85 languages, right-to-left included.
