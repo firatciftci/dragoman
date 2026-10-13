@@ -138,7 +138,10 @@ async function getEngine() {
   }
 }
 
-const models = new Map<string, Promise<TranslationModel | null>>();
+const models = new Map<
+  string,
+  Promise<{ model: TranslationModel; known: Set<string> } | null>
+>();
 
 async function fetchRegistry() {
   const cache = await caches.open("dragoman-models");
@@ -189,7 +192,7 @@ async function fetchFile(url: string, file: ModelFile) {
 async function loadModel(
   from: string,
   to: string,
-): Promise<TranslationModel | null> {
+): Promise<{ model: TranslationModel; known: Set<string> } | null> {
   const { baseUrl, models: registry } = await getRegistry();
   const entry = registry[
     `${REGISTRY_CODES[from] ?? from}-${REGISTRY_CODES[to] ?? to}`
@@ -198,12 +201,14 @@ async function loadModel(
 
   const { bergamot } = await getEngine();
   const memory = new Map<FileType, AlignedMemory>();
+  let pieces = new Uint8Array();
   for (const fileType of FILE_TYPES) {
     const file = entry.files[fileType];
     if (file == null) continue;
     const bytes = new Uint8Array(
       await fetchFile(`${baseUrl}/${file.path}`, file),
     );
+    if (fileType === "vocab" || fileType === "srcVocab") pieces = bytes;
     const aligned = new bergamot.AlignedMemory(
       bytes.byteLength,
       ALIGNMENTS[fileType],
@@ -242,15 +247,72 @@ async function loadModel(
     .map(([key, value]) => `${key}: ${value}`)
     .join("\n");
 
-  return new bergamot.TranslationModel(
-    from,
-    to,
-    config,
-    model,
-    memory.get("lexicalShortlist") ?? null,
-    vocabs,
-    null,
-  );
+  const known = new Set<string>();
+  const decoder = new TextDecoder();
+  const varint = (data: Uint8Array, start: number) => {
+    let value = 0;
+    let at = start;
+    for (let shift = 0; ; shift += 7) {
+      const byte = data[at] ?? 0;
+      at += 1;
+      value += (byte & 0x7f) * 2 ** shift;
+      if (byte < 0x80 || at >= data.length) return [value, at] as const;
+    }
+  };
+  const walk = (
+    data: Uint8Array,
+    visit: (field: number, body: Uint8Array) => void,
+  ) => {
+    let at = 0;
+    while (at < data.length) {
+      const [key, next] = varint(data, at);
+      const wire = key & 7;
+      switch (wire) {
+        case 0: {
+          at = varint(data, next)[1];
+          break;
+        }
+        case 1: {
+          at = next + 8;
+          break;
+        }
+        case 5: {
+          at = next + 4;
+          break;
+        }
+        case 2: {
+          const [length, start] = varint(data, next);
+          at = start + length;
+          visit(key >>> 3, data.subarray(start, at));
+
+          break;
+        }
+        default: {
+          return;
+        }
+      }
+    }
+  };
+  walk(pieces, (field, piece) => {
+    if (field === 1)
+      walk(piece, (inner, text) => {
+        if (inner === 1)
+          for (const char of decoder.decode(text)) known.add(char);
+      });
+  });
+
+  return {
+    model: new bergamot.TranslationModel(
+      from,
+      to,
+      config,
+      model,
+      memory.get("lexicalShortlist") ?? null,
+      vocabs,
+      null,
+    ),
+    known,
+  };
 }
 
 async function getModel(from: string, to: string) {
@@ -291,6 +353,71 @@ export async function languages(): Promise<Languages> {
   };
 }
 
+const WORD = /[\p{L}\p{N}]/u;
+
+function shield(text: string, known: Set<string>) {
+  const chars = [...text];
+  const untagged = text.replaceAll(/<[^>]*>/g, (tag) =>
+    " ".repeat([...tag].length),
+  );
+  let mask = "";
+  for (const char of untagged) {
+    const normalized = char.normalize("NFKC");
+    mask +=
+      /\s/.test(char) ||
+      ([...normalized].every((part) => known.has(part)) &&
+        (normalized === char || !/\p{S}/u.test(char)))
+        ? "k"
+        : "u";
+  }
+  const runs: Array<{ run: string; before: string; after: string }> = [];
+  let encoded = "";
+  let position = 0;
+  for (const match of mask.matchAll(/u+/g)) {
+    const end = match.index + match[0].length;
+    const run = chars.slice(match.index, end).join("");
+    const previous = chars[match.index - 1] ?? "";
+    const next = chars[end] ?? "";
+    const isJoined = WORD.test(previous) && WORD.test(next);
+    if (
+      isJoined &&
+      (WORD.test(run) || (/\p{N}/u.test(previous) && /\p{N}/u.test(next)))
+    )
+      continue;
+    const gap = isJoined ? " " : "";
+    encoded += `${chars.slice(position, match.index).join("")}${gap}<img data-s="${runs.length}">${gap}`;
+    runs.push({ run, before: previous, after: next });
+    position = end;
+  }
+  return { encoded: `${encoded}${chars.slice(position).join("")}`, runs };
+}
+
+function unshield(
+  translation: string,
+  runs: Array<{ run: string; before: string; after: string }>,
+) {
+  return translation
+    .replaceAll(
+      /\s*<img data-s="(\d+)"\s*\/?>\s*/g,
+      (match, index: string, offset: number) => {
+        const entry = runs[Number(index)];
+        if (entry == null) return /\s/.test(match) ? " " : "";
+        const previous = translation[offset - 1] ?? "";
+        const next = translation[offset + match.length] ?? "";
+        const isLead =
+          previous !== "" &&
+          (/\s/.test(entry.before) ||
+            (!WORD.test(entry.before) && WORD.test(previous)));
+        const isTrail =
+          next !== "" &&
+          (/\s/.test(entry.after) ||
+            (!WORD.test(entry.after) && WORD.test(next)));
+        return `${isLead ? " " : ""}${entry.run}${isTrail ? " " : ""}`;
+      },
+    )
+    .replaceAll(/ {2,}/g, " ");
+}
+
 export async function translate({
   source,
   target,
@@ -309,22 +436,30 @@ export async function translate({
   const run =
     direct != null
       ? (messages: Vector<string>, options: Vector<ResponseOptions>) =>
-          service.translate(direct, messages, options)
+          service.translate(direct.model, messages, options)
       : first != null && second != null
         ? (messages: Vector<string>, options: Vector<ResponseOptions>) =>
-            service.translateViaPivoting(first, second, messages, options)
+            service.translateViaPivoting(
+              first.model,
+              second.model,
+              messages,
+              options,
+            )
         : null;
-  if (run == null) throw new Error(`No local model for ${source}→${target}`);
+  const known = direct?.known ?? first?.known;
+  if (run == null || known == null)
+    throw new Error(`No local model for ${source}→${target}`);
 
   const messages = new bergamot.VectorString();
   const options = new bergamot.VectorResponseOptions();
-  for (const text of html) {
-    messages.push_back(text);
+  const shielded = html.map((text) => shield(text, known));
+  for (const { encoded } of shielded) {
+    messages.push_back(encoded);
     options.push_back({ qualityScores: false, alignment: true, html: true });
   }
   const responses = run(messages, options);
-  const translations = Array.from({ length: responses.size() }, (_, i) =>
-    responses.get(i).getTranslatedText(),
+  const translations = shielded.map(({ runs }, i) =>
+    unshield(responses.get(i).getTranslatedText(), runs),
   );
   messages.delete();
   options.delete();
