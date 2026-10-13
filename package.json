@@ -1,7 +1,7 @@
 {
   "name": "dragoman",
   "description": "Page translation for every browser: instant local drafts, refined by the AI model of your choice",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "license": "MIT",
   "author": "Firat Ciftci (https://www.firatciftci.com)",
