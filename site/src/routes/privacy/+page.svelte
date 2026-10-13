@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Brand from "#lib/brand.svelte";
   import { m } from "#lib/messages.ts";
   import { getLocale } from "#lib/paraglide/runtime.js";
 
@@ -24,7 +25,9 @@
     <h1 class="font-display text-[clamp(36px,6vw,76px)] leading-none">
       {m.privacy_title()}
     </h1>
-    <p class="mt-4 max-w-xl text-[18px] text-tile/80">{m.privacy_intro()}</p>
+    <p class="mt-4 max-w-xl text-[18px] text-tile/80">
+      <Brand text={m.privacy_intro()} />
+    </p>
   </div>
 </div>
 
@@ -40,25 +43,25 @@
       {m.privacy_device_title()}
     </h2>
     <p class="mt-4">{m.privacy_device_local()}</p>
-    <p class="mt-4">{m.privacy_saved()}</p>
-    <p class="mt-4">{m.privacy_detect()}</p>
+    <p class="mt-4"><Brand text={m.privacy_saved()} /></p>
+    <p class="mt-4"><Brand text={m.privacy_detect()} /></p>
   </section>
 
   <section class="mt-16">
     <h2 class="font-display text-[34px] leading-tight">
       {m.privacy_sent_title()}
     </h2>
-    <p class="mt-4">{m.privacy_model_text()}</p>
-    <p class="mt-4">{m.privacy_firefox_consent()}</p>
-    <p class="mt-4">{m.privacy_models()}</p>
-    <p class="mt-4">{m.privacy_prices()}</p>
+    <p class="mt-4"><Brand text={m.privacy_model_text()} /></p>
+    <p class="mt-4"><Brand text={m.privacy_firefox_consent()} /></p>
+    <p class="mt-4"><Brand text={m.privacy_models()} /></p>
+    <p class="mt-4"><Brand text={m.privacy_prices()} /></p>
     <p class="mt-4">{m.privacy_openrouter()}</p>
-    <p class="mt-4">{m.privacy_openrouter_return()}</p>
+    <p class="mt-4"><Brand text={m.privacy_openrouter_return()} /></p>
   </section>
 
   <section class="mt-16">
     <h2 class="font-display text-[34px] leading-tight">
-      {m.privacy_never_title()}
+      <Brand text={m.privacy_never_title()} />
     </h2>
     <p class="mt-4">{m.privacy_never()}</p>
   </section>
@@ -83,7 +86,7 @@
     <h2 class="font-display text-[34px] leading-tight">
       {m.privacy_site_title()}
     </h2>
-    <p class="mt-4">{m.privacy_site()}</p>
+    <p class="mt-4"><Brand text={m.privacy_site()} /></p>
     <p class="mt-4">{m.privacy_changes()}</p>
   </section>
 </article>

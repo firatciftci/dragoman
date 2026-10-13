@@ -4,6 +4,7 @@
   import { mergeProps } from "bits-ui";
   import { onMount } from "svelte";
   import { on } from "svelte/events";
+  import Brand from "#lib/brand.svelte";
   import { m } from "#lib/messages.ts";
   import { getLocale } from "#lib/paraglide/runtime.js";
 
@@ -487,7 +488,7 @@
         {m.maker_tagline()}
       </p>
       <p class="mt-4 max-w-[58ch] text-[18px] leading-relaxed text-tile/85">
-        {m.maker_intro()}
+        <Brand text={m.maker_intro()} />
         <span class="text-tile/65">{m.maker_hear()}</span>
       </p>
 

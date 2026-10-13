@@ -4,10 +4,15 @@
   import { on } from "svelte/events";
   import type { Browser, Family } from "#lib/agent.ts";
   import { detect } from "#lib/agent.ts";
+  import Brand from "#lib/brand.svelte";
+  import Consistency from "#lib/consistency.svelte";
+  import Downloads from "#lib/downloads.svelte";
   import Emblem from "#lib/emblem.svelte";
   import { m } from "#lib/messages.ts";
   import { localizeHref } from "#lib/paraglide/runtime.js";
-  import { stores } from "#lib/stores.ts";
+  import Route from "#lib/route.svelte";
+  import { listings, stores } from "#lib/stores.ts";
+  import Viewport from "#lib/viewport.svelte";
 
   const groups = [
     [
@@ -15,11 +20,13 @@
       [
         ["install", m.docs_install_title()],
         ["first", m.docs_first_title()],
+        ["compare", m.docs_compare_title()],
       ],
     ],
     [
       m.docs_group_models(),
       [
+        ["device", m.docs_device_title()],
         ["model", m.docs_model_title()],
         ["local", m.docs_local_title()],
         ["cost", m.docs_cost_title()],
@@ -39,26 +46,21 @@
       id: "chromium",
       label: m.docs_tab_chromium(),
       mark: "Chrome",
-      listings: [
-        { store: "Chrome Web Store", mark: "Chrome", href: stores.chrome },
-        { store: "Microsoft Edge Add-ons", mark: "Edge", href: stores.edge },
-      ],
+      listings: [listings.chrome, listings.edge],
       platforms: m.platforms_chromium(),
     },
     {
       id: "firefox",
       label: "Firefox",
       mark: "Firefox",
-      listings: [
-        { store: "Firefox Add-ons", mark: "Firefox", href: stores.firefox },
-      ],
+      listings: [listings.firefox],
       platforms: m.platforms_firefox(),
     },
     {
       id: "safari",
       label: "Safari",
       mark: "Safari",
-      listings: [{ store: "App Store", mark: "Safari", href: stores.safari }],
+      listings: [listings.safari],
       platforms: m.platforms_safari(),
     },
   ] as const;
@@ -281,7 +283,7 @@ pnpm dev:extension`;
         fill="currentColor"
       />
     </svg>
-    <span>{text}</span>
+    <span><Brand {text} /></span>
   </p>
 {/snippet}
 
@@ -333,7 +335,7 @@ pnpm dev:extension`;
         {m.docs_title()}
       </h1>
       <p class="mt-5 max-w-xl text-[18px] leading-relaxed text-tile/80">
-        {m.docs_intro()}
+        <Brand text={m.docs_intro()} />
       </p>
     </div>
     <div class="min-h-56">
@@ -349,7 +351,7 @@ pnpm dev:extension`;
               </p>
             </div>
             <p class="mt-3 text-[15.5px] leading-relaxed text-muted">
-              {offer.detail}
+              <Brand text={offer.detail} />
             </p>
             <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
               <a
@@ -474,7 +476,7 @@ pnpm dev:extension`;
   <article class="max-w-[68ch] text-[17px] leading-[1.7]">
     <section id="install" class="scroll-mt-20 lg:scroll-mt-10">
       {@render heading("install", m.docs_install_title())}
-      <p class="mt-4">{m.docs_install_stores()}</p>
+      <p class="mt-4"><Brand text={m.docs_install_stores()} /></p>
       <div
         role="tablist"
         aria-label={m.docs_choose()}
@@ -610,7 +612,7 @@ pnpm dev:extension`;
                       stroke-linejoin="round"
                     />
                   </svg>
-                  <span>{line}</span>
+                  <span><Brand text={line} /></span>
                 </li>
               {/each}
             </ul>
@@ -661,13 +663,13 @@ pnpm dev:extension`;
         </div>
       {/each}
 
-      <p class="mt-8">{m.docs_install_4()}</p>
+      <p class="mt-8"><Brand text={m.docs_install_4()} /></p>
       {@render note(m.chrome_android_note())}
     </section>
 
     <section id="first" class="mt-20 scroll-mt-20 lg:scroll-mt-10">
       {@render heading("first", m.docs_first_title())}
-      <p class="mt-4">{m.docs_first_detail()}</p>
+      <p class="mt-4"><Brand text={m.docs_first_detail()} /></p>
       <div
         class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl bg-sunk px-5 py-4"
       >
@@ -715,12 +717,95 @@ pnpm dev:extension`;
           <dd class="mt-1.5 text-muted">{m.site_step_hover_detail()}</dd>
         </div>
       </dl>
-      <p class="mt-6">{m.docs_first_mobile()}</p>
+      <p class="mt-6"><Brand text={m.docs_first_mobile()} /></p>
+    </section>
+
+    <section id="compare" class="mt-20 scroll-mt-20 lg:scroll-mt-10">
+      {@render heading("compare", m.docs_compare_title())}
+      <p class="mt-4"><Brand text={m.docs_compare_intro()} /></p>
+      <h3 class="mt-10 text-[19px] font-semibold">
+        {m.docs_compare_context()}
+      </h3>
+      <p class="mt-2"><Brand text={m.docs_compare_context_detail()} /></p>
+      <Consistency />
+      <h3 class="mt-10 text-[19px] font-semibold">
+        {m.docs_compare_privacy()}
+      </h3>
+      <p class="mt-2"><Brand text={m.docs_compare_privacy_detail()} /></p>
+      <Route />
+      <dl class="mt-10 grid gap-3 sm:grid-cols-2">
+        {#each [[m.docs_compare_model(), m.docs_compare_model_detail()], [m.docs_compare_original(), m.docs_compare_original_detail()]] as [term, detail] (term)}
+          <div class="rounded-2xl bg-raised p-5 ring-1 ring-line">
+            <dt class="font-semibold">{term}</dt>
+            <dd class="mt-1.5 text-[16px] text-muted">
+              <Brand text={detail} />
+            </dd>
+          </div>
+        {/each}
+      </dl>
+      {@render note(m.docs_compare_fair())}
+      <details
+        class="fold mt-6 rounded-2xl bg-raised px-5 ring-1 ring-line open:pb-5"
+        {@attach unfold}
+      >
+        <summary
+          class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3 font-semibold [&::-webkit-details-marker]:hidden"
+        >
+          {m.docs_tech_title()}
+          <svg
+            viewBox="0 0 20 20"
+            class="turn size-5 shrink-0 text-muted [--turn:45deg]"
+            aria-hidden="true"
+          >
+            <path
+              d="M10 4v12M4 10h12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </summary>
+        <dl class="grid gap-4 text-[16px]">
+          {#each [[m.docs_tech_passes(), m.docs_tech_passes_detail()], [m.docs_tech_context(), m.docs_tech_context_detail()], [m.docs_tech_markup(), m.docs_tech_markup_detail()], [m.docs_tech_viewport(), m.docs_tech_viewport_detail()], [m.docs_tech_direct(), m.docs_tech_direct_detail()]] as [term, detail] (term)}
+            <div>
+              <dt class="font-semibold">{term}</dt>
+              <dd class="mt-1 text-muted"><Brand text={detail} /></dd>
+            </div>
+          {/each}
+        </dl>
+      </details>
+    </section>
+
+    <section id="device" class="mt-20 scroll-mt-20 lg:scroll-mt-10">
+      {@render heading("device", m.docs_device_title())}
+      <p class="mt-4">{m.docs_device_detail()}</p>
+      <Downloads />
+      <dl class="mt-6 grid gap-3 sm:grid-cols-2">
+        {#each [[m.docs_device_languages(), m.docs_device_languages_detail( { label: m.ai_only() } )], [m.docs_device_download(), m.docs_device_download_detail()], [m.docs_device_quality(), m.docs_device_quality_detail()], [m.docs_device_choice(), m.docs_device_choice_detail( { device: m.on_device_only(), draft: m.draft_locally() } )]] as [term, detail] (term)}
+          <div class="rounded-2xl bg-raised p-5 ring-1 ring-line">
+            <dt class="font-semibold">{term}</dt>
+            <dd class="mt-1.5 text-[16px] text-muted">
+              <Brand text={detail} />
+            </dd>
+          </div>
+        {/each}
+      </dl>
+      <p class="mt-6 text-[15.5px] text-muted">
+        {m.docs_device_credit()}
+        <a
+          href="https://browser.mt"
+          target="_blank"
+          rel="noreferrer external"
+          class="font-medium whitespace-nowrap text-accent underline decoration-gold decoration-2 underline-offset-4 hover:decoration-accent"
+          >{m.docs_device_link()}</a
+        >
+      </p>
     </section>
 
     <section id="model" class="mt-20 scroll-mt-20 lg:scroll-mt-10">
       {@render heading("model", m.docs_model_title())}
-      <p class="mt-4">{m.docs_model_detail()}</p>
+      <p class="mt-4"><Brand text={m.docs_model_detail()} /></p>
       <h3 class="mt-8 text-[15px] font-semibold text-muted">
         {m.docs_providers()}
       </h3>
@@ -741,17 +826,18 @@ pnpm dev:extension`;
       {@render heading("local", m.docs_local_title())}
       <p class="mt-4">{m.docs_local_ollama()}</p>
       {@render code(ollama)}
-      <p class="mt-6">{m.docs_local_lmstudio()}</p>
+      <p class="mt-6"><Brand text={m.docs_local_lmstudio()} /></p>
     </section>
 
     <section id="cost" class="mt-20 scroll-mt-20 lg:scroll-mt-10">
       {@render heading("cost", m.docs_cost_title())}
-      <p class="mt-4">{m.docs_cost_detail()}</p>
+      <p class="mt-4"><Brand text={m.docs_cost_detail()} /></p>
+      <Viewport />
     </section>
 
     <section id="privacy" class="mt-20 scroll-mt-20 lg:scroll-mt-10">
       {@render heading("privacy", m.docs_privacy_title())}
-      <p class="mt-4">{m.docs_privacy_sent()}</p>
+      <p class="mt-4"><Brand text={m.docs_privacy_sent()} /></p>
       <p class="mt-4">
         <a
           href={localizeHref("/privacy")}
@@ -772,7 +858,7 @@ pnpm dev:extension`;
             <summary
               class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3 font-semibold [&::-webkit-details-marker]:hidden"
             >
-              {question}
+              <Brand text={question} />
               <svg
                 viewBox="0 0 20 20"
                 class="turn size-5 shrink-0 text-muted [--turn:45deg]"
@@ -787,7 +873,7 @@ pnpm dev:extension`;
                 />
               </svg>
             </summary>
-            <p class="text-[16px] text-muted">{answer}</p>
+            <p class="text-[16px] text-muted"><Brand text={answer} /></p>
           </details>
         {/each}
       </div>
@@ -795,7 +881,7 @@ pnpm dev:extension`;
 
     <section id="develop" class="mt-20 scroll-mt-20 lg:scroll-mt-10">
       {@render heading("develop", m.docs_develop_title())}
-      <p class="mt-4">{m.docs_develop_detail()}</p>
+      <p class="mt-4"><Brand text={m.docs_develop_detail()} /></p>
       {@render code(setup)}
       <p class="mt-8">{m.docs_develop_browsers()}</p>
       <div

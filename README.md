@@ -63,11 +63,11 @@ pnpm dev:studio         # character studio on localhost:3020
 
 The extension builds from one codebase for every browser. Run these from `extension/`:
 
-| Browser                                                      | Build                                                                | Output                                            |
-| ------------------------------------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------- |
-| Helium, Chrome, Edge, Brave, Arc and other Chromium browsers | `pnpm build`                                                         | `.output/chrome-mv3`                              |
-| Firefox (desktop and Android, 140+)                          | `pnpm build:firefox`                                                 | `.output/firefox-mv3`                             |
-| Safari (macOS 15+, iOS and iPadOS 18+)                       | `pnpm build:safari`, then build `safari/dragoman.xcodeproj` in Xcode | `.output/safari-mv3`, wrapped in the dragoman app |
+| Browser                                           | Build                                                                | Output                                            |
+| ------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------- |
+| Helium, Chrome, Edge, and other Chromium browsers | `pnpm build`                                                         | `.output/chrome-mv3`                              |
+| Firefox (desktop and Android, 140+)               | `pnpm build:firefox`                                                 | `.output/firefox-mv3`                             |
+| Safari (macOS 15+, iOS and iPadOS 18+)            | `pnpm build:safari`, then build `safari/dragoman.xcodeproj` in Xcode | `.output/safari-mv3`, wrapped in the dragoman app |
 
 `pnpm zip`, `pnpm zip:firefox` and `pnpm zip:safari` package each build for its store. `pnpm zip:firefox` also writes the sources archive that addons.mozilla.org asks for.
 

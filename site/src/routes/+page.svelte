@@ -3,6 +3,8 @@
   import Logo from "@dragoman/brand/logo.svelte";
   import { onMount } from "svelte";
   import { on } from "svelte/events";
+  import { detect } from "#lib/agent.ts";
+  import Brand from "#lib/brand.svelte";
   import Browser from "#lib/browser.svelte";
   import Cast from "#lib/cast.svelte";
   import Emblem from "#lib/emblem.svelte";
@@ -11,7 +13,8 @@
   import Page from "#lib/page.svelte";
   import { pages as all } from "#lib/pages.ts";
   import { getLocale, locales, localizeHref } from "#lib/paraglide/runtime.js";
-  import { stores } from "#lib/stores.ts";
+  import { listings } from "#lib/stores.ts";
+  import Tenets from "#lib/tenets.svelte";
 
   const locale = getLocale();
   const language = names[locale];
@@ -50,15 +53,55 @@
     [m.site_step_refine(), m.site_step_refine_detail()],
     [m.site_step_hover(), m.site_step_hover_detail()],
   ] as const;
-  const families = [
-    [
-      "Chrome",
-      m.docs_install_chromium(),
-      m.platforms_chromium(),
-      stores.chrome,
-    ],
-    ["Firefox", "", m.platforms_firefox(), stores.firefox],
-    ["Safari", "", m.platforms_safari(), stores.safari],
+  const devices = [
+    {
+      id: "desktop",
+      title: m.devices_computer(),
+      browsers: [
+        {
+          mark: "Chrome",
+          name: m.docs_tab_chromium(),
+          detail: m.docs_install_chromium(),
+          listings: [listings.chrome, listings.edge],
+        },
+        {
+          mark: "Firefox",
+          name: "Firefox",
+          detail: m.devices_firefox(),
+          listings: [listings.firefox],
+        },
+        {
+          mark: "Safari",
+          name: "Safari",
+          detail: m.devices_mac(),
+          listings: [listings.safari],
+        },
+      ],
+    },
+    {
+      id: "android",
+      title: m.devices_android(),
+      browsers: [
+        {
+          mark: "Firefox",
+          name: "Firefox",
+          detail: m.chrome_android_note(),
+          listings: [listings.firefox],
+        },
+      ],
+    },
+    {
+      id: "iphone",
+      title: m.devices_ios(),
+      browsers: [
+        {
+          mark: "Safari",
+          name: "Safari",
+          detail: m.devices_ios_detail(),
+          listings: [listings.safari],
+        },
+      ],
+    },
   ] as const;
   const greetings = [
     ["Merhaba!", "tr"],
@@ -287,6 +330,17 @@
     }
   };
 
+  let agent = $state<ReturnType<typeof detect> | null>(null);
+  const here = $derived(
+    agent == null
+      ? null
+      : !agent.isPhone
+        ? "desktop"
+        : agent.family === "safari"
+          ? "iphone"
+          : "android",
+  );
+
   const openFilm = () => {
     filmShape = matchMedia("(max-width: 767px) and (orientation: portrait)")
       .matches
@@ -296,6 +350,7 @@
   };
 
   onMount(() => {
+    agent = detect();
     const lifetime = new AbortController();
     const isCalm = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const wait = async (ms: number) =>
@@ -762,7 +817,7 @@
       <p
         class="rise mt-6 max-w-[34rem] text-[clamp(17px,1.5vw,20px)] leading-relaxed font-medium text-ink lg:mt-7"
       >
-        {m.site_lead()}
+        <Brand text={m.site_lead()} />
       </p>
       <div class="order-4 mt-2 text-ink lg:mt-9">
         <div class="rise flex flex-wrap items-center gap-3 [--delay:0.15s]">
@@ -1018,7 +1073,7 @@
             <p
               class="mt-1.5 text-[15.5px] leading-relaxed text-ink/75 lg:text-[16px]"
             >
-              {detail}
+              <Brand text={detail} />
             </p>
           </div>
         {/each}
@@ -1049,6 +1104,8 @@
   </div>
 </section>
 
+<Tenets />
+
 <section
   class="relative overflow-x-clip bg-linear-to-b from-[#f6e4de] to-[#ebdff0] px-5 pt-24 pb-32 text-ink"
 >
@@ -1059,7 +1116,7 @@
       {m.devices_title()}
     </h2>
     <p class="mt-5 max-w-2xl text-[18px] leading-relaxed text-ink/75">
-      {m.devices_detail()}
+      <Brand text={m.devices_lead()} />
     </p>
     <div
       class="mt-16 grid grid-cols-2 items-end gap-x-5 gap-y-16 lg:grid-cols-[minmax(0,2.3fr)_minmax(0,0.75fr)_minmax(0,0.75fr)] lg:gap-x-10"
@@ -1107,57 +1164,70 @@
     </div>
 
     <ul
-      class="mt-20 grid grid-cols-[minmax(0,1fr)] gap-4 break-words md:grid-cols-3"
+      class="mt-16 grid gap-4 break-words md:grid-cols-2 lg:grid-cols-[minmax(0,2.3fr)_minmax(0,0.75fr)_minmax(0,0.75fr)] lg:gap-x-10"
     >
-      {#each families as [name, detail, platforms, href] (name)}
-        <li>
-          <a
-            {href}
-            class="flex h-full flex-col rounded-[26px] bg-white/60 p-6 shadow-[0_24px_40px_-30px_rgb(24_32_74/0.5)] ring-1 ring-white transition-[background-color,translate] hover:-translate-y-0.5 hover:bg-white/80"
+      {#each devices as device (device.id)}
+        {const isHere = $derived(here === device.id)}
+        <li
+          class={[
+            "flex flex-col rounded-[26px] bg-white/60 p-6 shadow-[0_24px_40px_-30px_rgb(24_32_74/0.5)] transition-shadow",
+            { "md:col-span-2 lg:col-span-1": device.id === "desktop" },
+            { "ring-1 ring-white": !isHere, "ring-2 ring-turquoise": isHere },
+          ]}
+        >
+          <h3
+            class="flex flex-wrap items-center justify-between gap-x-3 gap-y-2"
           >
-            <span class="flex items-center justify-between gap-3">
-              <span class="flex items-center gap-3">
-                <Emblem {name} class="size-8" />
-                <span class="font-display text-[30px] leading-none">{name}</span
-                >
-              </span>
+            <span class="font-display text-[26px] leading-none"
+              >{device.title}</span
+            >
+            {#if isHere}
               <span
                 class="rounded-full bg-turquoise px-3 py-1 text-[13px] font-semibold text-ink"
+                >{m.devices_here()}</span
               >
-                {m.status_ready()}
-              </span>
-            </span>
-            <span class="mt-3 text-[16px] font-medium">{platforms}</span>
-            {#if detail !== ""}
-              <span class="mt-1 text-[14.5px] text-ink/65">{detail}</span>
             {/if}
-          </a>
+          </h3>
+          <div
+            class={[
+              "mt-5 grid flex-1 gap-6",
+              {
+                "sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)]":
+                  device.browsers.length > 1,
+              },
+            ]}
+          >
+            {#each device.browsers as browser (browser.mark)}
+              {const order = $derived(
+                agent?.name === "Edge"
+                  ? browser.listings.toReversed()
+                  : browser.listings,
+              )}
+              <div class="flex flex-col">
+                <span class="flex items-center gap-2.5">
+                  <Emblem name={browser.mark} class="size-7" />
+                  <span class="text-[17px] font-semibold">{browser.name}</span>
+                </span>
+                <span class="mt-2 text-[14.5px] leading-snug text-ink/65"
+                  >{browser.detail}</span
+                >
+                <span class="mt-auto flex flex-wrap gap-2 pt-4">
+                  {#each order as listing (listing.store)}
+                    <a
+                      href={listing.href}
+                      class="inline-flex min-h-9 items-center gap-2 rounded-full bg-white px-3 py-1.5 text-[13.5px] font-medium whitespace-nowrap shadow-[0_1px_0_rgb(24_32_74/0.08)] ring-1 ring-ink/10 transition-[background-color,box-shadow,translate] hover:-translate-y-px hover:bg-tile hover:ring-ink/20"
+                    >
+                      <Emblem name={listing.mark} class="size-4" />
+                      {listing.store}
+                    </a>
+                  {/each}
+                </span>
+              </div>
+            {/each}
+          </div>
         </li>
       {/each}
     </ul>
-    <p class="mt-6 flex items-center gap-2.5 text-[15px] text-ink/70">
-      <svg
-        viewBox="0 0 24 24"
-        class="size-5 shrink-0 text-turquoise"
-        aria-hidden="true"
-      >
-        <circle
-          cx="12"
-          cy="12"
-          r="9.5"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <path
-          d="M12 11v6M12 7.5v.5"
-          stroke="currentColor"
-          stroke-width="2.2"
-          stroke-linecap="round"
-        />
-      </svg>
-      {m.chrome_android_note()}
-    </p>
   </div>
 </section>
 
@@ -1174,7 +1244,7 @@
           {m.site_models_title()}
         </h2>
         <p class="mt-5 max-w-xl text-[18px] leading-relaxed text-tile/80">
-          {m.site_models_detail()}
+          <Brand text={m.site_models_detail()} />
         </p>
       </div>
       <p

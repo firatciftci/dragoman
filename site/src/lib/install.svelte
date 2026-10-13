@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import type { Browser } from "#lib/agent.ts";
   import { detect } from "#lib/agent.ts";
+  import Brand from "#lib/brand.svelte";
   import Emblem from "#lib/emblem.svelte";
   import { m } from "#lib/messages.ts";
   import { localizeHref } from "#lib/paraglide/runtime.js";
@@ -54,5 +55,5 @@
   {#if link.name != null}
     <Emblem name={link.name} isPlain class={small ? "size-[18px]" : "size-5"} />
   {/if}
-  {link.label}
+  <Brand text={link.label} />
 </a>
