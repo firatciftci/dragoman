@@ -26,7 +26,9 @@ Each input paragraph has an id and text. Inline formatting is marked with number
 
 Translate faithfully and fluently, as a professional human translator would for a reader of the target language. Use the established target-language forms of names, places, titles and historical terms (for example the conventional exonym or the form used in the target-language encyclopedia), not literal renderings. Keep text in other scripts (such as Arabic or Greek quotations) unchanged. Keep numbers and dates accurate; convert date formats to target-language conventions.
 
-Some paragraphs may include a rejected translation that a reader asked you to redo. Write a fresh translation for those that fixes what the rejected one got wrong, reads more naturally, and does not simply repeat it.
+The paragraphs come from one page and reach you a few at a time, so keeping the page consistent across requests is your job. Translate every recurring label, heading, term, and name the same way each time it appears, as the page's own translator would. When established renderings are given, use them exactly, changing only what grammar requires, such as case, number, or agreement. Before the translations, fill terms with the renderings you settle on for anything that must stay consistent and has no established rendering yet: each recurring phrase listed for the page, judged by the text around it, and the names and specialized terms in these paragraphs that are likely to come up again. Give each source exactly as it appears on the page and each target exactly as you use it, and leave terms empty when nothing is new.
+
+Some paragraphs may include a rejected translation that a reader asked you to redo. Write a fresh translation for those that fixes what the rejected one got wrong, reads more naturally, and does not simply repeat it. A rejected translation may depart from an established rendering when that rendering is what was wrong.
 
 Return one translation per input id, in the same order.`;
 
@@ -101,10 +103,24 @@ async function refine(
     } catch {}
   }
   if (active == null || !isConsented)
-    return { texts: message.texts.map(() => null), tokens, cost: null };
+    return {
+      texts: message.texts.map(() => null),
+      terms: [],
+      tokens,
+      cost: null,
+    };
   const model = `${active.provider}/${active.model}`;
+  const { page } = message;
+  const termsKey = ["terms", model, message.source, message.target, page.url];
+  const [saved] = await recall([termsKey], false);
+  const glossary = new Map(
+    saved == null ? [] : (JSON.parse(saved) as Array<[string, string]>),
+  );
+  for (const [from, to] of page.terms)
+    if (!glossary.has(from)) glossary.set(from, to);
+  const learned = glossary.size;
   const parts = (text: string) => [
-    "tagged",
+    "refined",
     model,
     message.source,
     message.target,
@@ -120,7 +136,8 @@ async function refine(
   const missing = message.texts.flatMap((_, i) =>
     texts[i] == null ? [i] : [],
   );
-  if (missing.length === 0) return { texts, tokens, cost: 0 };
+  if (missing.length === 0)
+    return { texts, terms: [...glossary], tokens, cost: 0 };
   let cost: number | null = 0;
 
   let rate: Array<number> | null = null;
@@ -179,18 +196,48 @@ async function refine(
     }
   }
 
+  const context = [
+    `Translate from ${sourceName(message.source, "en")} to ${languageName(message.target, "en")}.`,
+    `These paragraphs come from one web page, titled "${page.title}", and reach you a few at a time as the reader scrolls. Keep names, terms, and labels consistent with the rest of the page.`,
+    ...(page.headings.length === 0
+      ? []
+      : [
+          `Page outline:\n${page.headings.map((heading) => `- ${heading}`).join("\n")}`,
+        ]),
+    ...(page.recurring.length === 0
+      ? []
+      : [
+          `Phrases that recur on this page, each with text from around its first appearance:\n${page.recurring.map(([phrase, around]) => (around === "" ? `- ${phrase}` : `- ${phrase} (in: ${around})`)).join("\n")}`,
+        ]),
+  ].join("\n\n");
+  const recurring = new Set(page.recurring.map(([phrase]) => phrase));
+
   const run = async (indices: Array<number>) => {
-    const context = [
-      `Translate from ${sourceName(message.source, "en")} to ${languageName(message.target, "en")}.`,
-      `These paragraphs come from the same web page, titled "${message.title}". Keep names and terminology consistent across them.`,
-    ].join("\n");
-    const prompt = JSON.stringify(
-      indices.map((i) => ({
-        id: String(i),
-        text: message.texts[i],
-        ...(message.previous?.[i] != null && { rejected: message.previous[i] }),
-      })),
-    );
+    const sample = indices
+      .map((i) => message.texts[i] ?? "")
+      .join("\n")
+      .toLowerCase();
+    const established = [...glossary]
+      .filter(
+        ([from]) => recurring.has(from) || sample.includes(from.toLowerCase()),
+      )
+      .slice(0, 200);
+    const prompt = [
+      ...(established.length === 0
+        ? []
+        : [
+            `Established renderings on this page:\n${established.map(([from, to]) => `${from} → ${to}`).join("\n")}`,
+          ]),
+      JSON.stringify(
+        indices.map((i) => ({
+          id: String(i),
+          text: message.texts[i],
+          ...(message.previous?.[i] != null && {
+            rejected: message.previous[i],
+          }),
+        })),
+      ),
+    ].join("\n\n");
     let result: Awaited<ReturnType<typeof complete>>;
     try {
       result = await complete(active, SYSTEM, context, prompt);
@@ -266,6 +313,12 @@ async function refine(
       },
     });
 
+    for (const term of result.terms) {
+      const from = term.source.trim();
+      const to = term.target.trim();
+      if (from !== "" && to !== "" && !glossary.has(from))
+        glossary.set(from, to);
+    }
     return new Map(
       result.translations.map(({ id, text }) => [Number(id), text]),
     );
@@ -292,6 +345,40 @@ async function refine(
           texts[i] = text;
       }),
   );
+  const line = /^((?:<x\d+>)*)([^<]*)((?:<\/x\d+>)*)$/;
+  for (const i of missing) {
+    const translated = texts[i]?.split(/(<x\d+\/>)/);
+    const original = (message.texts[i] ?? "").split(/(<x\d+\/>)/);
+    if (
+      translated?.length !== original.length ||
+      original.some((part, j) => j % 2 === 1 && part !== translated[j])
+    )
+      continue;
+    texts[i] = translated
+      .map((part, j) => {
+        const from = j % 2 === 0 ? line.exec(original[j] ?? "") : null;
+        const to = line.exec(part);
+        const word = to?.[2]?.trim() ?? "";
+        const rendering =
+          from == null ? undefined : glossary.get(from[2]?.trim() ?? "");
+        if (
+          from == null ||
+          rendering == null ||
+          to == null ||
+          word === "" ||
+          from[1] !== to[1] ||
+          from[3] !== to[3]
+        )
+          return part;
+        const initial = word.charAt(0);
+        const fitted =
+          initial === initial.toLowerCase()
+            ? rendering
+            : rendering.charAt(0).toUpperCase() + rendering.slice(1);
+        return `${to[1]}${to[2]?.replace(word, () => fitted) ?? ""}${to[3]}`;
+      })
+      .join("");
+  }
   if (!isPrivate)
     void remember(
       missing.flatMap((i) => {
@@ -299,7 +386,9 @@ async function refine(
         return text == null ? [] : [[parts(message.texts[i] ?? ""), text]];
       }),
     );
-  return { texts, tokens, cost };
+  if (!isPrivate && glossary.size > learned)
+    void remember([[termsKey, JSON.stringify([...glossary].slice(0, 600))]]);
+  return { texts, terms: [...glossary], tokens, cost };
 }
 
 async function handle(
@@ -317,7 +406,7 @@ async function handle(
           ? message.tagged.map(() => null)
           : recall(
               message.tagged.map((text) => [
-                "tagged",
+                "refined",
                 model,
                 source,
                 target,

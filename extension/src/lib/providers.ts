@@ -112,6 +112,7 @@ export type Connection = {
 export type Model = { id: string; name: string };
 
 const Output = z.object({
+  terms: z.array(z.object({ source: z.string(), target: z.string() })),
   translations: z.array(z.object({ id: z.string(), text: z.string() })),
 });
 
@@ -217,6 +218,7 @@ export async function complete(
     const read = response.usage.cache_read_input_tokens ?? 0;
     const written = response.usage.cache_creation_input_tokens ?? 0;
     return {
+      terms: response.parsed_output.terms,
       translations: response.parsed_output.translations,
       inputTokens: response.usage.input_tokens + read + written,
       cachedTokens: read,
@@ -230,7 +232,7 @@ export async function complete(
   const isMarked =
     connection.provider === "openrouter" &&
     connection.model.startsWith("anthropic/");
-  const instructions = `${system}\n\nRespond with JSON shaped like {"translations":[{"id":"0","text":"..."}]}.`;
+  const instructions = `${system}\n\nRespond with JSON shaped like {"terms":[{"source":"...","target":"..."}],"translations":[{"id":"0","text":"..."}]}.`;
   const request = async (isStrict: boolean) =>
     fetch(`${connection.baseUrl}/chat/completions`, {
       method: "POST",
@@ -304,8 +306,10 @@ export async function complete(
     content.indexOf("{"),
     content.lastIndexOf("}") + 1,
   );
+  const output = Output.parse({ terms: [], ...(JSON.parse(json) as object) });
   return {
-    translations: Output.parse(JSON.parse(json)).translations,
+    terms: output.terms,
+    translations: output.translations,
     inputTokens: body.usage?.prompt_tokens ?? 0,
     cachedTokens: body.usage?.prompt_tokens_details?.cached_tokens ?? 0,
     writtenTokens: 0,

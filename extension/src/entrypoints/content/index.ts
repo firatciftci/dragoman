@@ -282,6 +282,11 @@ export default defineContentScript({
     let ui: { host: HTMLElement; app: ReturnType<typeof mount> } | null = null;
     let segmenter: Intl.Segmenter | null = null;
     let learned = "";
+    let isSeeded = false;
+    let outline: {
+      headings: Array<string>;
+      recurring: Array<[string, string]>;
+    } = { headings: [], recurring: [] };
     const drafts = new Highlight();
     const focus = new Highlight();
     const sheet = new CSSStyleSheet();
@@ -290,6 +295,8 @@ export default defineContentScript({
     style.textContent = HIGHLIGHT_CSS;
     const cache = new Map<string, string>();
     const chosen = new Set<string>();
+    const glossary = new Map<string, string>();
+    const inflight = new Set<string>();
     const changedBlocks = new Set<Block>();
     const addedElements = new Set<Element>();
     const shadows = new Set<ShadowRoot>();
@@ -763,6 +770,18 @@ export default defineContentScript({
         text,
       ].join("\u{0}");
 
+    const describe = () => ({
+      url: location.origin + location.pathname,
+      title: document.title,
+      ...outline,
+      terms: [...glossary],
+    });
+
+    const adopt = (terms: Array<[string, string]>) => {
+      for (const [from, to] of terms)
+        if (!glossary.has(from)) glossary.set(from, to);
+    };
+
     const charge = (value: { tokens: number; cost: number | null }) => {
       spent = {
         tokens: spent.tokens + value.tokens,
@@ -885,41 +904,52 @@ export default defineContentScript({
       if (!isActive || provider === "none" || source == null || target == null)
         return;
       const current = session;
-      while (refining < 3) {
-        const batch = take(
-          blocks
-            .filter(
-              (block) =>
-                isWanted(block) &&
-                (block.state === "drafted" ||
-                  (isDraftUnavailable && block.state === "pending")),
-            )
-            .toSorted((a, b) => a.distance - b.distance),
-          2500,
-          8,
-        );
+      while (refining < (isSeeded ? 3 : 1)) {
+        const seen = new Set(inflight);
+        const candidates: Array<Block> = [];
+        const ready = blocks
+          .filter(
+            (block) =>
+              isWanted(block) &&
+              (block.state === "drafted" ||
+                (isDraftUnavailable && block.state === "pending")),
+          )
+          .toSorted((a, b) => a.distance - b.distance);
+        for (const block of ready) {
+          if (seen.has(block.tagged)) continue;
+          seen.add(block.tagged);
+          candidates.push(block);
+        }
+        const batch = take(candidates, 2500, 8);
         if (batch.length === 0) return;
         for (const block of batch) block.state = "refining";
         const uncached = batch.filter(
           (block) => !cache.has(cacheKey("tagged", block.tagged)),
         );
+        for (const block of uncached) inflight.add(block.tagged);
         refining++;
         void (async () => {
           const response =
             uncached.length === 0
-              ? { ok: true as const, value: { texts: [], tokens: 0, cost: 0 } }
+              ? {
+                  ok: true as const,
+                  value: { texts: [], terms: [], tokens: 0, cost: 0 },
+                }
               : await sendToExtension({
                   to: "background",
                   type: "refine",
                   source,
                   target,
-                  title: document.title,
+                  page: describe(),
                   texts: uncached.map((block) => block.tagged),
                 });
           refining--;
           if (current !== session) return;
+          isSeeded = true;
+          for (const block of uncached) inflight.delete(block.tagged);
           if (response.ok) {
             charge(response.value);
+            adopt(response.value.terms);
             for (const [i, block] of uncached.entries()) {
               const text = response.value.texts[i];
               if (text != null)
@@ -970,14 +1000,17 @@ export default defineContentScript({
         type: "refine",
         source,
         target,
-        title: document.title,
+        page: describe(),
         texts: [block.tagged],
         previous: [previous],
       });
       if (current !== session || !blocks.includes(block)) return;
       const text = response.ok ? response.value.texts[0] : null;
-      if (response.ok) charge(response.value);
-      else error = { code: response.code ?? "failed", detail: response.error };
+      if (response.ok) {
+        charge(response.value);
+        adopt(response.value.terms);
+      } else
+        error = { code: response.code ?? "failed", detail: response.error };
       if (text != null) {
         cache.set(cacheKey("tagged", block.tagged), text);
         mutate(() => {
@@ -1203,6 +1236,9 @@ export default defineContentScript({
       shadows.clear();
       error = null;
       isDraftUnavailable = false;
+      isSeeded = false;
+      glossary.clear();
+      inflight.clear();
       sync();
     }
 
@@ -1237,6 +1273,48 @@ export default defineContentScript({
       target = nextTarget;
       view.target = nextTarget;
       collect(document.body);
+      const counts = new Map<string, number>();
+      const firsts = new Map<string, Block>();
+      for (const block of blocks)
+        for (const line of block.tagged.split(/<x\d+\/>/)) {
+          const phrase = line
+            .replaceAll(/<\/?x\d+>/g, "")
+            .replaceAll(/\s+/g, " ")
+            .trim();
+          if (
+            phrase.length > 1 &&
+            phrase.length <= 60 &&
+            /\p{L}/u.test(phrase)
+          ) {
+            counts.set(phrase, (counts.get(phrase) ?? 0) + 1);
+            if (!firsts.has(phrase)) firsts.set(phrase, block);
+          }
+        }
+      outline = {
+        headings: Array.from(
+          document.querySelectorAll("h1, h2, h3"),
+          (heading) => heading.textContent.replaceAll(/\s+/g, " ").trim(),
+        )
+          .filter((heading) => heading !== "" && heading.length <= 120)
+          .slice(0, 40),
+        recurring: [...counts]
+          .filter(([, count]) => count > 1)
+          .toSorted(([, a], [, b]) => b - a)
+          .slice(0, 80)
+          .map(([phrase]) => {
+            let element = firsts.get(phrase)?.parent ?? null;
+            let around = "";
+            for (let depth = 0; element != null && depth < 4; depth++) {
+              around = element.textContent.replaceAll(/\s+/g, " ").trim();
+              if (around.length > phrase.length + 12) break;
+              element = element.parentElement;
+            }
+            return [
+              phrase,
+              around.length > phrase.length + 12 ? around.slice(0, 160) : "",
+            ];
+          }),
+      };
       if (scope instanceof Range) {
         isSelective = true;
         view.isFollowing = false;
@@ -1375,16 +1453,20 @@ export default defineContentScript({
             )
             .join("");
         if (connection(settings) != null) {
+          const isSamePair = isActive && from === source && to === target;
           const response = await sendToExtension({
             to: "background",
             type: "refine",
             source: from,
             target: to,
-            title: document.title,
+            page: { ...describe(), ...(!isSamePair && { terms: [] }) },
             texts: [escape(text)],
           });
           const value = response.ok ? response.value.texts[0] : null;
-          if (response.ok) charge(response.value);
+          if (response.ok) {
+            charge(response.value);
+            if (isSamePair) adopt(response.value.terms);
+          }
           if (value != null)
             return { text: flat(parse(value, "tagged")), language: from };
         }

@@ -55,7 +55,13 @@ export type BackgroundMessage =
       type: "refine";
       source: string;
       target: string;
-      title: string;
+      page: {
+        url: string;
+        title: string;
+        headings: Array<string>;
+        recurring: Array<[string, string]>;
+        terms: Array<[string, string]>;
+      };
       texts: Array<string>;
       previous?: Array<string | null>;
     }
@@ -85,6 +91,7 @@ type Responses = {
   draft: Result<Array<{ text: string; isRefined: boolean }>>;
   refine: Result<{
     texts: Array<string | null>;
+    terms: Array<[string, string]>;
     tokens: number;
     cost: number | null;
   }>;
