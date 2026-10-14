@@ -9,6 +9,7 @@
   import Install from "#lib/install.svelte";
   import Language from "#lib/language.svelte";
   import { m } from "#lib/messages.ts";
+  import Newsletter from "#lib/newsletter.svelte";
   import {
     deLocalizeHref,
     getLocale,
@@ -221,6 +222,7 @@
         <p class="mt-4 max-w-xs leading-relaxed">
           {m.site_footer_license()}
         </p>
+        <Newsletter />
       </div>
       <ul
         class="grid grid-cols-2 gap-x-6 border-t border-tile/10 pt-2 sm:flex sm:flex-wrap sm:gap-x-1 sm:border-0 sm:pt-0 md:justify-end"

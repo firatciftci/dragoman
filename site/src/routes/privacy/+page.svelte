@@ -6,7 +6,7 @@
   const updated = new Intl.DateTimeFormat(getLocale(), {
     dateStyle: "long",
     timeZone: "UTC",
-  }).format(Date.UTC(2026, 9, 12));
+  }).format(Date.UTC(2026, 9, 14));
   const permissions = [
     [m.privacy_permission_sites(), m.privacy_permission_sites_detail()],
     [m.privacy_permission_storage(), m.privacy_permission_storage_detail()],
@@ -87,6 +87,7 @@
       {m.privacy_site_title()}
     </h2>
     <p class="mt-4"><Brand text={m.privacy_site()} /></p>
+    <p class="mt-4">{m.privacy_newsletter()}</p>
     <p class="mt-4">{m.privacy_changes()}</p>
   </section>
 </article>
