@@ -1385,16 +1385,6 @@
       <p class="mt-6 max-w-xl text-[18px] leading-relaxed text-tile/80">
         {m.meaning_lead()}
       </p>
-      <blockquote class="mt-10 max-w-xl border-s-4 border-gold ps-6">
-        <p
-          class="font-display text-[clamp(26px,2.8vw,36px)] leading-tight text-gold"
-        >
-          {m.meaning_quote()}
-        </p>
-        <footer class="mt-3 text-[15px] text-tile/65">
-          {m.meaning_quote_by()}
-        </footer>
-      </blockquote>
       <a
         href="https://en.wikipedia.org/wiki/Dragoman"
         target="_blank"
