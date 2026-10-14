@@ -9,6 +9,10 @@ export default defineContentScript({
     const meta = document.createElement("meta");
     meta.name = "google";
     meta.content = "notranslate";
+    const isDevServer =
+      /^(?:localhost|\[::1\]|127(?:\.\d+){3}|10(?:\.\d+){3}|192\.168(?:\.\d+){2}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d+){2})$|\.(?:localhost|local|test)$/.test(
+        location.hostname,
+      );
     let isQuiet = false;
     let isRequested = false;
     try {
@@ -26,6 +30,7 @@ export default defineContentScript({
         return;
       }
       if (!meta.isConnected) (root.querySelector("head") ?? root).append(meta);
+      if (isDevServer) return;
       for (const element of [root, root.querySelector("body")]) {
         if (element == null || element.hasAttribute("translate")) continue;
         element.setAttribute("translate", "no");
