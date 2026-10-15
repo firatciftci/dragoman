@@ -18,8 +18,8 @@
     "pet": "node scripts/pet.ts",
     "loops": "node scripts/loops.ts",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "lint": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto .",
-    "lint:fix": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto --fix ."
+    "lint": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint .",
+    "lint:fix": "SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --fix ."
   },
   "dependencies": {
     "@fontsource/aref-ruqaa": "catalog:",

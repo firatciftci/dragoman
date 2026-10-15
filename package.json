@@ -18,8 +18,8 @@
     "compile-paraglide": "paraglide-js compile --project ./project.inlang --outdir ./extension/src/lib/paraglide --strategy globalVariable preferredLanguage baseLocale && paraglide-js compile --project ./project.inlang --outdir ./site/src/lib/paraglide --strategy url baseLocale --output-structure locale-modules",
     "translate-messages": "node scripts/translate-messages.ts",
     "check": "pnpm --recursive --workspace-concurrency=1 run check",
-    "lint": "knip && SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto . && pnpm --recursive --workspace-concurrency=1 run lint",
-    "lint:fix": "knip --fix && SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --concurrency auto --fix . && pnpm --recursive --workspace-concurrency=1 run lint:fix",
+    "lint": "knip && SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint . && pnpm --recursive --workspace-concurrency=1 run lint",
+    "lint:fix": "knip --fix && SVELTE_ESLINT_PARSER_EXPERIMENTAL_TS_SYS_HOOK=1 eslint --fix . && pnpm --recursive --workspace-concurrency=1 run lint:fix",
     "format": "oxfmt --check",
     "format:fix": "oxfmt",
     "release": "bumpp"
