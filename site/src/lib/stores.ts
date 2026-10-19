@@ -1,5 +1,6 @@
 export const stores = {
-  chrome: "https://chromewebstore.google.com/search/dragoman",
+  chrome:
+    "https://chromewebstore.google.com/detail/dragoman/iichdpokdcnfhckpaplfagaaepgfnppd",
   edge: "https://microsoftedge.microsoft.com/addons/search/dragoman",
   firefox: "https://addons.mozilla.org/firefox/addon/dragoman/",
   safari: "https://apps.apple.com/search?term=dragoman",
