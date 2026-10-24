@@ -7,7 +7,7 @@
   "author": "Firat Ciftci (https://www.firatciftci.com)",
   "homepage": "https://dragoman.io",
   "type": "module",
-  "packageManager": "pnpm@12.11.2",
+  "packageManager": "pnpm@12.15.0",
   "scripts": {
     "dev:extension": "pnpm --filter @dragoman/extension dev",
     "dev:site": "pnpm --filter @dragoman/site dev",
