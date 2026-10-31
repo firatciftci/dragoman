@@ -3,7 +3,7 @@ export const stores = {
     "https://chromewebstore.google.com/detail/dragoman/iichdpokdcnfhckpaplfagaaepgfnppd",
   edge: "https://microsoftedge.microsoft.com/addons/detail/dragoman/mkeapkhmnokbgmbjpaciiloifgmpockl",
   firefox: "https://addons.mozilla.org/firefox/addon/dragoman/",
-  safari: "https://apps.apple.com/search?term=dragoman",
+  safari: "https://apps.apple.com/us/app/dragoman-page-translator/id6821890391",
   releases: "https://github.com/firatciftci/dragoman/releases/latest",
   source: "https://github.com/firatciftci/dragoman",
 };
